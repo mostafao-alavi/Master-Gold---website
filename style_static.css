@@ -1,0 +1,71 @@
+/* Master Gold Iran - External Custom Stylesheet */
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+
+/* Default layout variables & typography overrides */
+:root {
+    --color-amber-400: #fbbf24;
+    --color-amber-500: #f59e0b;
+    --color-orange-500: #f97316;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #09090b; /* zinc-950 */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #27272a; /* zinc-800 */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f59e0b; /* amber-500 */
+}
+
+/* Scroll Animation Transitions */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Testimonial slideshow custom transitions */
+.testimonial-slide {
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+/* Glowing text and buttons effects */
+.glow-primary:hover {
+    box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.3), 0 4px 6px -4px rgba(245, 158, 11, 0.3);
+}
+
+/* Custom Accordion classes */
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.faq-content.open {
+    max-height: 200px; /* high enough to show text */
+}
+
+/* Rotation animation for accordion icons */
+.faq-icon-rotate {
+    transform: rotate(45deg);
+    transition: transform 0.2s ease-in-out;
+}

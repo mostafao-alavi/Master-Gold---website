@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-primary: #f59e0b; /* amber-500 */
+  --color-brand-secondary: #f97316; /* orange-500 */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Vazirmatn", sans-serif;
+}

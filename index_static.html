@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Gold Iran | توسعه زیرساخت، امنیت سایبری و اتوماسیون هوشمند</title>
+    <!-- Google Fonts: Vazirmatn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Tailwind CSS CDN for instant rendering -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            primary: '#f59e0b',
+                            secondary: '#f97316',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- External CSS link as requested -->
+    <link rel="stylesheet" href="style_static.css">
+</head>
+<body class="bg-zinc-950 text-zinc-100 selection:bg-amber-500 selection:text-zinc-950 overflow-x-hidden font-sans">
+
+    <!-- Glow Backdrops -->
+    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none z-0"></div>
+    <div class="absolute top-[1200px] right-1/4 w-[600px] h-[600px] bg-orange-500/5 rounded-full blur-[180px] pointer-events-none z-0"></div>
+    <div class="absolute bottom-[800px] left-10 w-[450px] h-[450px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/80 border-b border-zinc-900 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#hero" class="group flex items-center space-x-2 space-x-reverse scroll-link">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/20 transition-transform duration-300">
+                            <i class="fa-solid fa-crown text-zinc-950 text-lg"></i>
+                        </div>
+                        <span class="text-xl font-black tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-amber-200 to-orange-500 mr-3">
+                            Master Gold Iran
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-1 space-x-reverse" id="desktop-nav">
+                    <a href="#hero" class="nav-item px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-amber-400 bg-zinc-900/60" data-section="hero">خانه</a>
+                    <a href="#services" class="nav-item px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-zinc-400 hover:text-zinc-100" data-section="services">خدمات و تخصص‌ها</a>
+                    <a href="#about" class="nav-item px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-zinc-400 hover:text-zinc-100" data-section="about">درباره من</a>
+                    <a href="#projects" class="nav-item px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-zinc-400 hover:text-zinc-100" data-section="projects">پروژه‌های برجسته</a>
+                    <a href="#testimonials" class="nav-item px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-zinc-400 hover:text-zinc-100" data-section="testimonials">نظرات همکاران</a>
+                    <a href="#faq" class="nav-item px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-zinc-400 hover:text-zinc-100" data-section="faq">سوالات متداول</a>
+                    <a href="#contact" class="nav-item px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-zinc-400 hover:text-zinc-100" data-section="contact">تماس با من</a>
+                </nav>
+
+                <!-- Socials Desktop -->
+                <div class="hidden lg:flex items-center space-x-3 space-x-reverse">
+                    <a href="https://t.me/King_mastergold2024" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-400 hover:text-amber-400 transition-all duration-300 border border-zinc-800/80">
+                        <i class="fa-brands fa-telegram text-lg"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-400 hover:text-amber-400 transition-all duration-300 border border-zinc-800/80">
+                        <i class="fa-brands fa-linkedin text-lg"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-lg text-zinc-400 hover:text-amber-400 hover:bg-zinc-900/80 transition-colors duration-300 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Panel -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-900 bg-zinc-950/95 backdrop-blur-lg">
+            <div class="px-4 py-4 space-y-2">
+                <a href="#hero" class="mobile-nav-item block w-full text-right px-4 py-3 rounded-lg text-base font-medium text-amber-400 bg-zinc-900">خانه</a>
+                <a href="#services" class="mobile-nav-item block w-full text-right px-4 py-3 rounded-lg text-base font-medium text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50">خدمات و تخصص‌ها</a>
+                <a href="#about" class="mobile-nav-item block w-full text-right px-4 py-3 rounded-lg text-base font-medium text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50">درباره من</a>
+                <a href="#projects" class="mobile-nav-item block w-full text-right px-4 py-3 rounded-lg text-base font-medium text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50">پروژه‌های برجسته</a>
+                <a href="#testimonials" class="mobile-nav-item block w-full text-right px-4 py-3 rounded-lg text-base font-medium text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50">نظرات همکاران</a>
+                <a href="#faq" class="mobile-nav-item block w-full text-right px-4 py-3 rounded-lg text-base font-medium text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50">سوالات متداول</a>
+                <a href="#contact" class="mobile-nav-item block w-full text-right px-4 py-3 rounded-lg text-base font-medium text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50">تماس با من</a>
+                <div class="flex items-center space-x-3 space-x-reverse pt-4 border-t border-zinc-900 px-4">
+                    <a href="https://t.me/King_mastergold2024" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-300 hover:text-amber-400 transition-all border border-zinc-800">
+                        <i class="fa-brands fa-telegram text-lg ml-2"></i> تلگرام
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-300 hover:text-amber-400 transition-all border border-zinc-800">
+                        <i class="fa-brands fa-linkedin text-lg ml-2"></i> لینکدین
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow z-10 relative">
+
+        <!-- Section 1: Hero -->
+        <section id="hero" class="relative min-h-[calc(100vh-80px)] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden fade-in-section">
+            <div class="max-w-5xl mx-auto text-center z-10">
+                <!-- Intro Tag -->
+                <div class="inline-flex items-center px-4 py-1.5 mb-8 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-sm font-semibold tracking-wider">
+                    <i class="fa-solid fa-bolt ml-2 text-amber-500"></i>
+                    زیرساخت، امنیت و رباتیک هوشمند
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight sm:leading-none">
+                    به دنیای امنیت و
+                    <span class="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500">
+                        اتوماسیون هوشمند
+                    </span>
+                    خوش آمدید
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-lg sm:text-2xl text-zinc-300 font-medium max-w-3xl mx-auto mb-4">
+                    راهکارهای تخصصی سایبری و زیرساختهای ابری در Master Gold Iran
+                </p>
+
+                <!-- Description Paragraph -->
+                <p class="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+                    من <span class="text-white font-semibold">سید مصطفی علوی</span> هستم. متخصص فناوری اطلاعات، طراح زیرساختهای اتوماسیون و محقق امنیت شبکه. هدف ما ارائه راهکارهای نوین مبتنی بر هوش مصنوعی و امنیت سایبری برای ارتقای سیستمهای دیجیتال است.
+                </p>
+
+                <!-- CTA Button -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#services" class="scroll-link w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-zinc-950 hover:shadow-lg hover:shadow-amber-500/25 transition-all duration-300 flex items-center justify-center group">
+                        مشاهده تخصصهای ما
+                        <i class="fa-solid fa-arrow-left mr-3 group-hover:-translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#contact" class="scroll-link w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-800 hover:border-zinc-700 transition-all duration-300 flex items-center justify-center">
+                        ارتباط سریع
+                        <i class="fa-solid fa-paper-plane mr-3 text-amber-500"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Abstract Cyber grid background -->
+            <div class="absolute inset-0 z-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        </section>
+
+        <!-- Section 2: Services & Specialties -->
+        <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-zinc-900 bg-zinc-950 fade-in-section">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-sm font-semibold tracking-wider text-amber-500 uppercase mb-2">تخصص و مهارت‌ها</h2>
+                    <p class="text-3xl sm:text-5xl font-extrabold text-white">خدمات و تخصص‌ها</p>
+                    <div class="w-16 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Item 1 -->
+                    <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-8 hover:bg-zinc-900/60 hover:-translate-y-2 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 text-2xl">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-4">اتوماسیون و توسعه ربات</h3>
+                            <p class="text-zinc-400 leading-relaxed text-sm">
+                                طراحی رباتهای پیامرسان هوشمند (تلگرام/بله) با قابلیت پردازش و اتصال مستقیم به پایگاههای داده مانند Google Sheets.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-4 border-t border-zinc-800/50 flex items-center text-amber-400 text-xs font-semibold">
+                            <a href="#projects" class="scroll-link flex items-center">
+                                مشاهده نمونه پروژهها
+                                <i class="fa-solid fa-chevron-left mr-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-8 hover:bg-zinc-900/60 hover:-translate-y-2 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6 text-orange-400 text-2xl">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-4">امنیت سایبری و SOC</h3>
+                            <p class="text-zinc-400 leading-relaxed text-sm">
+                                پیادهسازی متدهای دفاع شبکه، تحلیل آسیبپذیری و بررسی ساختارهای اطلاعاتی با استفاده از متدولوژیهای OSINT.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-4 border-t border-zinc-800/50 flex items-center text-amber-400 text-xs font-semibold">
+                            <a href="#projects" class="scroll-link flex items-center">
+                                مشاهده نمونه پروژهها
+                                <i class="fa-solid fa-chevron-left mr-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-8 hover:bg-zinc-900/60 hover:-translate-y-2 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 text-2xl">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-4">پردازش ابری و AI</h3>
+                            <p class="text-zinc-400 leading-relaxed text-sm">
+                                استقرار مدلهای زبانی بزرگ (LLM) مانند Gemma و Llama به صورت لوکال و مدیریت زیرساختهای پردازشی.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-4 border-t border-zinc-800/50 flex items-center text-amber-400 text-xs font-semibold">
+                            <a href="#projects" class="scroll-link flex items-center">
+                                مشاهده نمونه پروژهها
+                                <i class="fa-solid fa-chevron-left mr-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: About Me -->
+        <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-zinc-900 bg-zinc-900/20 fade-in-section">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <!-- Profile Bio -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <h2 class="text-sm font-semibold tracking-wider text-amber-500 uppercase">درباره متخصص</h2>
+                        <h3 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">سید مصطفی علوی</h3>
+                        <p class="text-zinc-300 text-base sm:text-lg leading-relaxed">
+                            بیش از یک دهه تجربه در مدیریت اجرایی پروژهها که اکنون با تخصص در فناوری اطلاعات، شبکه و امنیت گره خورده است. من با بهرهگیری از زیرساختهای ابری مدرن (مانند OpenStack و Cloudflare)، هوش مصنوعی و دانش عمیق در زمینه سیستمهای برق صنعتی و IT، راهکارهای جامع و پایداری را برای چالشهای فنی طراحی میکنم.
+                        </p>
+
+                        <!-- Stats Grid -->
+                        <div class="grid grid-cols-3 gap-4 sm:gap-6 pt-6">
+                            <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-xl text-center">
+                                <div class="text-2xl sm:text-4xl font-extrabold text-amber-400 mb-1">+10</div>
+                                <div class="text-xs text-zinc-400">سال تجربه پروژه</div>
+                            </div>
+                            <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-xl text-center">
+                                <div class="text-2xl sm:text-4xl font-extrabold text-amber-400 mb-1">24/7</div>
+                                <div class="text-xs text-zinc-400">نظارت بر سرور</div>
+                            </div>
+                            <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-xl text-center">
+                                <div class="text-2xl sm:text-4xl font-extrabold text-amber-400 mb-1">100%</div>
+                                <div class="text-xs text-zinc-400">تمرکز بر امنیت</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Decorative Card -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-sm aspect-square bg-gradient-to-br from-amber-500/20 to-orange-500/10 rounded-3xl p-0.5 border border-amber-500/30 overflow-hidden shadow-2xl shadow-amber-500/5">
+                            <div class="absolute inset-0 bg-zinc-950 rounded-[22px] p-6 flex flex-col justify-between overflow-hidden">
+                                <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(245,158,11,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(245,158,11,0.05)_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+                                <div class="flex justify-between items-start z-10">
+                                    <div>
+                                        <p class="text-xs font-semibold text-zinc-500">SYSTEM ID</p>
+                                        <p class="text-xs font-mono text-amber-400/80">MG-IR-2026</p>
+                                    </div>
+                                    <div class="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/20">
+                                        <i class="fa-solid fa-fingerprint animate-pulse"></i>
+                                    </div>
+                                </div>
+                                <div class="space-y-4 z-10">
+                                    <div class="flex items-center space-x-3 space-x-reverse">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                                        <span class="text-xs text-zinc-400">زیرساخت کاملاً پایدار و آنلاین</span>
+                                    </div>
+                                    <h4 class="text-lg font-black text-white">توسعه راهکارهای اتوماسیون ایمن</h4>
+                                    <div class="h-1.5 w-full bg-zinc-800 rounded-full overflow-hidden">
+                                        <div class="h-full w-4/5 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
+                                    </div>
+                                    <div class="flex justify-between text-xs text-zinc-500 font-mono">
+                                        <span>SECURITY LEVEL: MAX</span>
+                                        <span>SOC ACTIVE</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Featured Projects -->
+        <section id="projects" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-zinc-900 bg-zinc-950 fade-in-section">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-sm font-semibold tracking-wider text-amber-500 uppercase mb-2">دستاوردها و خروجی‌ها</h2>
+                    <p class="text-3xl sm:text-5xl font-extrabold text-white">پروژه‌های برجسته</p>
+                    <div class="w-16 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all duration-300 group">
+                        <div class="h-48 bg-zinc-900 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent opacity-60 z-10"></div>
+                            <i class="fa-solid fa-database text-6xl text-amber-500/40 group-hover:scale-110 transition-transform duration-300 z-0"></i>
+                            <div class="absolute top-4 right-4 bg-zinc-950/80 border border-zinc-800 text-amber-400 text-xs px-3 py-1 rounded-full font-semibold z-20">
+                                اتوماسیون داده
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">سیستمهای دیتابیسمحور</h3>
+                            <p class="text-zinc-400 text-sm leading-relaxed">
+                                ساخت رباتهای جمعآوری و مدیریت اطلاعات هدفمند برای پلتفرمهای بومی و بینالمللی.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all duration-300 group">
+                        <div class="h-48 bg-zinc-900 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent opacity-60 z-10"></div>
+                            <i class="fa-solid fa-microchip text-6xl text-orange-500/40 group-hover:scale-110 transition-transform duration-300 z-0"></i>
+                            <div class="absolute top-4 right-4 bg-zinc-950/80 border border-zinc-800 text-amber-400 text-xs px-3 py-1 rounded-full font-semibold z-20">
+                                هوش مصنوعی آفلاین
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">استقرار AI روی سختافزار شخصی</h3>
+                            <p class="text-zinc-400 text-sm leading-relaxed">
+                                پیادهسازی و اجرای شبکههای هوش مصنوعی روی دیوایسهای سرفیس لپتاپ جهت پردازش امن و آفلاین.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all duration-300 group">
+                        <div class="h-48 bg-zinc-900 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent opacity-60 z-10"></div>
+                            <i class="fa-solid fa-server text-6xl text-amber-500/40 group-hover:scale-110 transition-transform duration-300 z-0"></i>
+                            <div class="absolute top-4 right-4 bg-zinc-950/80 border border-zinc-800 text-amber-400 text-xs px-3 py-1 rounded-full font-semibold z-20">
+                                زیرساخت شبکه
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">کانفیگ سرور و شبکه</h3>
+                            <p class="text-zinc-400 text-sm leading-relaxed">
+                                مدیریت سرورهای لینوکسی (Ubuntu)، تنظیمات پیشرفته DNS در کلودفلر و مدیریت دامنههای ملی و بینالمللی.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Testimonials -->
+        <section id="testimonials" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-zinc-900 bg-zinc-900/20 fade-in-section">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-sm font-semibold tracking-wider text-amber-500 uppercase mb-2">رضایت و بازخوردها</h2>
+                    <p class="text-3xl sm:text-5xl font-extrabold text-white">نظرات همکاران و مشتریان</p>
+                    <div class="w-16 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <!-- Testimonials Showcase -->
+                <div class="relative bg-zinc-900/40 border border-zinc-800 p-8 sm:p-12 rounded-3xl min-h-[250px] flex flex-col justify-between" id="testimonial-container">
+                    <div class="absolute top-6 right-6 text-6xl text-amber-500/10 font-serif">”</div>
+                    
+                    <!-- Slide Items -->
+                    <div id="testimonial-slides">
+                        <!-- Slide 1 -->
+                        <div class="testimonial-slide space-y-6 block">
+                            <p class="text-lg sm:text-xl text-zinc-200 leading-relaxed italic">
+                                « دقت در پیادهسازی معماری رباتهای اتوماسیون و اتصال آن به فضای ابری عالی بود. »
+                            </p>
+                            <div class="flex items-center space-x-4 space-x-reverse">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120&h=120" alt="علیرضا م." class="w-12 h-12 rounded-full object-cover border border-amber-500/30">
+                                <div>
+                                    <h4 class="text-white font-bold">علیرضا م.</h4>
+                                    <p class="text-xs text-amber-500 font-medium">مدیر توسعه</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="testimonial-slide space-y-6 hidden">
+                            <p class="text-lg sm:text-xl text-zinc-200 leading-relaxed italic">
+                                « تسلط بر سرورهای لینوکسی و تنظیمات کلودفلر باعث شد ترافیک سایت ما به بهترین شکل مدیریت شود. »
+                            </p>
+                            <div class="flex items-center space-x-4 space-x-reverse">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120" alt="سارا ک." class="w-12 h-12 rounded-full object-cover border border-amber-500/30">
+                                <div>
+                                    <h4 class="text-white font-bold">سارا ک.</h4>
+                                    <p class="text-xs text-amber-500 font-medium">کارشناس شبکه</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="testimonial-slide space-y-6 hidden">
+                            <p class="text-lg sm:text-xl text-zinc-200 leading-relaxed italic">
+                                « ادغام دانش سختافزاری و نرمافزاری در پروژههای اتوماسیون نقطه قوت ایشان است. »
+                            </p>
+                            <div class="flex items-center space-x-4 space-x-reverse">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120" alt="محمد ت." class="w-12 h-12 rounded-full object-cover border border-amber-500/30">
+                                <div>
+                                    <h4 class="text-white font-bold">محمد ت.</h4>
+                                    <p class="text-xs text-amber-500 font-medium">مدیر پروژه</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Indicators -->
+                    <div class="flex justify-end space-x-2 space-x-reverse mt-8 border-t border-zinc-800/60 pt-4" id="testimonial-indicators">
+                        <button class="indicator-btn w-8 h-3 rounded-full bg-amber-400 transition-all duration-300" data-index="0"></button>
+                        <button class="indicator-btn w-3 h-3 rounded-full bg-zinc-700 hover:bg-zinc-600 transition-all duration-300" data-index="1"></button>
+                        <button class="indicator-btn w-3 h-3 rounded-full bg-zinc-700 hover:bg-zinc-600 transition-all duration-300" data-index="2"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: FAQ -->
+        <section id="faq" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-zinc-900 bg-zinc-950 fade-in-section">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-sm font-semibold tracking-wider text-amber-500 uppercase mb-2">پاسخ به ابهامات شما</h2>
+                    <p class="text-3xl sm:text-5xl font-extrabold text-white">سوالات متداول</p>
+                    <div class="w-16 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item border border-zinc-800/80 rounded-xl overflow-hidden bg-zinc-900/20 hover:border-zinc-700/80 transition-all">
+                        <button class="faq-btn w-full flex items-center justify-between p-6 text-right focus:outline-none">
+                            <span class="text-base sm:text-lg font-bold text-white">آیا خدمات تست نفوذ و تحلیل امنیتی ارائه میدهید؟</span>
+                            <span class="ml-2 flex-shrink-0 w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400">
+                                <i class="fa-solid fa-plus text-sm text-amber-400 faq-icon"></i>
+                            </span>
+                        </button>
+                        <div class="faq-content hidden p-6 pt-0 border-t border-zinc-900/50 text-zinc-400 text-sm sm:text-base leading-relaxed">
+                            بله، تمرکز ما بر شناسایی نقاط ضعف شبکه، تیم آبی (Blue Team) و امنسازی زیرساختهاست.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item border border-zinc-800/80 rounded-xl overflow-hidden bg-zinc-900/20 hover:border-zinc-700/80 transition-all">
+                        <button class="faq-btn w-full flex items-center justify-between p-6 text-right focus:outline-none">
+                            <span class="text-base sm:text-lg font-bold text-white">آیا رباتهای شما قابلیت ذخیره داده روی فضای ابری را دارند؟</span>
+                            <span class="ml-2 flex-shrink-0 w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400">
+                                <i class="fa-solid fa-plus text-sm text-amber-400 faq-icon"></i>
+                            </span>
+                        </button>
+                        <div class="faq-content hidden p-6 pt-0 border-t border-zinc-900/50 text-zinc-400 text-sm sm:text-base leading-relaxed">
+                            قطعاً، ما سیستمها را به گونهای طراحی میکنیم که دادهها با امنیت بالا مستقیماً در ابزارهایی مانند گوگل شیتس یا دیتابیسهای اختصاصی ذخیره شوند.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item border border-zinc-800/80 rounded-xl overflow-hidden bg-zinc-900/20 hover:border-zinc-700/80 transition-all">
+                        <button class="faq-btn w-full flex items-center justify-between p-6 text-right focus:outline-none">
+                            <span class="text-base sm:text-lg font-bold text-white">آیا امکان میزبانی سایتهای استاتیک روی زیرساخت شما وجود دارد؟</span>
+                            <span class="ml-2 flex-shrink-0 w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400">
+                                <i class="fa-solid fa-plus text-sm text-amber-400 faq-icon"></i>
+                            </span>
+                        </button>
+                        <div class="faq-content hidden p-6 pt-0 border-t border-zinc-900/50 text-zinc-400 text-sm sm:text-base leading-relaxed">
+                            بله، با استفاده از فناوریهای مدرنی مثل Cloudflare Pages و GitHub، زیرساختهای فوقسریع و امنی برای میزبانی فراهم میکنیم.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Contact -->
+        <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 border-t border-zinc-900 bg-zinc-900/20 fade-in-section">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-sm font-semibold tracking-wider text-amber-500 uppercase mb-2">شروع همکاری و ارتباط</h2>
+                    <p class="text-3xl sm:text-5xl font-extrabold text-white">تماس با من</p>
+                    <div class="w-16 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <!-- Contact Info -->
+                    <div class="lg:col-span-5 space-y-8">
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-white">اطلاعات ارتباطی</h3>
+                            <p class="text-zinc-400 text-sm leading-relaxed">
+                                پل‌های ارتباطی مستقیم جهت مشاوره تخصصی در حوزه‌های توسعه سیستم‌های اتوماسیون، پیاده‌سازی متدهای امنیت شبکه و پیکربندی تخصصی کلاستر‌های ابری.
+                            </p>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Phone -->
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 text-lg ml-4 flex-shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-zinc-500 uppercase font-mono">شماره تلفن مستقیم</p>
+                                    <a href="tel:09038354826" class="text-base sm:text-lg text-white font-bold hover:text-amber-400 transition-colors">
+                                        09038354826
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 text-lg ml-4 flex-shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-zinc-500 uppercase font-mono">ایمیل ارتباطی</p>
+                                    <a href="mailto:King.mastergold2024@gmail.com" class="text-base sm:text-lg text-white font-bold hover:text-amber-400 transition-colors">
+                                        King.mastergold2024@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Address -->
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 text-lg ml-4 flex-shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-zinc-500 uppercase font-mono">محل فعالیت</p>
+                                    <p class="text-base sm:text-lg text-white font-bold">
+                                        ایران، تهران
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Socials -->
+                        <div class="pt-6 border-t border-zinc-800">
+                            <p class="text-sm font-bold text-white mb-4">شبکه‌های اجتماعی ما</p>
+                            <div class="flex space-x-3 space-x-reverse">
+                                <a href="https://t.me/King_mastergold2024" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-amber-500/30 text-zinc-300 hover:text-amber-400 transition-all flex items-center text-sm font-semibold">
+                                    <i class="fa-brands fa-telegram text-base ml-2"></i> تلگرام
+                                </a>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-amber-500/30 text-zinc-300 hover:text-amber-400 transition-all flex items-center text-sm font-semibold">
+                                    <i class="fa-brands fa-linkedin text-base ml-2"></i> لینکدین
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-7">
+                        <form id="contact-form" class="bg-zinc-900/40 border border-zinc-800/80 p-8 rounded-3xl space-y-6 relative overflow-hidden">
+                            <h3 class="text-xl font-bold text-white">ارسال پیام مستقیم</h3>
+                            
+                            <div class="space-y-2">
+                                <label for="form-name" class="block text-xs font-semibold text-zinc-400">نام و نام خانوادگی</label>
+                                <input type="text" id="form-name" required placeholder="سید مصطفی علوی" class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:border-amber-500/50 focus:outline-none transition-colors text-sm">
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="form-email" class="block text-xs font-semibold text-zinc-400">آدرس ایمیل</label>
+                                <input type="email" id="form-email" required placeholder="yourname@example.com" class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:border-amber-500/50 focus:outline-none transition-colors text-sm">
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="form-message" class="block text-xs font-semibold text-zinc-400">متن پیام شما</label>
+                                <textarea id="form-message" rows="4" required placeholder="جزئیات پروژه یا سوال خود را اینجا بنویسید..." class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:border-amber-500/50 focus:outline-none transition-colors text-sm resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-zinc-950 hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300 flex items-center justify-center text-sm sm:text-base">
+                                ارسال پیام مستقیم
+                                <i class="fa-solid fa-paper-plane mr-2"></i>
+                            </button>
+
+                            <!-- Success Modal inside the form structure -->
+                            <div id="success-feedback" class="hidden absolute inset-0 bg-zinc-950/95 flex flex-col items-center justify-center p-6 text-center z-10">
+                                <div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-2xl mb-4">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </div>
+                                <h4 class="text-xl font-extrabold text-white mb-2">پیام شما با موفقیت ارسال شد!</h4>
+                                <p class="text-zinc-400 text-sm max-w-sm leading-relaxed">
+                                    از پیام شما سپاسگزاریم. در اسرع وقت از طریق آدرس ایمیل ارائه شده با شما تماس گرفته خواهد شد.
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-950 border-t border-zinc-900 py-12 px-4 sm:px-6 lg:px-8 z-10 text-center relative">
+        <div class="max-w-7xl mx-auto space-y-6">
+            <div class="flex items-center justify-center space-x-2 space-x-reverse mb-2">
+                <span class="text-xl font-black bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500">
+                    Master Gold Iran
+                </span>
+            </div>
+            <p class="text-zinc-500 text-sm max-w-md mx-auto leading-relaxed">
+                توسعه زیرساخت‌های ابری، طراحی ربات‌های خودکار و اتوماسیون داده، استقرار شبکه‌های هوش مصنوعی و پیاده‌سازی متدهای دفاع سایبری.
+            </p>
+            <div class="w-12 h-px bg-zinc-800 mx-auto"></div>
+            <p class="text-zinc-600 text-xs font-mono">
+                © <span id="current-year">2026</span> Master Gold Iran. All Rights Reserved. Created by Seyed Mostafa Alavi.
+            </p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript link as requested -->
+    <script src="script_static.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "Master Gold Iran",
+  "description": "آموزش، استراتژی، مشاوره و راه اندازی بازارهای مالی غیرمتمرکز - معین علوی",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
