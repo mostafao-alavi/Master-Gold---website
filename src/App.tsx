@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import AdminPanel from "./components/AdminPanel";
 
 // Translations dataset to support bilingual toggling seamlessly
 const translations = {
@@ -29,7 +30,7 @@ const translations = {
     aboutTitle: "درباره من",
     aboutSubtitle: "آیا می‌دانید ما چه کسی هستیم؟",
     aboutIntro: "سلام دوست من، بنده معین علوی هستم.",
-    aboutText: "مدرس، محقق، تحلیل‌گر، مشاور، سرمایه‌گذار، استراتژیست و کارآفرین در حوزه Web3 و قراردادهای هوشمند با سابقه فعالیت از سال ۲۰۲۱. برند ما در ایران (Master Gold Iran) همواره با پروژه‌ها و اکوسیستم‌هایی همکاری می‌کند که کاملاً ضد هرمی، پانزی، اسکم و کلاه‌برداری هستند. هدف نهایی ما صرفاً آگاه‌سازی و فقرزدایی مردم شریف ایران است. کلیه آموزش‌ها و مشاوره‌های ما بدون دریافت حتی یک ریال هزینه، ۱۰۰٪ رایگان ارائه می‌شود. هرگونه درخواست پرداخت رمزارز یا مبلغ ریالی به نام ما، صددرصد کلاه‌برداری می‌باشد؛ زیرا برند ما به‌هیچ‌عنوان درخواست مالی از کاربران ندارد. مراقب کلاه‌برداری‌ها و حملات فیشینگ در اینترنت باشید.",
+    aboutText: "با سابقه فعالیت مستمر به مدت شش سال در فضای بازارهای مالی متمرکز و غیرمتمرکز در ایران. مدرس، محقق، تحلیل‌گر، مشاور، سرمایه‌گذار، استراتژیست و کارآفرین در حوزه Web3 و قراردادهای هوشمند. برند ما در ایران (Master Gold Iran) همواره با پروژه‌ها و اکوسیستم‌هایی همکاری می‌کند که کاملاً ضد هرمی، پانزی، اسکم و کلاه‌برداری هستند. هدف نهایی ما صرفاً آگاه‌سازی و فقرزدایی مردم شریف ایران است. کلیه آموزش‌ها و مشاوره‌های ما بدون دریافت حتی یک ریال هزینه، ۱۰۰٪ رایگان ارائه می‌شود. هرگونه درخواست پرداخت رمزارز یا مبلغ ریالی به نام ما، صددرصد کلاه‌برداری می‌باشد؛ زیرا برند ما به‌هیچ‌عنوان درخواست مالی از کاربران ندارد. مراقب کلاه‌برداری‌ها و حملات فیشینگ در اینترنت باشید.",
     
     statsLabel1: "وبینار آموزشی آنلاین",
     statsLabel2: "دانشجوی ایرانی تحت آموزش رایگان",
@@ -74,9 +75,9 @@ const translations = {
     faq1Q: "آیا واقعاً آموزش‌ها و خدمات شما ۱۰۰٪ رایگان است؟",
     faq1A: "بله، قطعاً. کلیه دوره‌های آموزشی، وبینارها، تحلیل‌های بازار طلا و مشاوره‌های اختصاصی مستر گولد ایران در راستای رسالت فقرزدایی به‌صورت کاملاً رایگان ارائه می‌شوند و هیچ هزینه‌ای بابت آموزش دریافت نخواهد شد.",
     faq2Q: "چگونه می‌توانم در پروژه‌های متاوال، ویستوری یا هالیورس شروع به کار کنم؟",
-    faq2A: "بسیار ساده است. شما می‌توانید از بخش پروژه‌های برجسته بر روی دکمه ثبت‌نام کلیک کنید تا وارد پلتفرم رسمی شوید، یا مستقیماً به کانال تلگرام ما بپیوندید تا ویدیوهای راهنمای گام‌به‌گام را دریافت کنید.",
+    faq2A: "بسیار ساده است. شما می‌توانید از طریق بخش ورود به پروژه‌های برجسته روی دکمه ثبت‌نام کلیک کنید تا وارد سایت رسمی شوید. حالا لینک را کپی کرده و وارد کیف پول توکن‌پاکت (TokenPocket) یا متامسک (MetaMask) خود شوید و در قسمت سرچ، لینک را پیست و جستجو نمایید، یا به کانال تلگرام ما بپیوندید تا ویدیوهای راهنمای گام‌به‌گام را دریافت کنید.",
     faq3Q: "تفاوت این پروژه‌ها با شرکت‌های هرمی یا طرح‌های پانزی چیست؟",
-    faq3A: "ادعای اصلی و افتخار ما ضد هرمی، ضد پانزی، اسکم و کلاه‌برداری بودن تمامی اکوسیستم‌های غیرمتمرکز انتخابی است. این پلتفرم‌ها بر بستر قراردادهای هوشمند بلاک‌چین (Smart Contracts) بنا شده‌اند و هیچ فرد یا نهادی توانایی دخل و تصرف یا مسدود کردن دارایی شما را ندارد.",
+    faq3A: "ادعای اصلی و افتخار ما ضد هرمی، ضد پانزی، اسکم و کلاه‌برداری بودن تمامی اکوسیستم‌های غیرمتمرکز انتخابی است. این پلتفرم‌ها بر بستر قراردادهای هوشمند بلاک‌چین (Smart Contracts) بنا شده‌اند؛ جایی که هیچ فرد یا نهادی توانایی دخل و تصرف یا مسدود کردن دارایی شما را ندارد. این سیستم بیش از ۴ سال است که بدون حتی یک ثانیه وقفه، خدمات مالی و پرداختی‌های کاملاً آنی و درلحظه ارائه داده و بالغ بر ۲,۵۰۰,۰۰۰ کاربر فعال در سراسر جهان دارد. مفتخریم اعلام کنیم که تا به امروز، بیش از ۱۵۰,۰۰۰ ایرانی از طریق این پروژه‌ها به کسب درآمد دلاری موفق و پایدار رسیده‌اند.",
 
     // Contact
     contactTitle: "تماس با من و مشاوره",
@@ -88,8 +89,8 @@ const translations = {
     addressLabel: "دفتر مرکزی و محل فعالیت",
     addressVal: "ایران، تهران",
     socialTitle: "شبکه‌های اجتماعی و کانال‌های رسمی",
-    telegramLabel: "کانال تلگرام هالیورس و متاوال",
-    instagramLabel: "پیج اینستاگرام رسمی ما",
+    telegramLabel: "کانال تلگرام رسمی ما",
+    rubikaLabel: "کانال روبیکا مستر گولد ایران",
     formTitle: "ارسال پیام مستقیم",
     formName: "نام و نام خانوادگی شما",
     formEmail: "آدرس ایمیل فعال",
@@ -127,7 +128,7 @@ const translations = {
     aboutTitle: "About Me",
     aboutSubtitle: "Do you know who we are?",
     aboutIntro: "Hello my friend, I am Moein Alavi.",
-    aboutText: "Official educator and promoter: Lecturer, researcher, analyst, consultant, investor, strategist, and entrepreneur in Web3 and smart contracts, active since 2021. Our brand, Master Gold Iran, strictly partners with anti-pyramid, anti-ponzi, and anti-scam ecosystems. Our fundamental goal is raising awareness and alleviating poverty in Iran. All of our education and consultation services are 100% free. Any request for cryptocurrency or fiat payment to our accounts is 100% a scam. Our brand never requests financial payments under any circumstances. Beware of online scams and phishing.",
+    aboutText: "With six years of continuous active experience in centralized and decentralized financial markets in Iran. Lecturer, researcher, analyst, consultant, investor, strategist, and digital entrepreneur in Web3 and smart contracts. Our brand, Master Gold Iran, strictly partners with anti-pyramid, anti-ponzi, and anti-scam ecosystems. Our fundamental goal is raising awareness and alleviating poverty in Iran. All of our education and consultation services are 100% free. Any request for cryptocurrency or fiat payment to our accounts is 100% a scam. Our brand never requests financial payments under any circumstances. Beware of online scams and phishing.",
     
     statsLabel1: "Online Webinars Held",
     statsLabel2: "Iranian Students Trained for Free",
@@ -172,9 +173,9 @@ const translations = {
     faq1Q: "Are the courses and services genuinely 100% free?",
     faq1A: "Yes, absolutely. All lectures, webinars, gold trading guides, and custom consults by Master Gold Iran are completely free of charge. No tuition or hidden fees.",
     faq2Q: "How can I begin in Meta Whale, Vistory, or Holiverse?",
-    faq2A: "It is simple. You can click on the registration buttons under our featured projects section to access the portals directly, or join our official Telegram channel for sequential guides.",
+    faq2A: "It is very simple. You can click on the registration button under our featured projects section to access the official website. Now, copy the link, enter your TokenPocket or MetaMask wallet, paste the link in the search bar and search it, or join our Telegram channel to receive step-by-step video guides.",
     faq3Q: "How do these projects differ from pyramid schemes or Ponzi traps?",
-    faq3A: "We pride ourselves on working strictly with verified decentralized smart contract ecosystems. Since they run autonomously on public blockchains, no central entity can alter, block, or compromise your assets.",
+    faq3A: "We pride ourselves on working strictly with verified decentralized smart contract ecosystems where no central entity can alter, block, or compromise your assets. For over 4 years, this system has provided uninterrupted, 100% instant financial and payout services, building a trusted community of over 2,500,000 active users worldwide. We are proud to share that over 150,000 Iranians have successfully achieved sustainable digital income through these projects.",
 
     // Contact
     contactTitle: "Contact & Consultation",
@@ -186,8 +187,8 @@ const translations = {
     addressLabel: "Headquarters & Region",
     addressVal: "Tehran, Iran",
     socialTitle: "Social Medias & Official Feeds",
-    telegramLabel: "Holiverse & Meta Whale Telegram Channel",
-    instagramLabel: "Our Official Instagram Profile",
+    telegramLabel: "Our Official Telegram Channel",
+    rubikaLabel: "Our Official Rubika Channel",
     formTitle: "Send a Direct Message",
     formName: "Your Full Name",
     formEmail: "Your Active Email Address",
@@ -225,7 +226,7 @@ const translations = {
     aboutTitle: "من أنا",
     aboutSubtitle: "هل تعرف من نحن؟",
     aboutIntro: "أهلاً بك يا صديقي، أنا معين علوي.",
-    aboutText: "مدرسك ومروجك الرسمي في الدورات: محاضر، باحث، محلل، مستشار، مستثمر، استراتيجي ورائد أعمال في مجال الويب ۳ والعقود الذكية بخبرة نشطة منذ عام ۲۰۲۱. علامتنا التجارية في إيران (Master Gold Iran) تعمل دائماً مع المشاريع والأنظمة البيئية التي نؤكد أنها ضد الهرمية، البونزي، الاحتيال والنصب. هدفنا النهائي هو ببساطة زيادة الوعي والقضاء على الفقر لدى الشعب الإيراني الشريف. يتم تقديم جميع دوراتنا واستشاراتنا مجاناً بنسبة ۱۰۰٪ بدون أي تكلفة. أي طلب لدفع عملات رقمية أو مبالغ مالية إلى حسابنا هو عملية احتيال بنسبة ۱۰۰٪. لا تطلب علامتنا التجارية أي تمويل أو مدفوعات تحت أي ظرف من الظروف. احذر من عمليات الاحتيال والتصيد الاحتيالي على الإنترنت.",
+    aboutText: "مع ست سنوات من الخبرة المستمرة في الأسواق المالية المركزية واللامركزية في إيران. محاضر، باحث، محلل، مستشار، مستثمر، استراتيجي ورائد أعمال في مجال الويب ۳ والعقود الذكية. علامتنا التجارية في إيران (Master Gold Iran) تعمل دائماً مع المشاريع والأنظمة البيئية التي نؤكد أنها ضد الهرمية، البونزي، الاحتيال والنصب. هدفنا النهائي هو ببساطة زيادة الوعي والقضاء على الفقر لدى الشعب الإيراني الشريف. يتم تقديم جميع دوراتنا واستشاراتنا مجاناً بنسبة ۱۰۰٪ بدون أي تكلفة. أي طلب لدفع عملات رقمية أو مبالغ مالية إلى حسابنا هو عملية احتيال بنسبة ۱۰۰٪. لا تطلب علامتنا التجارية أي تمويل أو مدفوعات تحت أي ظرف من الظروف. احذر من عمليات الاحتيال والتصيد الاحتيالي على الإنترنت.",
     
     statsLabel1: "ندوة تعليمية عبر الإنترنت",
     statsLabel2: "طالب إيراني تحت التدريب المجاني",
@@ -270,9 +271,9 @@ const translations = {
     faq1Q: "هل التدريب والخدمات الخاصة بك مجانية بنسبة ۱۰۰٪ حقاً؟",
     faq1A: "نعم، بالتأكيد. يتم تقديم جميع الدورات التدريبية، الندوات عبر الإنترنت، تحليلات سوق الذهب والاستشارات الخاصة بمستر غولد إيران مجاناً بالكامل في إطار رسالتنا للقضاء على الفقر، ولن يتم فرض أي رسوم على التعليم.",
     faq2Q: "كيف يمكنني البدء في مشاريع ميتاوال، فيستوري أو هاليفرس؟",
-    faq2A: "الأمر بسيط للغاية. يمكنك الضغط على زر التسجيل في قسم المشاريع البارزة للدخول إلى المنصة الرسمية، أو الانضمام مباشرة إلى قناتنا على التلغرام لتلقي فيديوهات الشرح خطوة بخطوة.",
+    faq2A: "الأمر بسيط للغاية. يمكنك النقر فوق زر التسجيل في قسم المشاريع البارزة للوصول إلى الموقع الرسمي. الآن، انسخ الرابط وافتح محفظتك توكن بوكيت (TokenPocket) أو ميتاماسك (MetaMask) الخاصة بك، والصق الرابط في شريط البحث وابحث عنه، أو انضم إلى قناتنا على التلغرام لتلقي مقاطع الفيديو الإرشادية خطوة بخطوة.",
     faq3Q: "ما هو الفرق بین هذه المشاريع والشركات الهرمية أو مخططات البونزی؟",
-    faq3A: "فخرنا الأكبر هو أن جميع الأنظمة البيئية اللامركزية التي نختارها هي ضد الأنظمة الهرمية، البونزي، الاحتيال والنصب. تم بناء هذه المنصات على عقود ذكية في البلوكشين (Smart Contracts) ولا تملك أي جهة أو فرد القدرة على التدخل في أصولك أو تجميدها.",
+    faq3A: "فخرنا الأكبر هو أن جميع الأنظمة البيئية اللامركزية التي نختارها خالية تماماً من الأنظمة الهرمية، البونزي، والاحتيال. هذه المنصات مبنية على عقود ذكية (Smart Contracts) ولا تملك أي جهة القدرة على تجميد أصولك. يقدم هذا النظام خدمات مالية ومدفوعات فورية بدون انقطاع منذ أكثر من ۴ سنوات، ويضم ما يزيد عن ۲,۵۰۰,۰۰۰ مستخدم نشط حول العالم، كما تمكن أكثر من ۱۵۰,۰۰۰ إيراني من كسب دخل رقمي مستقر وناجح من خلال هذه المشاريع.",
 
     // Contact
     contactTitle: "الاتصال بي والاستشارة",
@@ -284,8 +285,8 @@ const translations = {
     addressLabel: "المكتب الرئيسي ومكان العمل",
     addressVal: "إيران، طهران",
     socialTitle: "شبكات التواصل الاجتماعي والقنوات الرسمية",
-    telegramLabel: "قناة تلغرام هاليفرس وميتاوال",
-    instagramLabel: "حسابنا الرسمي على إنستغرام",
+    telegramLabel: "قناتنا الرسمية على تلغرام",
+    rubikaLabel: "قناتنا الرسمية على روبيكا",
     formTitle: "إرسال رسالة مباشرة",
     formName: "اسمك الكامل",
     formEmail: "عنوان البريد الإلكتروني النشط",
@@ -300,9 +301,39 @@ const translations = {
 };
 
 export default function App() {
+  const [editableTranslations, setEditableTranslations] = useState(() => {
+    const saved = localStorage.getItem("master_gold_translations");
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        console.error("Failed to parse translations from localStorage", e);
+      }
+    }
+    return translations;
+  });
+
   const [lang, setLang] = useState<"fa" | "en" | "ar">("fa");
-  const t = translations[lang];
+  const t = editableTranslations[lang];
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+
+  // Simple client-side router for /admin
+  const [currentPath, setCurrentPath] = useState(() => {
+    return window.location.pathname;
+  });
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener("popstate", handleLocationChange);
+    return () => window.removeEventListener("popstate", handleLocationChange);
+  }, []);
+
+  const navigateTo = (path: string) => {
+    window.history.pushState({}, "", path);
+    setCurrentPath(path);
+  };
 
   // Active navigation section state
   const [activeSection, setActiveSection] = useState("hero");
@@ -317,7 +348,7 @@ export default function App() {
   const [formData, setFormData] = useState({ name: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [contactPlatform, setContactPlatform] = useState<"whatsapp" | "telegram">("whatsapp");
+  const [contactPlatform, setContactPlatform] = useState<"telegram" | "rubika">("telegram");
 
   // Section references for intersection and scrolling
   const sectionsRef = {
@@ -409,10 +440,16 @@ export default function App() {
       : `Hello Mr. Alavi, I am ${formData.name}.\n\nMessage:\n${formData.message}`;
 
     let targetUrl = "";
-    if (contactPlatform === "whatsapp") {
-      targetUrl = `https://wa.me/989038354826?text=${encodeURIComponent(text)}`;
-    } else {
+    if (contactPlatform === "telegram") {
       targetUrl = `https://t.me/Emperor2021?text=${encodeURIComponent(text)}`;
+    } else {
+      // Rubika doesn't support pre-filled message URL query params, so we copy it to clipboard for convenience
+      try {
+        navigator.clipboard.writeText(text);
+      } catch (err) {
+        console.error("Failed to copy message text to clipboard", err);
+      }
+      targetUrl = `https://rubika.ir/Mastergoldiran`;
     }
 
     setTimeout(() => {
@@ -429,6 +466,25 @@ export default function App() {
       setTimeout(() => setSubmitSuccess(false), 5000);
     }, 1000);
   };
+
+  if (currentPath === "/admin") {
+    return (
+      <AdminPanel
+        initialTranslations={editableTranslations}
+        onSave={(updated) => {
+          setEditableTranslations(updated);
+          localStorage.setItem("master_gold_translations", JSON.stringify(updated));
+        }}
+        onClose={() => {
+          navigateTo("/");
+        }}
+        onReset={() => {
+          localStorage.removeItem("master_gold_translations");
+          setEditableTranslations(translations);
+        }}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col font-sans relative selection:bg-amber-500 selection:text-zinc-950 overflow-x-hidden">
@@ -678,20 +734,20 @@ export default function App() {
                 ))}
                 <div className="flex items-center space-x-3 space-x-reverse pt-4 border-t border-zinc-900 px-4">
                   <a
-                    href="https://t.me/HOLIVERSEIRAN1"
+                    href="https://t.me/metawhale2024"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-300 hover:text-amber-400 transition-all border border-zinc-800"
                   >
-                    <i className="fa-brands fa-telegram text-lg ml-2 mr-2"></i> {lang === "fa" ? "کانال اصلی" : lang === "ar" ? "القناة الرئيسية" : "Main Telegram"}
+                    <i className="fa-brands fa-telegram text-lg ml-2 mr-2 text-sky-400"></i> {lang === "fa" ? "تلگرام" : lang === "ar" ? "تلغرام" : "Telegram"}
                   </a>
                   <a
-                    href="https://www.instagram.com/master.gold.iran"
+                    href="https://rubika.ir/Mastergoldiran"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-300 hover:text-amber-400 transition-all border border-zinc-800"
                   >
-                    <i className="fa-brands fa-instagram text-lg ml-2 mr-2"></i> {lang === "fa" ? "اینستاگرام" : lang === "ar" ? "إنستغرام" : "Instagram"}
+                    <i className="fa-solid fa-rocket text-lg ml-2 mr-2 text-violet-400"></i> {lang === "fa" ? "روبیکا" : lang === "ar" ? "روبيكا" : "Rubika"}
                   </a>
                 </div>
               </div>
@@ -711,19 +767,37 @@ export default function App() {
         >
           <div className="max-w-5xl mx-auto text-center z-10 space-y-8">
             
-            {/* Brand Logo Placeholder */}
+            {/* Brand Logo */}
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
-              className="flex flex-col items-center justify-center space-y-2 mb-4"
+              className="flex flex-col items-center justify-center mb-6"
             >
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/30 border border-amber-400/20">
-                <i className="fa-solid fa-crown text-zinc-950 text-3xl animate-pulse"></i>
+              <div className="relative group">
+                {/* Luxury glow background ring */}
+                <div className="absolute -inset-2 bg-gradient-to-r from-amber-500 via-yellow-400 to-orange-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500 pointer-events-none"></div>
+                
+                {/* Premium Golden Frame */}
+                <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-3xl overflow-hidden bg-zinc-950 border-2 border-amber-500/40 hover:border-amber-400 transition-colors duration-300 flex items-center justify-center p-1.5 shadow-2xl shadow-amber-500/20">
+                  <img
+                    src="/image/logo 1 .jpg"
+                    alt="Master Gold Iran Logo"
+                    className="w-full h-full object-cover rounded-2xl select-none"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      target.style.display = 'none';
+                      const fallback = target.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = 'flex';
+                    }}
+                  />
+                  {/* Fallback crown icon if logo fails to load */}
+                  <div className="hidden absolute inset-0 bg-gradient-to-br from-amber-400 via-amber-500 to-orange-600 flex items-center justify-center">
+                    <i className="fa-solid fa-crown text-zinc-950 text-4xl animate-pulse"></i>
+                  </div>
+                </div>
               </div>
-              <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-500 font-bold">
-                logo brand
-              </span>
             </motion.div>
 
             {/* Tagline Badge */}
@@ -1035,7 +1109,7 @@ export default function App() {
                 </h4>
                 <p className="text-zinc-100 text-sm sm:text-base font-extrabold leading-relaxed max-w-3xl mx-auto">
                   {lang === "fa" 
-                    ? "برند مستر گولد ایران با پروژه‌های فاقد هرگونه تداخل مالی مرکزی کار می‌کند. تمامی سرمایه‌گذاری‌ها بر بستر اسمارت کانترکت‌ها و غیرمتمرکز هستند. دارایی شما مستقیماً در ولت خودتان مدیریت می‌شود." 
+                    ? "برند مستر گولد ایران با پروژه‌های فاقد اعتبار و اصالت تأییدنشده و هرگونه تداخل مالی متمرکز کار نمی‌کند. تمامی سرمایه‌گذاری‌ها بر بستر بلاک‌چین، قراردادهای هوشمند (اسمارت‌کانترکت‌ها) و فضای امن غیرمتمرکز هستند. دارایی شما مستقیماً در کیف پول (والت) خودتان مدیریت می‌شود." 
                     : lang === "ar"
                     ? "تعمل العلامة التجارية مستر غولد إيران مع مشاريع خالية من أي تدخل مالي مركزي. جميع الاستثمارات مبنية على العقود الذكية ولامركزية. تتم إدارة أصولك مباشرة في محفظتك الخاصة."
                     : "Master Gold Iran works strictly with decentralized non-custodial tools on secure public chains. Your asset is safe, managed only by yourself inside your own wallet."}
@@ -1099,7 +1173,7 @@ export default function App() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
                   <div className="bg-zinc-900/60 border border-zinc-800 p-4 rounded-xl text-center">
                     <div className="text-2xl sm:text-3xl font-extrabold text-amber-400 mb-1">
-                      +411
+                      +420
                     </div>
                     <div className="text-[11px] text-zinc-400">
                       {t.statsLabel1}
@@ -1107,7 +1181,7 @@ export default function App() {
                   </div>
                   <div className="bg-zinc-900/60 border border-zinc-800 p-4 rounded-xl text-center">
                     <div className="text-2xl sm:text-3xl font-extrabold text-amber-400 mb-1">
-                      +4,000
+                      +4,600
                     </div>
                     <div className="text-[11px] text-zinc-400">
                       {t.statsLabel2}
@@ -1139,6 +1213,25 @@ export default function App() {
                       </div>
                       <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/20">
                         <i className="fa-solid fa-crown animate-bounce"></i>
+                      </div>
+                    </div>
+
+                    {/* Centered Premium Logo */}
+                    <div className="flex items-center justify-center z-10 py-1.5 my-auto">
+                      <div className="relative group/logo">
+                        <div className="absolute -inset-1.5 bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl blur-lg opacity-20 group-hover/logo:opacity-45 transition duration-300"></div>
+                        <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-amber-500/30 p-1.5 bg-zinc-950">
+                          <img
+                            src="/image/logo 2 .jpg"
+                            alt="Master Gold Iran Logo 2"
+                            className="w-full h-full object-cover rounded-xl select-none"
+                            referrerPolicy="no-referrer"
+                            onError={(e) => {
+                              const target = e.currentTarget;
+                              target.style.display = 'none';
+                            }}
+                          />
+                        </div>
                       </div>
                     </div>
 
@@ -1190,12 +1283,37 @@ export default function App() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               
               {/* Project 1: MetaWhale */}
-              <div className="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all duration-300 group flex flex-col justify-between">
+              <div className="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all duration-300 group flex flex-col justify-between shadow-xl shadow-black/30">
                 <div>
-                  <div className="h-48 bg-zinc-900 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent opacity-60 z-10" />
-                    <i className="fa-solid fa-cloud-arrow-up text-6xl text-amber-500/20 group-hover:scale-110 transition-transform duration-300 z-0"></i>
-                    <div className={`absolute top-4 ${t.dir === "rtl" ? "right-4" : "left-4"} bg-zinc-950/80 border border-zinc-800 text-amber-400 text-[10px] px-3 py-1 rounded-full font-semibold z-20`}>
+                  <div className="h-52 xs:h-60 sm:h-64 md:h-48 lg:h-56 xl:h-60 bg-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-black/30 opacity-80 z-10 pointer-events-none" />
+                    <img
+                      src="/image/meta vers.jpg"
+                      alt={t.project1Title}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out z-0 filter brightness-95 group-hover:brightness-105"
+                      referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        target.style.display = "none";
+                        // Display the fallback container beautifully
+                        const parent = target.parentElement;
+                        if (parent) {
+                          const fallback = parent.querySelector(".image-fallback-1");
+                          if (fallback) fallback.classList.remove("hidden");
+                        }
+                      }}
+                    />
+                    
+                    {/* Fallback layout if image not loaded */}
+                    <div className="image-fallback-1 hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-zinc-900 to-zinc-950 p-6 text-center z-0">
+                      <div className="w-16 h-16 rounded-2xl bg-amber-500/10 flex items-center justify-center border border-amber-500/20 mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <i className="fa-solid fa-cloud-arrow-up text-2xl text-amber-500/80"></i>
+                      </div>
+                      <span className="text-zinc-500 text-[10px] uppercase tracking-wider font-mono">MetaWhale Asset</span>
+                    </div>
+
+                    <i className="fa-solid fa-cloud-arrow-up text-6xl text-amber-500/10 group-hover:scale-121 transition-transform duration-300 z-0 absolute"></i>
+                    <div className={`absolute top-4 ${t.dir === "rtl" ? "right-4" : "left-4"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3.5 py-1.5 rounded-full font-bold shadow-lg shadow-black/50 z-20`}>
                       {t.project1Tag}
                     </div>
                   </div>
@@ -1222,12 +1340,37 @@ export default function App() {
               </div>
 
               {/* Project 2: Vistory */}
-              <div className="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all duration-300 group flex flex-col justify-between">
+              <div className="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all duration-300 group flex flex-col justify-between shadow-xl shadow-black/30">
                 <div>
-                  <div className="h-48 bg-zinc-900 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent opacity-60 z-10" />
-                    <i className="fa-solid fa-circle-nodes text-6xl text-orange-500/20 group-hover:scale-110 transition-transform duration-300 z-0"></i>
-                    <div className={`absolute top-4 ${t.dir === "rtl" ? "right-4" : "left-4"} bg-zinc-950/80 border border-zinc-800 text-amber-400 text-[10px] px-3 py-1 rounded-full font-semibold z-20`}>
+                  <div className="h-52 xs:h-60 sm:h-64 md:h-48 lg:h-56 xl:h-60 bg-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-black/30 opacity-80 z-10 pointer-events-none" />
+                    <img
+                      src="/image/meta whaie 2.jpg"
+                      alt={t.project2Title}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out z-0 filter brightness-95 group-hover:brightness-105"
+                      referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        target.style.display = "none";
+                        // Display the fallback container beautifully
+                        const parent = target.parentElement;
+                        if (parent) {
+                          const fallback = parent.querySelector(".image-fallback-2");
+                          if (fallback) fallback.classList.remove("hidden");
+                        }
+                      }}
+                    />
+                    
+                    {/* Fallback layout if image not loaded */}
+                    <div className="image-fallback-2 hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-zinc-900 to-zinc-950 p-6 text-center z-0">
+                      <div className="w-16 h-16 rounded-2xl bg-orange-500/10 flex items-center justify-center border border-orange-500/20 mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <i className="fa-solid fa-circle-nodes text-2xl text-orange-400/85"></i>
+                      </div>
+                      <span className="text-zinc-500 text-[10px] uppercase tracking-wider font-mono">Vistory Asset</span>
+                    </div>
+
+                    <i className="fa-solid fa-circle-nodes text-6xl text-orange-500/10 group-hover:scale-121 transition-transform duration-300 z-0 absolute"></i>
+                    <div className={`absolute top-4 ${t.dir === "rtl" ? "right-4" : "left-4"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3.5 py-1.5 rounded-full font-bold shadow-lg shadow-black/50 z-20`}>
                       {t.project2Tag}
                     </div>
                   </div>
@@ -1254,12 +1397,37 @@ export default function App() {
               </div>
 
               {/* Project 3: Holiverse */}
-              <div className="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all duration-300 group flex flex-col justify-between">
+              <div className="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all duration-300 group flex flex-col justify-between shadow-xl shadow-black/30">
                 <div>
-                  <div className="h-48 bg-zinc-900 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent opacity-60 z-10" />
-                    <i className="fa-solid fa-globe text-6xl text-amber-500/20 group-hover:scale-110 transition-transform duration-300 z-0"></i>
-                    <div className={`absolute top-4 ${t.dir === "rtl" ? "right-4" : "left-4"} bg-zinc-950/80 border border-zinc-800 text-amber-400 text-[10px] px-3 py-1 rounded-full font-semibold z-20`}>
+                  <div className="h-52 xs:h-60 sm:h-64 md:h-48 lg:h-56 xl:h-60 bg-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-black/30 opacity-80 z-10 pointer-events-none" />
+                    <img
+                      src="/image/meta iran.jpg"
+                      alt={t.project3Title}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out z-0 filter brightness-95 group-hover:brightness-105"
+                      referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        target.style.display = "none";
+                        // Display the fallback container beautifully
+                        const parent = target.parentElement;
+                        if (parent) {
+                          const fallback = parent.querySelector(".image-fallback-3");
+                          if (fallback) fallback.classList.remove("hidden");
+                        }
+                      }}
+                    />
+                    
+                    {/* Fallback layout if image not loaded */}
+                    <div className="image-fallback-3 hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-zinc-900 to-zinc-950 p-6 text-center z-0">
+                      <div className="w-16 h-16 rounded-2xl bg-amber-500/10 flex items-center justify-center border border-amber-500/20 mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <i className="fa-solid fa-globe text-2xl text-amber-500/80"></i>
+                      </div>
+                      <span className="text-zinc-500 text-[10px] uppercase tracking-wider font-mono">Holiverse Asset</span>
+                    </div>
+
+                    <i className="fa-solid fa-globe text-6xl text-amber-500/10 group-hover:scale-121 transition-transform duration-300 z-0 absolute"></i>
+                    <div className={`absolute top-4 ${t.dir === "rtl" ? "right-4" : "left-4"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3.5 py-1.5 rounded-full font-bold shadow-lg shadow-black/50 z-20`}>
                       {t.project3Tag}
                     </div>
                   </div>
@@ -1443,16 +1611,20 @@ export default function App() {
               </div>
 
               {/* Question 3 */}
-              <div className="border border-zinc-800/80 rounded-xl overflow-hidden bg-zinc-900/20 hover:border-zinc-700/80 transition-colors">
+              <div className={`border rounded-xl overflow-hidden transition-all duration-300 ${
+                openFaq === 2 
+                  ? "border-amber-500/50 bg-amber-500/[0.02] shadow-[0_0_20px_rgba(245,158,11,0.05)]" 
+                  : "border-zinc-800/80 bg-zinc-900/20 hover:border-zinc-700/80"
+              }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 2 ? null : 2)}
                   className="w-full flex items-center justify-between p-6 text-right focus:outline-none focus:ring-0"
                 >
-                  <span className={`text-base sm:text-lg font-bold text-white ${t.dir === "rtl" ? "text-right" : "text-left"}`}>
+                  <span className={`text-base sm:text-lg font-bold text-white ${t.dir === "rtl" ? "text-right" : "text-left"} transition-colors ${openFaq === 2 ? "text-amber-400" : ""}`}>
                     {t.faq3Q}
                   </span>
-                  <span className={`${t.dir === "rtl" ? "mr-2" : "ml-2"} flex-shrink-0 w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400`}>
-                    <i className={`fa-solid ${openFaq === 2 ? "fa-minus" : "fa-plus"} text-sm text-amber-400`}></i>
+                  <span className={`${t.dir === "rtl" ? "mr-2" : "ml-2"} flex-shrink-0 w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 transition-transform duration-300 ${openFaq === 2 ? "rotate-180 bg-amber-500/10 text-amber-400" : ""}`}>
+                    <i className={`fa-solid ${openFaq === 2 ? "fa-minus" : "fa-plus"} text-sm`}></i>
                   </span>
                 </button>
                 <AnimatePresence initial={false}>
@@ -1463,8 +1635,38 @@ export default function App() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="p-6 pt-0 border-t border-zinc-900/50 text-zinc-400 text-sm sm:text-base leading-relaxed text-justify">
-                        {t.faq3A}
+                      <div className="p-6 pt-0 border-t border-zinc-900/50 text-zinc-400 text-sm sm:text-base leading-relaxed text-justify space-y-4">
+                        <p>{t.faq3A}</p>
+                        
+                        {/* Mini visual trust metrics cards */}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
+                          <div className="bg-zinc-950/60 border border-zinc-800/50 p-3.5 rounded-xl text-center flex flex-col justify-center hover:border-amber-500/30 transition-all duration-300">
+                            <div className="text-xl sm:text-2xl font-black text-amber-400 mb-0.5">
+                              {lang === "fa" ? "۴ سال" : lang === "ar" ? "٤ سنوات" : "4+ Years"}
+                            </div>
+                            <div className="text-[10px] sm:text-xs text-zinc-400 font-medium">
+                              {lang === "fa" ? "ارائه خدمات بدون وقفه" : lang === "ar" ? "خدمات دون انقطاع" : "Uninterrupted Service"}
+                            </div>
+                          </div>
+                          
+                          <div className="bg-zinc-950/60 border border-zinc-800/50 p-3.5 rounded-xl text-center flex flex-col justify-center hover:border-amber-500/30 transition-all duration-300">
+                            <div className="text-xl sm:text-2xl font-black text-amber-400 mb-0.5">
+                              {lang === "fa" ? "۲,۵۰۰,۰۰۰+" : lang === "ar" ? "٢,٥٠٠,٠٠٠+" : "2.5M+ Active"}
+                            </div>
+                            <div className="text-[10px] sm:text-xs text-zinc-400 font-medium">
+                              {lang === "fa" ? "کاربر فعال در جهان" : lang === "ar" ? "مستخدم نشط عالمياً" : "Global Active Users"}
+                            </div>
+                          </div>
+                          
+                          <div className="bg-zinc-950/60 border border-zinc-800/50 p-3.5 rounded-xl text-center flex flex-col justify-center hover:border-amber-500/30 transition-all duration-300">
+                            <div className="text-xl sm:text-2xl font-black text-amber-400 mb-0.5">
+                              {lang === "fa" ? "۱۵۰,۰۰۰+" : lang === "ar" ? "١٥٠,٠٠٠+" : "150K+ Iranians"}
+                            </div>
+                            <div className="text-[10px] sm:text-xs text-zinc-400 font-medium">
+                              {lang === "fa" ? "کسب درآمد توسط ایرانیان" : lang === "ar" ? "إيرانيون كسبوا دخلاً" : "Iranian Earners"}
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </motion.div>
                   )}
@@ -1561,20 +1763,20 @@ export default function App() {
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <a
-                      href="https://t.me/HOLIVERSEIRAN1"
+                      href="https://t.me/metawhale2024"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-amber-500/30 text-zinc-300 hover:text-amber-400 transition-all flex items-center text-xs font-bold"
+                      className="px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-amber-500/30 text-zinc-300 hover:text-amber-400 transition-all flex items-center text-xs font-bold gap-1"
                     >
-                      <i className="fa-brands fa-telegram text-base ml-2 mr-2"></i> {t.telegramLabel}
+                      <i className="fa-brands fa-telegram text-base text-sky-400"></i> {t.telegramLabel}
                     </a>
                     <a
-                      href="https://www.instagram.com/master.gold.iran"
+                      href="https://rubika.ir/Mastergoldiran"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-amber-500/30 text-zinc-300 hover:text-amber-400 transition-all flex items-center text-xs font-bold"
+                      className="px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-amber-500/30 text-zinc-300 hover:text-amber-400 transition-all flex items-center text-xs font-bold gap-1"
                     >
-                      <i className="fa-brands fa-instagram text-base ml-2 mr-2"></i> {t.instagramLabel}
+                      <i className="fa-solid fa-rocket text-base text-violet-400"></i> {t.rubikaLabel}
                     </a>
                   </div>
                 </div>
@@ -1612,20 +1814,6 @@ export default function App() {
                       {lang === "fa" ? "انتخاب پیام‌رسان جهت گفتگوی مستقیم" : "Choose Messenger for Direct Message"}
                     </label>
                     <div className="grid grid-cols-2 gap-3">
-                      {/* WhatsApp */}
-                      <button
-                        type="button"
-                        onClick={() => setContactPlatform("whatsapp")}
-                        className={`py-3 px-2 sm:px-4 rounded-xl border flex flex-col sm:flex-row items-center justify-center gap-2 text-xs font-bold transition-all ${
-                          contactPlatform === "whatsapp"
-                            ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-md shadow-emerald-500/5"
-                            : "bg-zinc-950 border-zinc-800/80 text-zinc-400 hover:text-zinc-200 hover:border-zinc-700"
-                        }`}
-                      >
-                        <i className="fa-brands fa-whatsapp text-lg text-emerald-500"></i>
-                        <span>{lang === "fa" ? "واتس‌اپ" : "WhatsApp"}</span>
-                      </button>
-
                       {/* Telegram */}
                       <button
                         type="button"
@@ -1638,6 +1826,20 @@ export default function App() {
                       >
                         <i className="fa-brands fa-telegram text-lg text-sky-400"></i>
                         <span>{lang === "fa" ? "تلگرام" : "Telegram"}</span>
+                      </button>
+
+                      {/* Rubika */}
+                      <button
+                        type="button"
+                        onClick={() => setContactPlatform("rubika")}
+                        className={`py-3 px-2 sm:px-4 rounded-xl border flex flex-col sm:flex-row items-center justify-center gap-2 text-xs font-bold transition-all ${
+                          contactPlatform === "rubika"
+                            ? "bg-violet-500/10 border-violet-500 text-violet-400 shadow-md shadow-violet-500/5"
+                            : "bg-zinc-950 border-zinc-800/80 text-zinc-400 hover:text-zinc-200 hover:border-zinc-700"
+                        }`}
+                      >
+                        <i className="fa-solid fa-rocket text-lg text-violet-400 animate-pulse"></i>
+                        <span>{lang === "fa" ? "روبیکا" : "Rubika"}</span>
                       </button>
                     </div>
                   </div>
@@ -1661,8 +1863,8 @@ export default function App() {
                     type="submit"
                     disabled={isSubmitting}
                     className={`w-full py-4 rounded-xl font-bold text-zinc-950 hover:shadow-lg transition-all duration-300 flex items-center justify-center disabled:opacity-55 cursor-pointer text-sm sm:text-base ${
-                      contactPlatform === "whatsapp"
-                        ? "bg-gradient-to-r from-emerald-500 to-emerald-600 hover:shadow-emerald-500/20"
+                      contactPlatform === "rubika"
+                        ? "bg-gradient-to-r from-violet-500 to-indigo-600 hover:shadow-violet-500/20"
                         : "bg-gradient-to-r from-sky-500 to-sky-600 hover:shadow-sky-500/20"
                     }`}
                   >
@@ -1675,25 +1877,25 @@ export default function App() {
                         <span>
                           {lang === "fa"
                             ? `ارسال پیام مستقیم در ${
-                                contactPlatform === "whatsapp"
-                                  ? "واتس‌اپ"
+                                contactPlatform === "rubika"
+                                  ? "روبیکا"
                                   : "تلگرام"
                               }`
                             : lang === "ar"
                             ? `إرسال رسالة مباشرة عبر ${
-                                contactPlatform === "whatsapp"
-                                  ? "واتساب"
+                                contactPlatform === "rubika"
+                                  ? "روبيكا"
                                   : "تلغرام"
                               }`
                             : `Send Direct Message on ${
-                                contactPlatform === "whatsapp"
-                                  ? "WhatsApp"
+                                contactPlatform === "rubika"
+                                  ? "Rubika"
                                   : "Telegram"
                               }`}
                         </span>
                         <i className={`fa-solid ${
-                          contactPlatform === "whatsapp"
-                            ? "fa-whatsapp"
+                          contactPlatform === "rubika"
+                            ? "fa-rocket animate-bounce"
                             : "fa-telegram"
                         } ${t.dir === "rtl" ? "mr-2" : "ml-2"} text-lg`}></i>
                       </>
@@ -1747,6 +1949,15 @@ export default function App() {
           <p className="text-zinc-600 text-xs font-mono">
             © {new Date().getFullYear()} {t.brand}. {t.allRights}
           </p>
+          <div className="pt-2">
+            <button
+              onClick={() => navigateTo("/admin")}
+              className="text-[10px] text-zinc-700 hover:text-amber-500/80 transition-colors font-medium flex items-center gap-1 mx-auto"
+            >
+              <i className="fa-solid fa-user-gear"></i>
+              <span>ورود به پنل مدیریت ادمین</span>
+            </button>
+          </div>
         </div>
       </footer>
 
