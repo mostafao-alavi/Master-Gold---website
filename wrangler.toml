@@ -1,0 +1,8 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "master-gold-iran"
+compatibility_date = "2026-07-12"
+pages_build_output_dir = "./dist"
+
+[vars]
+# You can place your public client-side variables here if needed
+VITE_APP_NAME = "Master Gold Iran"
