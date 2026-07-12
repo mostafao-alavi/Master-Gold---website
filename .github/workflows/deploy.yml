@@ -34,6 +34,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: 'master-gold-iran' # This will be the name of your Cloudflare Pages project
+          projectName: 'master-gold-website-v2' # This will be the name of your Cloudflare Pages project
           directory: 'dist'
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
