@@ -6,11 +6,11 @@ const translations = {
   fa: {
     dir: "rtl",
     brand: "Master Gold Iran",
-    slogan: "ما تنها برند فقر زدایی با درآمد دلاری واقعی در ایران هستیم",
+    slogan: "ما تنها برند فقرزدایی با درآمد دلاری واقعی در ایران هستیم",
     area: "آموزش • استراتژی • مشاوره • راه‌اندازی بازارهای مالی غیرمتمرکز",
-    tagline: "کلیه آموزش‌ها و خدمات در ایران به صورت ۱۰۰٪ رایگان انجام می‌شود",
-    heroTitle: "به دنیای درآمد دلاری من خوش اومدید",
-    heroSubtitle: "کار ما فقر زدایی تو جامعست",
+    tagline: "کلیه آموزش‌ها و خدمات در ایران به‌صورت ۱۰۰٪ رایگان ارائه می‌شود",
+    heroTitle: "به دنیای درآمد دلاری من خوش آمدید",
+    heroSubtitle: "رسالت ما فقرزدایی در جامعه است",
     ctaView: "مشاهده پروژه‌ها و تخصص‌ها",
     ctaContact: "ارتباط با معین علوی",
     
@@ -18,71 +18,71 @@ const translations = {
     servicesTitle: "خدمات و تخصص‌ها",
     servicesSubtitle: "مسیر رشد مالی هدفمند و علمی",
     service1Title: "بازارهای غیرمتمرکز",
-    service1Desc: "آموزش صفر تا صد شروع کسب درآمد دلاری از پایه تا پیشرفته به صورت کاملاً علمی و تضمین‌شده.",
+    service1Desc: "آموزش صفر تا صد شروع کسب‌درآمد دلاری از پایه تا پیشرفته به‌صورت کاملاً علمی و تضمین‌شده.",
     service2Title: "بازار طلا",
     service2Desc: "مشاوره تخصصی خرید، فروش، سبدگردانی هوشمند و متدهای نوسان‌گیری فوق‌حرفه‌ای در بازار طلا.",
     service3Title: "ترید و معاملات آنلاین",
-    service3Desc: "در حال حاضر برگزار نمی‌شود. ما روی راه‌کارهای پایدارتر و ضدریسک‌تر وب ۳ تمرکز داریم.",
-    service3Status: "غیرفعال موقت",
+    service3Desc: "روی ارزهای مرجع جهانی، طلا و سهام اکوسیستم‌های Web3 دنیا.",
+    service3Status: "فعال",
 
     // About Me
     aboutTitle: "درباره من",
-    aboutSubtitle: "میدونی ما کی هستیم؟",
+    aboutSubtitle: "آیا می‌دانید ما چه کسی هستیم؟",
     aboutIntro: "سلام دوست من، بنده معین علوی هستم.",
-    aboutText: "معرفی مدرس و پروموتر رسمی شما در دوره‌ها: مدرس، محقق، تحلیل‌گر، مشاور، سرمایه‌گذار، استراتژیست و کارآفرین در حوزه Web3 و قراردادهای هوشمند با سابقه فعالیت فعال از سال ۲۰۲۱. برند ما در ایران (Master Gold Iran) همواره با پروژه‌ها و اکوسیستم‌هایی کار می‌کند که ادعامون ضد هرمی، پانزی، اسکم و کلاه‌برداری بودنه. هدف نهایی ما صرفاً آگاه‌سازی و فقرزدایی مردم شریف ایران است. کلیه آموزش‌ها و مشاوره‌های ما بدون ریالی دریافت هزینه، ۱۰۰٪ رایگان ارائه می‌شود.",
+    aboutText: "مدرس، محقق، تحلیل‌گر، مشاور، سرمایه‌گذار، استراتژیست و کارآفرین در حوزه Web3 و قراردادهای هوشمند با سابقه فعالیت از سال ۲۰۲۱. برند ما در ایران (Master Gold Iran) همواره با پروژه‌ها و اکوسیستم‌هایی همکاری می‌کند که کاملاً ضد هرمی، پانزی، اسکم و کلاه‌برداری هستند. هدف نهایی ما صرفاً آگاه‌سازی و فقرزدایی مردم شریف ایران است. کلیه آموزش‌ها و مشاوره‌های ما بدون دریافت حتی یک ریال هزینه، ۱۰۰٪ رایگان ارائه می‌شود. هرگونه درخواست پرداخت رمزارز یا مبلغ ریالی به نام ما، صددرصد کلاه‌برداری می‌باشد؛ زیرا برند ما به‌هیچ‌عنوان درخواست مالی از کاربران ندارد. مراقب کلاه‌برداری‌ها و حملات فیشینگ در اینترنت باشید.",
     
     statsLabel1: "وبینار آموزشی آنلاین",
     statsLabel2: "دانشجوی ایرانی تحت آموزش رایگان",
     statsLabel3: "کارآفرینی دیجیتال فعال در ۳ سال",
     
     specsTitle: "سوابق و تخصص‌های برجسته",
-    spec1: "تحلیلگر بازارهای مالی و مدرس سبک‌های RTM ،ICT، اسمارت مانی و پرایس اکشن",
-    spec2: "مشاور تخصصی پروژه‌های بلاکچینی و سیستم‌های نوین NFT در ایران",
+    spec1: "تحلیل‌گر بازارهای مالی و مدرس سبک‌های RTM، ICT، اسمارت مانی و پرایس اکشن",
+    spec2: "مشاور تخصصی پروژه‌های بلاک‌چینی و سیستم‌های نوین NFT در ایران",
     spec3: "پروموتر رسمی پروژه‌های جهانی Meta Whale، Holiverse و Holivita در ایران تحت اکوسیستم‌های متاوال، هالیورس و ویستوری",
     spec4: "نویسنده محتوای تخصصی در وبلاگ‌های بین‌المللی و رسمی Holiverse و Meta Whale",
 
     // Projects
     projectsTitle: "پروژه‌های برجسته",
-    projectsSubtitle: "اکوسیستم‌های پیشرفته مالی و غیرمتمرکز وب ۳",
+    projectsSubtitle: "اکوسیستم‌های پیشرفته مالی و غیرمتمرکز وب۳",
     project1Tag: "متاورس و دیفای",
     project1Title: "پروژه متاوال اسپیس (Meta Whale Space)",
-    project1Desc: "متا وال (Meta Whale) یک اکوسیستم پیشرفته در وب ۳، متاورس و دیفای (DeFi) است. این پلتفرم ابزارهای مالی، سرگرمی، آموزش و NFTها را در یک فضای واحد متحد کرده و دسترسی یکپارچه‌ای به کاربران می‌دهد.",
+    project1Desc: "متا وال (Meta Whale) یک اکوسیستم پیشرفته در وب۳، متاورس و دیفای (DeFi) است. این پلتفرم ابزارهای مالی، سرگرمی، آموزش و NFTها را در یک فضای واحد متحد کرده و دسترسی یکپارچه‌ای به کاربران می‌دهد.",
     project2Tag: "اکوسیستم قرارداد هوشمند",
     project2Title: "پروژه انقلابی ویستوری (Vistory)",
     project2Desc: "به Vistory خوش آمدید؛ یک اکوسیستم کاملاً یکپارچه Web3 که در آن امور مالی، بازی، آموزش و مالکیت دیجیتال به یک سیستم مالی غیرمتمرکز تبدیل شده است. معین علوی مدرس و پروموتر رسمی این پروژه در ایران است.",
     project3Tag: "آموزش و اخبار",
     project3Title: "پروژه هالیورس (Holiverse)",
-    project3Desc: "مجموعه مستر گولد ایران تقدیم می‌کند: کانال رسمی اخبار و اطلاعات پروژه HOLIVERSE & METAWHALE، تاکتیک و استراتژی (T&S)، رویالتریکس NFT، معدن ماینر BIT FORCE، محصولات کش‌بک توکن، صرافی W.dex، ارز دیجیتال CES COIN، هلدینگ، استیکینگ و متاورس.",
+    project3Desc: "مجموعه مستر گولد ایران تقدیم می‌کند: کانال رسمی اخبار و اطلاعات پروژه‌های HOLIVERSE و METAWHALE، تاکتیک و استراتژی (T&S)، رویالتی NFT، معدن ماینر BIT FORCE، محصولات کش‌بک توکن، صرافی W.dex، ارز دیجیتال CES COIN، هلدینگ، استیکینگ و متاورس.",
     viewProjectBtn: "ورود به پروژه و ثبت‌نام",
 
     // Testimonials
     testTitle: "نظرات دانشجویان و همراهان",
-    testSubtitle: "صدای واقعی کسانی که با ما فقر زدایی را آغاز کردند",
-    test1Text: "آموزش‌های وب۳ و متاورس معین علوی کاملا ضد هرمی و شفاف بود. بالاخره یک درآمد دلاری واقعی رو تجربه کردم بدون اینکه ترسی از اسکم بودن پروژه داشته باشم.",
+    testSubtitle: "صدای واقعی کسانی که با ما فقرزدایی را آغاز کردند",
+    test1Text: "آموزش‌های وب۳ و متاورس معین علوی کاملاً ضد هرمی و شفاف بودند. بالاخره یک درآمد دلاری واقعی را تجربه کردم بدون اینکه ترسی از اسکم بودن پروژه داشته باشم.",
     test1Name: "رضا سهرابی",
-    test1Role: "دانشجو دوره رایگان وب۳",
-    test2Text: "تحلیل‌های بازار طلا و مشاوره‌های عالی ایشون باعث شد تو نوسانات اخیر طلا سرمایه‌ام رو به بهترین شکل حفظ کنم و سوددهی خوبی داشته باشم. واقعا خسته نباشید.",
+    test1Role: "دانشجوی دوره رایگان وب۳",
+    test2Text: "تحلیل‌های بازار طلا و مشاوره‌های عالی ایشان باعث شد در نوسانات اخیر طلا، سرمایه‌ام را به بهترین شکل حفظ کنم و سوددهی خوبی داشته باشم. واقعاً خسته نباشید.",
     test2Name: "مریم احمدی",
     test2Role: "سرمایه‌گذار بازار طلا",
-    test3Text: "ادغام وب۳، متاورس و آموزش‌های رایگان متاوال و هالیورس پتانسیل فوق‌العاده‌ای دارن. ممنون از آموزش‌های رایگان و دلسوزانه جناب علوی عزیز.",
+    test3Text: "ادغام وب۳، متاورس و آموزش‌های رایگان متاوال و هالیورس پتانسیل فوق‌العاده‌ای دارند. ممنون از آموزش‌های رایگان و دلسوزانه جناب علوی عزیز.",
     test3Name: "امیرحسین فیاض",
-    test3Role: "فعال بازار دیجیتال و بلاکچین",
+    test3Role: "فعال بازار دیجیتال و بلاک‌چین",
 
     // FAQ
-    faqTitle: "سوالات متداول شما",
-    faqSubtitle: "پاسخ به ابهامات متداول درباره فرآیند کسب درآمد",
+    faqTitle: "سؤالات متداول شما",
+    faqSubtitle: "پاسخ به ابهامات متداول درباره فرآیند کسب‌درآمد",
     faq1Q: "آیا واقعاً آموزش‌ها و خدمات شما ۱۰۰٪ رایگان است؟",
-    faq1A: "بله، قطعاً. کلیه دوره‌های آموزشی، وبینارها، تحلیل‌های بازار طلا و مشاوره‌های اختصاصی مستر گولد ایران در راستای رسالت فقرزدایی به صورت کاملاً رایگان ارائه می‌شود و هیچ هزینه‌ای بابت آموزش دریافت نخواهد شد.",
+    faq1A: "بله، قطعاً. کلیه دوره‌های آموزشی، وبینارها، تحلیل‌های بازار طلا و مشاوره‌های اختصاصی مستر گولد ایران در راستای رسالت فقرزدایی به‌صورت کاملاً رایگان ارائه می‌شوند و هیچ هزینه‌ای بابت آموزش دریافت نخواهد شد.",
     faq2Q: "چگونه می‌توانم در پروژه‌های متاوال، ویستوری یا هالیورس شروع به کار کنم؟",
     faq2A: "بسیار ساده است. شما می‌توانید از بخش پروژه‌های برجسته بر روی دکمه ثبت‌نام کلیک کنید تا وارد پلتفرم رسمی شوید، یا مستقیماً به کانال تلگرام ما بپیوندید تا ویدیوهای راهنمای گام‌به‌گام را دریافت کنید.",
     faq3Q: "تفاوت این پروژه‌ها با شرکت‌های هرمی یا طرح‌های پانزی چیست؟",
-    faq3A: "ادعای اصلی و افتخار ما ضد هرمی، ضد پانزی، اسکم و کلاه‌برداری بودن تمامی اکوسیستم‌های غیرمتمرکز انتخابی است. این پلتفرم‌ها بر بستر قراردادهای هوشمند بلاکچین (Smart Contracts) بنا شده‌اند و هیچ فرد یا نهادی توانایی دخل و تصرف یا مسدود کردن دارایی شما را ندارد.",
+    faq3A: "ادعای اصلی و افتخار ما ضد هرمی، ضد پانزی، اسکم و کلاه‌برداری بودن تمامی اکوسیستم‌های غیرمتمرکز انتخابی است. این پلتفرم‌ها بر بستر قراردادهای هوشمند بلاک‌چین (Smart Contracts) بنا شده‌اند و هیچ فرد یا نهادی توانایی دخل و تصرف یا مسدود کردن دارایی شما را ندارد.",
 
     // Contact
     contactTitle: "تماس با من و مشاوره",
     contactSubtitle: "پل‌های ارتباطی مستقیم جهت ورود به دنیای مالی نوین",
     contactIntroTitle: "راه‌های ارتباط با معین علوی",
-    contactIntroDesc: "پاسخگوی سوالات و هدایت‌گر شما در حوزه‌های راه‌اندازی کسب‌وکار دلاری، مشاوره نوسان‌گیری طلا و کارآفرینی دیجیتال در بستر وب ۳.",
+    contactIntroDesc: "پاسخگوی سؤالات و هدایت‌گر شما در حوزه‌های راه‌اندازی کسب‌وکار دلاری، مشاوره نوسان‌گیری طلا و کارآفرینی دیجیتال در بستر وب۳.",
     phoneLabel: "شماره تلفن مستقیم در ایران",
     emailLabel: "ایمیل پشتیبانی رسمی",
     addressLabel: "دفتر مرکزی و محل فعالیت",
@@ -94,12 +94,12 @@ const translations = {
     formName: "نام و نام خانوادگی شما",
     formEmail: "آدرس ایمیل فعال",
     formMessage: "پیام یا درخواست مشاوره شما",
-    placeholderMessage: "جزئیات پروژه یا سوال خود را اینجا بنویسید...",
+    placeholderMessage: "جزئیات پروژه یا سؤال خود را اینجا بنویسید...",
     btnSubmit: "با من تماس بگیر",
     sending: "در حال ارسال اطلاعات...",
     successTitle: "پیام شما با موفقیت ارسال شد!",
     successText: "از اعتماد شما سپاسگزاریم. معین علوی یا تیم پشتیبانی در اسرع وقت پاسخگوی شما خواهند بود.",
-    allRights: "تمامی حقوق مادی و معنوی محفوظ است. توسعه یافته توسط معین علوی."
+    allRights: "تمامی حقوق مادی و معنوی محفوظ است. توسعه‌یافته توسط معین علوی."
   },
   en: {
     dir: "ltr",
@@ -119,15 +119,15 @@ const translations = {
     service1Desc: "Comprehensive training on starting dollar income generation from scratch to advanced, 100% scientifically backed.",
     service2Title: "Gold Market",
     service2Desc: "Specialized consulting on buying, selling, smart portfolio management, and professional gold trading swing strategies.",
-    service3Title: "Online Trading",
-    service3Desc: "Currently not active. We are focusing fully on sustainable, anti-risk Web3 smart contract structures.",
-    service3Status: "Temporarily Disabled",
+    service3Title: "Online Trading & Trades",
+    service3Desc: "On world reference currencies, gold, and stocks of Web3 ecosystems.",
+    service3Status: "Active",
 
     // About Me
     aboutTitle: "About Me",
     aboutSubtitle: "Do you know who we are?",
     aboutIntro: "Hello my friend, I am Moein Alavi.",
-    aboutText: "Official educator and promoter: Lecturer, researcher, analyst, consultant, investor, strategist, and entrepreneur in Web3 and smart contracts, active since 2021. Our brand, Master Gold Iran, strictly partners with anti-pyramid, anti-ponzi, and anti-scam ecosystems. Our fundamental goal is raising awareness and alleviating poverty in Iran. All of our education and consultation services are 100% free.",
+    aboutText: "Official educator and promoter: Lecturer, researcher, analyst, consultant, investor, strategist, and entrepreneur in Web3 and smart contracts, active since 2021. Our brand, Master Gold Iran, strictly partners with anti-pyramid, anti-ponzi, and anti-scam ecosystems. Our fundamental goal is raising awareness and alleviating poverty in Iran. All of our education and consultation services are 100% free. Any request for cryptocurrency or fiat payment to our accounts is 100% a scam. Our brand never requests financial payments under any circumstances. Beware of online scams and phishing.",
     
     statsLabel1: "Online Webinars Held",
     statsLabel2: "Iranian Students Trained for Free",
@@ -201,7 +201,7 @@ const translations = {
   },
   ar: {
     dir: "rtl",
-    brand: "ماستر غولد إيران",
+    brand: "Master Gold Iran",
     slogan: "نحن العلامة التجارية الوحيدة للحد من الفقر بدخل دولاري حقيقي في إيران",
     area: "التعليم • الاستراتيجية • الاستشارات • إطلاق الأسواق المالية اللامركزية",
     tagline: "يتم تقديم جميع التدريبات والخدمات في إيران مجانًا بنسبة ۱۰۰٪",
@@ -218,14 +218,14 @@ const translations = {
     service2Title: "سوق الذهب",
     service2Desc: "استشارات متخصصة في الشراء، البيع، إدارة المحافظ الذكية وطرق المضاربة الاحترافية في سوق الذهب.",
     service3Title: "التداول والصفقات عبر الإنترنت",
-    service3Desc: "غير مفعل حالياً. نحن نركز بشكل كامل على حلول الويب ۳ الأكثر استقراراً ومقاومة للمخاطر.",
-    service3Status: "غير نشط مؤقتاً",
+    service3Desc: "على العملات المرجعية العالمية والذهب وأسهم أنظمة الويب ۳ في العالم.",
+    service3Status: "نشط",
 
     // About Me
     aboutTitle: "من أنا",
     aboutSubtitle: "هل تعرف من نحن؟",
     aboutIntro: "أهلاً بك يا صديقي، أنا معين علوي.",
-    aboutText: "مدرسك ومروجك الرسمي في الدورات: محاضر، باحث، محلل، مستشار، مستثمر، استراتيجي ورائد أعمال في مجال الويب ۳ والجنود الذكية (Smart Contracts) بخبرة نشطة منذ عام ۲۰۲۱. علامتنا التجارية في إيران (Master Gold Iran) تعمل دائماً مع المشاريع والأنظمة البيئية التي نؤكد أنها ضد الهرمية، البونزي، الاحتيال والنصب. هدفنا النهائي هو ببساطة زيادة الوعي والقضاء على الفقر لدى الشعب الإيراني الشريف. يتم تقديم جميع دوراتنا واستشاراتنا مجاناً بنسبة ۱۰۰٪ بدون أي تكلفة.",
+    aboutText: "مدرسك ومروجك الرسمي في الدورات: محاضر، باحث، محلل، مستشار، مستثمر، استراتيجي ورائد أعمال في مجال الويب ۳ والعقود الذكية بخبرة نشطة منذ عام ۲۰۲۱. علامتنا التجارية في إيران (Master Gold Iran) تعمل دائماً مع المشاريع والأنظمة البيئية التي نؤكد أنها ضد الهرمية، البونزي، الاحتيال والنصب. هدفنا النهائي هو ببساطة زيادة الوعي والقضاء على الفقر لدى الشعب الإيراني الشريف. يتم تقديم جميع دوراتنا واستشاراتنا مجاناً بنسبة ۱۰۰٪ بدون أي تكلفة. أي طلب لدفع عملات رقمية أو مبالغ مالية إلى حسابنا هو عملية احتيال بنسبة ۱۰۰٪. لا تطلب علامتنا التجارية أي تمويل أو مدفوعات تحت أي ظرف من الظروف. احذر من عمليات الاحتيال والتصيد الاحتيالي على الإنترنت.",
     
     statsLabel1: "ندوة تعليمية عبر الإنترنت",
     statsLabel2: "طالب إيراني تحت التدريب المجاني",
@@ -302,6 +302,7 @@ const translations = {
 export default function App() {
   const [lang, setLang] = useState<"fa" | "en" | "ar">("fa");
   const t = translations[lang];
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
 
   // Active navigation section state
   const [activeSection, setActiveSection] = useState("hero");
@@ -335,7 +336,7 @@ export default function App() {
     { id: "about", label: lang === "fa" ? "درباره من" : lang === "ar" ? "من أنا" : "About Me" },
     { id: "projects", label: lang === "fa" ? "پروژه‌های برجسته" : lang === "ar" ? "المشاريع البارزة" : "Featured Projects" },
     { id: "testimonials", label: lang === "fa" ? "نظرات همراهان" : lang === "ar" ? "آراء الشركاء" : "Testimonials" },
-    { id: "faq", label: lang === "fa" ? "سوالات متداول" : lang === "ar" ? "الأسئلة الشائعة" : "FAQ" },
+    { id: "faq", label: lang === "fa" ? "سؤالات متداول" : lang === "ar" ? "الأسئلة الشائعة" : "FAQ" },
     { id: "contact", label: lang === "fa" ? "تماس با من" : lang === "ar" ? "الاتصال بي" : "Contact" },
   ];
 
@@ -449,17 +450,14 @@ export default function App() {
                   e.preventDefault();
                   scrollToSection("hero");
                 }}
-                className="group flex items-center space-x-2 space-x-reverse"
+                className="group flex items-center gap-3"
               >
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform duration-300">
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform duration-300">
                   <i className="fa-solid fa-crown text-zinc-950 text-lg"></i>
                 </div>
-                <div className={`flex flex-col ${lang === "fa" ? "mr-3" : "ml-3"}`}>
-                  <span className="text-xl font-black tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-amber-200 to-orange-500 leading-none">
+                <div className="flex flex-col justify-center min-w-0">
+                  <span className="text-xl font-black tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-amber-200 to-orange-500 leading-none whitespace-nowrap">
                     {t.brand}
-                  </span>
-                  <span className="text-[9px] text-zinc-500 font-mono tracking-widest mt-1">
-                    DECEN. MARKETS
                   </span>
                 </div>
               </a>
@@ -491,38 +489,74 @@ export default function App() {
 
             {/* Language & Channel Actions */}
             <div className="hidden md:flex items-center space-x-3 space-x-reverse">
-              {/* Language Switcher */}
-              <div className="flex items-center space-x-1 space-x-reverse bg-zinc-900 border border-zinc-800 p-1 rounded-xl">
+              {/* Custom Language Dropdown Switcher */}
+              <div className="relative">
                 <button
-                  onClick={() => setLang("fa")}
-                  className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                    lang === "fa"
-                      ? "bg-amber-500 text-zinc-950 shadow"
-                      : "text-zinc-400 hover:text-zinc-200"
-                  }`}
+                  onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                  className="px-3.5 py-1.5 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-zinc-200 text-xs font-bold flex items-center gap-2 cursor-pointer transition-all active:scale-95"
                 >
-                  فارسی
+                  <i className="fa-solid fa-globe text-amber-500 text-sm"></i>
+                  <span>
+                    {lang === "fa" ? "فارسی" : lang === "en" ? "English" : "العربية"}
+                  </span>
+                  <i className={`fa-solid fa-chevron-down text-[9px] transition-transform duration-300 ${langDropdownOpen ? "rotate-180 text-amber-500" : "text-zinc-500"}`}></i>
                 </button>
-                <button
-                  onClick={() => setLang("en")}
-                  className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                    lang === "en"
-                      ? "bg-amber-500 text-zinc-950 shadow"
-                      : "text-zinc-400 hover:text-zinc-200"
-                  }`}
-                >
-                  EN
-                </button>
-                <button
-                  onClick={() => setLang("ar")}
-                  className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                    lang === "ar"
-                      ? "bg-amber-500 text-zinc-950 shadow"
-                      : "text-zinc-400 hover:text-zinc-200"
-                  }`}
-                >
-                  العربية
-                </button>
+
+                <AnimatePresence>
+                  {langDropdownOpen && (
+                    <>
+                      {/* Invisible backdrop to close the dropdown */}
+                      <div 
+                        className="fixed inset-0 z-40 cursor-default" 
+                        onClick={() => setLangDropdownOpen(false)}
+                      />
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        transition={{ duration: 0.15 }}
+                        className={`absolute ${t.dir === "rtl" ? "left-0" : "right-0"} mt-2 w-32 rounded-xl bg-zinc-950 border border-zinc-800/80 shadow-2xl p-1 z-50 overflow-hidden backdrop-blur-md`}
+                      >
+                        <button
+                          onClick={() => {
+                            setLang("fa");
+                            setLangDropdownOpen(false);
+                          }}
+                          className={`w-full px-3 py-2 text-xs font-bold rounded-lg transition-colors cursor-pointer flex items-center justify-between ${
+                            lang === "fa" ? "bg-amber-500/10 text-amber-400" : "text-zinc-400 hover:bg-zinc-900 hover:text-zinc-100"
+                          }`}
+                        >
+                          <span>فارسی</span>
+                          {lang === "fa" && <i className="fa-solid fa-check text-[10px] text-amber-500"></i>}
+                        </button>
+                        <button
+                          onClick={() => {
+                            setLang("en");
+                            setLangDropdownOpen(false);
+                          }}
+                          className={`w-full px-3 py-2 text-xs font-bold rounded-lg transition-colors cursor-pointer flex items-center justify-between ${
+                            lang === "en" ? "bg-amber-500/10 text-amber-400" : "text-zinc-400 hover:bg-zinc-900 hover:text-zinc-100"
+                          }`}
+                        >
+                          <span>English</span>
+                          {lang === "en" && <i className="fa-solid fa-check text-[10px] text-amber-500"></i>}
+                        </button>
+                        <button
+                          onClick={() => {
+                            setLang("ar");
+                            setLangDropdownOpen(false);
+                          }}
+                          className={`w-full px-3 py-2 text-xs font-bold rounded-lg transition-colors cursor-pointer flex items-center justify-between ${
+                            lang === "ar" ? "bg-amber-500/10 text-amber-400" : "text-zinc-400 hover:bg-zinc-900 hover:text-zinc-100"
+                          }`}
+                        >
+                          <span>العربية</span>
+                          {lang === "ar" && <i className="fa-solid fa-check text-[10px] text-amber-500"></i>}
+                        </button>
+                      </motion.div>
+                    </>
+                  )}
+                </AnimatePresence>
               </div>
 
               <a
@@ -538,32 +572,73 @@ export default function App() {
 
             {/* Mobile Menu Toggle Button */}
             <div className="md:hidden flex items-center space-x-2 space-x-reverse">
-              {/* Mobile Language Switcher */}
-              <div className="flex items-center space-x-1 space-x-reverse bg-zinc-900 border border-zinc-800 p-0.5 rounded-lg">
+              {/* Mobile Language Switcher Dropdown */}
+              <div className="relative">
                 <button
-                  onClick={() => setLang("fa")}
-                  className={`px-1.5 py-0.5 rounded-md text-3xs font-bold transition-all ${
-                    lang === "fa" ? "bg-amber-500 text-zinc-950" : "text-zinc-400"
-                  }`}
+                  onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                  className="px-2 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-200 text-xs font-bold flex items-center gap-1.5 cursor-pointer active:scale-95 transition-all"
                 >
-                  فا
+                  <i className="fa-solid fa-globe text-amber-500 text-[11px]"></i>
+                  <span className="uppercase text-[10px]">
+                    {lang}
+                  </span>
+                  <i className={`fa-solid fa-chevron-down text-[8px] transition-transform duration-300 ${langDropdownOpen ? "rotate-180 text-amber-500" : "text-zinc-500"}`}></i>
                 </button>
-                <button
-                  onClick={() => setLang("en")}
-                  className={`px-1.5 py-0.5 rounded-md text-3xs font-bold transition-all ${
-                    lang === "en" ? "bg-amber-500 text-zinc-950" : "text-zinc-400"
-                  }`}
-                >
-                  EN
-                </button>
-                <button
-                  onClick={() => setLang("ar")}
-                  className={`px-1.5 py-0.5 rounded-md text-3xs font-bold transition-all ${
-                    lang === "ar" ? "bg-amber-500 text-zinc-950" : "text-zinc-400"
-                  }`}
-                >
-                  عرب
-                </button>
+
+                <AnimatePresence>
+                  {langDropdownOpen && (
+                    <>
+                      <div 
+                        className="fixed inset-0 z-40 cursor-default" 
+                        onClick={() => setLangDropdownOpen(false)}
+                      />
+                      <motion.div
+                        initial={{ opacity: 0, y: 5, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 5, scale: 0.95 }}
+                        transition={{ duration: 0.15 }}
+                        className={`absolute ${t.dir === "rtl" ? "left-0" : "right-0"} mt-2 w-28 rounded-xl bg-zinc-950 border border-zinc-800/80 shadow-2xl p-1 z-50 backdrop-blur-md`}
+                      >
+                        <button
+                          onClick={() => {
+                            setLang("fa");
+                            setLangDropdownOpen(false);
+                          }}
+                          className={`w-full px-2 py-1.5 text-[11px] font-bold rounded-lg flex items-center justify-between ${
+                            lang === "fa" ? "bg-amber-500/10 text-amber-400" : "text-zinc-400 hover:bg-zinc-900"
+                          }`}
+                        >
+                          <span>فارسی</span>
+                          {lang === "fa" && <i className="fa-solid fa-check text-[8px] text-amber-500"></i>}
+                        </button>
+                        <button
+                          onClick={() => {
+                            setLang("en");
+                            setLangDropdownOpen(false);
+                          }}
+                          className={`w-full px-2 py-1.5 text-[11px] font-bold rounded-lg flex items-center justify-between ${
+                            lang === "en" ? "bg-amber-500/10 text-amber-400" : "text-zinc-400 hover:bg-zinc-900"
+                          }`}
+                        >
+                          <span>EN</span>
+                          {lang === "en" && <i className="fa-solid fa-check text-[8px] text-amber-500"></i>}
+                        </button>
+                        <button
+                          onClick={() => {
+                            setLang("ar");
+                            setLangDropdownOpen(false);
+                          }}
+                          className={`w-full px-2 py-1.5 text-[11px] font-bold rounded-lg flex items-center justify-between ${
+                            lang === "ar" ? "bg-amber-500/10 text-amber-400" : "text-zinc-400 hover:bg-zinc-900"
+                          }`}
+                        >
+                          <span>العربية</span>
+                          {lang === "ar" && <i className="fa-solid fa-check text-[8px] text-amber-500"></i>}
+                        </button>
+                      </motion.div>
+                    </>
+                  )}
+                </AnimatePresence>
               </div>
 
               <button
@@ -636,6 +711,21 @@ export default function App() {
         >
           <div className="max-w-5xl mx-auto text-center z-10 space-y-8">
             
+            {/* Brand Logo Placeholder */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-col items-center justify-center space-y-2 mb-4"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/30 border border-amber-400/20">
+                <i className="fa-solid fa-crown text-zinc-950 text-3xl animate-pulse"></i>
+              </div>
+              <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-500 font-bold">
+                logo brand
+              </span>
+            </motion.div>
+
             {/* Tagline Badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -673,26 +763,107 @@ export default function App() {
             </div>
 
             {/* Brief Introduction / Slogan description */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="text-zinc-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed border-r-2 border-l-2 border-amber-500/30 px-6 py-2"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8 space-y-4 text-center backdrop-blur-sm shadow-xl"
             >
               {lang === "fa" ? (
-                <>
-                  ما فرصت رو دوبار به کسی نمی‌دیم. <span className="text-amber-400 font-extrabold">معین علوی</span> هستم؛ موسس و خالق برند آموزشی مستر گولد ایران. مدرس، محقق، سرمایه‌گذار و کارآفرین بازارهای مالی غیرمتمرکز، استراتژیست و مشاور اکوسیستم‌های بین‌المللی متاوال، هالیورس و ویستوری در ایران.
-                </>
+                <div className="space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed">
+                  <p className="text-amber-400 font-black text-base sm:text-lg tracking-wide border-b border-zinc-800 pb-3">
+                    ❌ ما فرصت حضور در گروه کاری‌مان را دو بار به کسی نمی‌دهیم!
+                  </p>
+                  <p className="text-white font-black text-lg sm:text-xl">
+                    من <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500 font-black">معین علوی</span> هستم
+                  </p>
+                  <p className="text-zinc-300 font-bold">
+                    مدرس، محقق، سرمایه‌گذار و کارآفرین بازارهای مالی غیرمتمرکز در ایران
+                  </p>
+                  <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs sm:text-sm text-zinc-400 pt-2">
+                    <span className="px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/50 flex items-center gap-1.5 font-bold">
+                      👑 استراتژیست، مشاور و سرمایه‌گذار
+                    </span>
+                    <span className="px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/50 flex items-center gap-1.5 font-bold">
+                      🌐 در اکوسیستم متاوال، هالیورس و ویستوری
+                    </span>
+                  </div>
+                  <div className="pt-2 border-t border-zinc-800/50 space-y-2 text-xs sm:text-sm">
+                    <p className="text-amber-300 font-bold flex items-center justify-center gap-1.5">
+                      💯 ما مدعی فقرزدایی از طریق کسب درآمد دلاری در ایران هستیم
+                    </p>
+                    <p className="text-zinc-400 font-bold flex items-center justify-center gap-1.5">
+                      🛡️ ما مخالف و ضد سایت‌های هرمی، پانزی، اسکم و کلاه‌برداری هستیم
+                    </p>
+                    <p className="text-zinc-400 font-bold flex items-center justify-center gap-1.5">
+                      💡 کار ما ابتدا آگاه‌سازی مردم شریف ایران است
+                    </p>
+                  </div>
+                </div>
               ) : lang === "ar" ? (
-                <>
-                  نحن لا نعطي فرصة ثانية لأي شخص. أنا <span className="text-amber-400 font-extrabold">معين علوي</span>؛ مؤسس ومبتكر العلامة التجارية التعليمية مستر غولد إيران. مدرس، باحث، مستثمر، ورائد أعمال في الأسواق المالية اللامركزية، واستراتيجي ومستشار للأنظمة البيئية الدولية ميتاوال، هاليفرس وفيستوري في إيران.
-                </>
+                <div className="space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed">
+                  <p className="text-amber-400 font-black text-base sm:text-lg tracking-wide border-b border-zinc-800 pb-3">
+                    ❌ نحن لا نعطي فرصة ثانية لأي شخص للانضمام إلى فريقنا!
+                  </p>
+                  <p className="text-white font-black text-lg sm:text-xl">
+                    أنا <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500 font-black">معين علوي</span>
+                  </p>
+                  <p className="text-zinc-300 font-bold">
+                    مدرس، باحث، مستثمر ورائد أعمال في الأسواق المالية اللامركزية في إيران
+                  </p>
+                  <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs sm:text-sm text-zinc-400 pt-2">
+                    <span className="px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/50 flex items-center gap-1.5 font-bold">
+                      👑 استراتيجي، مستشار ومستثمر
+                    </span>
+                    <span className="px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/50 flex items-center gap-1.5 font-bold">
+                      🌐 في أنظمة ميتاوال، هاليفرس وفيستوري
+                    </span>
+                  </div>
+                  <div className="pt-2 border-t border-zinc-800/50 space-y-2 text-xs sm:text-sm">
+                    <p className="text-amber-300 font-bold flex items-center justify-center gap-1.5">
+                      💯 نحن ندعي القضاء على الفقر من خلال كسب دخل دولاري حقيقي في إيران
+                    </p>
+                    <p className="text-zinc-400 font-bold flex items-center justify-center gap-1.5">
+                      🛡️ نحن ضد ومخالفون لمواقع الاحتيال والهرمية والبانزي
+                    </p>
+                    <p className="text-zinc-400 font-bold flex items-center justify-center gap-1.5">
+                      💡 عملنا أولاً هو توعية وتثقيف الشعب الإيراني
+                    </p>
+                  </div>
+                </div>
               ) : (
-                <>
-                  We do not give a second chance to anyone. I am <span className="text-amber-400 font-extrabold">Moein Alavi</span>, founder & creator of Master Gold Iran educational brand. Lecturer, researcher, investor, and digital entrepreneur in decentralized financial markets.
-                </>
+                <div className="space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed">
+                  <p className="text-amber-400 font-black text-base sm:text-lg tracking-wide border-b border-zinc-800 pb-3">
+                    ❌ We do not give a second chance to join our working group!
+                  </p>
+                  <p className="text-white font-black text-lg sm:text-xl">
+                    I am <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500 font-black">Moein Alavi</span>
+                  </p>
+                  <p className="text-zinc-300 font-bold">
+                    Lecturer, researcher, investor, and digital entrepreneur in decentralized markets
+                  </p>
+                  <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs sm:text-sm text-zinc-400 pt-2">
+                    <span className="px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/50 flex items-center gap-1.5 font-bold">
+                      👑 Strategist, Advisor & Investor
+                    </span>
+                    <span className="px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/50 flex items-center gap-1.5 font-bold">
+                      🌐 In Meta Whale, Holiverse & Vistory ecosystems
+                    </span>
+                  </div>
+                  <div className="pt-2 border-t border-zinc-800/50 space-y-2 text-xs sm:text-sm">
+                    <p className="text-amber-300 font-bold flex items-center justify-center gap-1.5">
+                      💯 We claim poverty Alleviation through real dollar income in Iran
+                    </p>
+                    <p className="text-zinc-400 font-bold flex items-center justify-center gap-1.5">
+                      🛡️ We are strictly anti-pyramid, anti-ponzi, anti-scam and frauds
+                    </p>
+                    <p className="text-zinc-400 font-bold flex items-center justify-center gap-1.5">
+                      💡 Our primary mission is to raise public awareness first
+                    </p>
+                  </div>
+                </div>
               )}
-            </motion.p>
+            </motion.div>
 
             {/* CTA buttons */}
             <motion.div
@@ -722,9 +893,15 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.6 }}
-              className="text-[11px] sm:text-xs text-zinc-400 uppercase tracking-widest max-w-md mx-auto pt-4"
+              className="text-xs sm:text-sm text-zinc-200 font-extrabold uppercase tracking-widest max-w-xl mx-auto pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 select-none"
             >
-              <span className="text-emerald-500 font-bold">● 100% Guaranteed</span>: Anti-Pyramid • Anti-Ponzi • Anti-Scam • Raising Awareness
+              <span className="text-emerald-400 animate-pulse flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>100% GUARANTEED</span>
+              </span>
+              <span className="text-amber-400 animate-[pulse_1.2s_infinite] drop-shadow-[0_0_8px_rgba(245,158,11,0.5)] font-black">
+                Anti-Pyramid • Anti-Ponzi • Anti-Scam
+              </span>
             </motion.p>
           </div>
 
@@ -742,7 +919,7 @@ export default function App() {
             
             {/* Header titles */}
             <div className="text-center">
-              <h2 className="text-xs sm:text-sm font-semibold tracking-wider text-amber-500 uppercase mb-2">
+              <h2 className="text-xs sm:text-sm font-black tracking-widest text-amber-400 uppercase mb-2">
                 {t.area}
               </h2>
               <p className="text-3xl sm:text-5xl font-black text-white">
@@ -809,45 +986,61 @@ export default function App() {
 
               {/* Item 3: Trading */}
               <motion.div
-                whileHover={{ y: -8, borderColor: "rgba(239, 68, 68, 0.2)" }}
-                className="bg-zinc-900/20 border border-zinc-900 rounded-2xl p-8 transition-all duration-300 flex flex-col justify-between opacity-80"
+                whileHover={{ y: -8, borderColor: "rgba(245, 158, 11, 0.4)" }}
+                className="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-8 hover:bg-zinc-900/60 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-14 h-14 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-6 text-red-400 text-2xl">
-                    <i className="fa-solid fa-circle-minus"></i>
+                  <div className="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 text-2xl">
+                    <i className="fa-solid fa-chart-pie"></i>
                   </div>
                   <div className="flex items-center space-x-2 space-x-reverse mb-4">
-                    <h3 className="text-xl font-bold text-zinc-400">
+                    <h3 className="text-xl font-bold text-white">
                       {t.service3Title}
                     </h3>
-                    <span className="px-2 py-0.5 rounded bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-semibold">
+                    <span className="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-semibold">
                       {t.service3Status}
                     </span>
                   </div>
-                  <p className="text-zinc-500 leading-relaxed text-sm">
+                  <p className="text-zinc-400 leading-relaxed text-sm">
                     {t.service3Desc}
                   </p>
                 </div>
-                <div className="mt-8 pt-4 border-t border-zinc-800/50 flex items-center text-zinc-500 text-xs font-semibold">
-                  <span>{lang === "fa" ? "عدم پذیرش موقت" : lang === "ar" ? "مغلق مؤقتاً" : "Temporarily Closed"}</span>
+                <div
+                  onClick={() => scrollToSection("contact")}
+                  className="mt-8 pt-4 border-t border-zinc-800/50 flex items-center text-amber-400 text-xs font-semibold group cursor-pointer"
+                >
+                  {lang === "fa" ? "درخواست آموزش و استراتژی" : lang === "ar" ? "طلب التدريب والاستراتيجية" : "Request Strategy"}
+                  <i className={`fa-solid ${t.dir === "rtl" ? "fa-chevron-left mr-2 group-hover:-translate-x-1" : "fa-chevron-right ml-2 group-hover:translate-x-1"} transition-transform`}></i>
                 </div>
               </motion.div>
 
             </div>
 
             {/* Anti Pyramid highlight box */}
-            <div className="bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-transparent border border-amber-500/20 rounded-2xl p-6 sm:p-8 text-center max-w-4xl mx-auto space-y-4">
-              <i className="fa-solid fa-shield-virus text-3xl text-amber-400"></i>
-              <h4 className="text-lg font-bold text-white">
-                {lang === "fa" ? "ضد هرمی، ضد پانزی و ضد اسکم" : lang === "ar" ? "ضد هرمية، ضد بونزي وضد الاحتيال" : "Anti-Pyramid, Anti-Ponzi & Anti-Scam"}
-              </h4>
-              <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
-                {lang === "fa" 
-                  ? "برند مستر گولد ایران با پروژه‌های فاقد هرگونه تداخل مالی مرکزی کار می‌کند. تمامی سرمایه‌گذاری‌ها بر بستر اسمارت کانترکت‌ها و غیرمتمرکز هستند." 
-                  : lang === "ar"
-                  ? "تعمل العلامة التجارية مستر غولد إيران مع مشاريع خالية من أي تدخل مالي مركزي. جميع الاستثمارات مبنية على العقود الذكية ولامركزية."
-                  : "Master Gold Iran works strictly with decentralized non-custodial tools on secure public chains. Your asset is safe, managed only by yourself."}
-              </p>
+            <div className="relative overflow-hidden bg-gradient-to-br from-red-500/15 via-amber-500/5 to-transparent border border-red-500/30 rounded-2xl p-6 sm:p-10 text-center max-w-4xl mx-auto space-y-4 shadow-xl">
+              {/* Large warning background watermarks */}
+              <div className="absolute right-4 bottom-0 text-red-500/5 text-9xl pointer-events-none select-none z-0">
+                <i className="fa-solid fa-triangle-exclamation"></i>
+              </div>
+              <div className="absolute left-4 top-4 text-amber-500/5 text-9xl pointer-events-none select-none z-0">
+                <i className="fa-solid fa-radiation animate-spin [animation-duration:20s]"></i>
+              </div>
+
+              <div className="relative z-10 space-y-4">
+                <div className="inline-flex p-3 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-3xl animate-bounce">
+                  <i className="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <h4 className="text-xl sm:text-2xl font-black text-red-400 tracking-wide drop-shadow-[0_0_10px_rgba(239,68,68,0.3)] uppercase">
+                  {lang === "fa" ? "❌ ضد هرمی، ضد پانزی و ضد اسکم (۱۰۰٪ تضمینی)" : lang === "ar" ? "❌ ضد هرمية، ضد بونزي وضد الاحتيال (۱۰۰٪ مضمون)" : "❌ Anti-Pyramid, Anti-Ponzi & Anti-Scam (100% Guaranteed)"}
+                </h4>
+                <p className="text-zinc-100 text-sm sm:text-base font-extrabold leading-relaxed max-w-3xl mx-auto">
+                  {lang === "fa" 
+                    ? "برند مستر گولد ایران با پروژه‌های فاقد هرگونه تداخل مالی مرکزی کار می‌کند. تمامی سرمایه‌گذاری‌ها بر بستر اسمارت کانترکت‌ها و غیرمتمرکز هستند. دارایی شما مستقیماً در ولت خودتان مدیریت می‌شود." 
+                    : lang === "ar"
+                    ? "تعمل العلامة التجارية مستر غولد إيران مع مشاريع خالية من أي تدخل مالي مركزي. جميع الاستثمارات مبنية على العقود الذكية ولامركزية. تتم إدارة أصولك مباشرة في محفظتك الخاصة."
+                    : "Master Gold Iran works strictly with decentralized non-custodial tools on secure public chains. Your asset is safe, managed only by yourself inside your own wallet."}
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -877,26 +1070,27 @@ export default function App() {
                 </p>
 
                 {/* Sagas and credentials */}
-                <div className="space-y-3 pt-4">
-                  <h5 className="text-white font-extrabold text-sm border-r-2 border-amber-500 pr-3 pl-3">
+                <div className="space-y-4 pt-6">
+                  <h5 className={`text-zinc-100 font-black text-lg sm:text-xl border-amber-500 flex items-center gap-2 ${t.dir === "rtl" ? "border-r-4 pr-3" : "border-l-4 pl-3"}`}>
+                    <i className="fa-solid fa-award text-amber-400 text-xl animate-pulse"></i>
                     {t.specsTitle}
                   </h5>
-                  <ul className="space-y-2 text-xs sm:text-sm text-zinc-400 list-none pr-0">
-                    <li className="flex items-start">
-                      <i className={`fa-solid fa-check text-amber-400 ${t.dir === "rtl" ? "ml-2.5 mt-1" : "mr-2.5 mt-1"}`}></i>
-                      <span>{t.spec1}</span>
+                  <ul className="space-y-3.5 text-sm sm:text-base text-zinc-300 list-none pr-0">
+                    <li className="flex items-start bg-zinc-900/30 border border-zinc-800/40 p-3 rounded-xl hover:bg-zinc-900/60 hover:border-amber-500/20 transition-all duration-300">
+                      <i className={`fa-solid fa-circle-check text-amber-400 text-lg ${t.dir === "rtl" ? "ml-3 mt-0.5" : "mr-3 mt-0.5"}`}></i>
+                      <span className="leading-relaxed">{t.spec1}</span>
                     </li>
-                    <li className="flex items-start">
-                      <i className={`fa-solid fa-check text-amber-400 ${t.dir === "rtl" ? "ml-2.5 mt-1" : "mr-2.5 mt-1"}`}></i>
-                      <span>{t.spec2}</span>
+                    <li className="flex items-start bg-zinc-900/30 border border-zinc-800/40 p-3 rounded-xl hover:bg-zinc-900/60 hover:border-amber-500/20 transition-all duration-300">
+                      <i className={`fa-solid fa-circle-check text-amber-400 text-lg ${t.dir === "rtl" ? "ml-3 mt-0.5" : "mr-3 mt-0.5"}`}></i>
+                      <span className="leading-relaxed">{t.spec2}</span>
                     </li>
-                    <li className="flex items-start">
-                      <i className={`fa-solid fa-check text-amber-400 ${t.dir === "rtl" ? "ml-2.5 mt-1" : "mr-2.5 mt-1"}`}></i>
-                      <span>{t.spec3}</span>
+                    <li className="flex items-start bg-zinc-900/30 border border-zinc-800/40 p-3 rounded-xl hover:bg-zinc-900/60 hover:border-amber-500/20 transition-all duration-300">
+                      <i className={`fa-solid fa-circle-check text-amber-400 text-lg ${t.dir === "rtl" ? "ml-3 mt-0.5" : "mr-3 mt-0.5"}`}></i>
+                      <span className="leading-relaxed">{t.spec3}</span>
                     </li>
-                    <li className="flex items-start">
-                      <i className={`fa-solid fa-check text-amber-400 ${t.dir === "rtl" ? "ml-2.5 mt-1" : "mr-2.5 mt-1"}`}></i>
-                      <span>{t.spec4}</span>
+                    <li className="flex items-start bg-zinc-900/30 border border-zinc-800/40 p-3 rounded-xl hover:bg-zinc-900/60 hover:border-amber-500/20 transition-all duration-300">
+                      <i className={`fa-solid fa-circle-check text-amber-400 text-lg ${t.dir === "rtl" ? "ml-3 mt-0.5" : "mr-3 mt-0.5"}`}></i>
+                      <span className="leading-relaxed">{t.spec4}</span>
                     </li>
                   </ul>
                 </div>
@@ -979,7 +1173,7 @@ export default function App() {
             
             {/* Header titles */}
             <div className="text-center">
-              <h2 className="text-xs sm:text-sm font-semibold tracking-wider text-amber-500 uppercase mb-2">
+              <h2 className="text-xs sm:text-sm font-black tracking-widest text-amber-400 uppercase mb-2">
                 {lang === "fa" ? "سکوهای سودآور و پایدار جهانی" : lang === "ar" ? "منصات عالمية مربحة ومستقرة" : "Stable Worldwide Platforms"}
               </h2>
               <p className="text-3xl sm:text-5xl font-black text-white">
@@ -1106,7 +1300,7 @@ export default function App() {
             
             {/* Header titles */}
             <div className="text-center">
-              <h2 className="text-xs sm:text-sm font-semibold tracking-wider text-amber-500 uppercase mb-2">
+              <h2 className="text-xs sm:text-sm font-black tracking-widest text-amber-400 uppercase mb-2">
                 {lang === "fa" ? "نتایج واقعی از کارآفرینی ما" : lang === "ar" ? "نتائج واقعية لريادتنا" : "Real Poverty Alleviation Outlets"}
               </h2>
               <p className="text-3xl sm:text-5xl font-black text-white">
@@ -1175,7 +1369,7 @@ export default function App() {
             
             {/* Header titles */}
             <div className="text-center">
-              <h2 className="text-xs sm:text-sm font-semibold tracking-wider text-amber-500 uppercase mb-2">
+              <h2 className="text-xs sm:text-sm font-black tracking-widest text-amber-400 uppercase mb-2">
                 {lang === "fa" ? "شفافیت و پاسخ به ابهامات" : lang === "ar" ? "الشفافية والإجابة على الأسئلة" : "Clarity & Decisive Answers"}
               </h2>
               <p className="text-3xl sm:text-5xl font-black text-white">
@@ -1291,7 +1485,7 @@ export default function App() {
             
             {/* Header titles */}
             <div className="text-center">
-              <h2 className="text-xs sm:text-sm font-semibold tracking-wider text-amber-500 uppercase mb-2">
+              <h2 className="text-xs sm:text-sm font-black tracking-widest text-amber-400 uppercase mb-2">
                 {lang === "fa" ? "قدم اول را استوار بردارید" : lang === "ar" ? "اتخذ خطوتك الأولى بثبات" : "Establish Your Future Setup Today"}
               </h2>
               <p className="text-3xl sm:text-5xl font-black text-white">
