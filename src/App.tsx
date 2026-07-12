@@ -1,6 +1,16 @@
 import { useState, useEffect, useRef, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import AdminPanel from "./components/AdminPanel";
+import { getSupabaseTranslations, saveSupabaseTranslations, getSupabaseImages, saveSupabaseImages } from "./lib/supabase";
+
+// Default images configuration for editable assets
+const defaultImages = {
+  logo1: "/image/logo 1 .jpg",
+  logo2: "/image/logo 2 .jpg",
+  project1: "/image/meta vers.jpg",
+  project2: "/image/meta whaie 2.jpg",
+  project3: "/image/meta iran.jpg"
+};
 
 // Translations dataset to support bilingual toggling seamlessly
 const translations = {
@@ -14,17 +24,36 @@ const translations = {
     heroSubtitle: "رسالت ما فقرزدایی در جامعه است",
     ctaView: "مشاهده پروژه‌ها و تخصص‌ها",
     ctaContact: "ارتباط با معین علوی",
+
+    // Hero Intro Extra
+    heroIntroAlert: "❌ ما فرصت حضور در گروه کاری‌مان را دو بار به کسی نمی‌دهیم!",
+    heroIntroNamePrefix: "من",
+    heroIntroName: "معین علوی",
+    heroIntroNameSuffix: "هستم",
+    heroIntroTitle: "مدرس، محقق، سرمایه‌گذار و کارآفرین بازارهای مالی غیرمتمرکز در ایران",
+    heroIntroBadge1: "👑 استراتژیست، مشاور و سرمایه‌گذار",
+    heroIntroBadge2: "🌐 در اکوسیستم متاوال، هالیورس و ویستوری",
+    heroIntroBullet1: "💯 ما مدعی فقرزدایی از طریق کسب درآمد دلاری در ایران هستیم",
+    heroIntroBullet2: "🛡️ ما مخالف و ضد سایت‌های هرمی، پانزی، اسکم و کلاه‌برداری هستیم",
+    heroIntroBullet3: "💡 کار ما ابتدا آگاه‌سازی مردم شریف ایران است",
     
     // Services
     servicesTitle: "خدمات و تخصص‌ها",
     servicesSubtitle: "مسیر رشد مالی هدفمند و علمی",
     service1Title: "بازارهای غیرمتمرکز",
     service1Desc: "آموزش صفر تا صد شروع کسب‌درآمد دلاری از پایه تا پیشرفته به‌صورت کاملاً علمی و تضمین‌شده.",
+    service1Cta: "مشاهده نمونه کارها",
     service2Title: "بازار طلا",
     service2Desc: "مشاوره تخصصی خرید، فروش، سبدگردانی هوشمند و متدهای نوسان‌گیری فوق‌حرفه‌ای در بازار طلا.",
+    service2Cta: "درخواست مشاوره نوسان‌گیری",
     service3Title: "ترید و معاملات آنلاین",
     service3Desc: "روی ارزهای مرجع جهانی، طلا و سهام اکوسیستم‌های Web3 دنیا.",
+    service3Cta: "درخواست آموزش و استراتژی",
     service3Status: "فعال",
+
+    // Services Extra Warning Section
+    antiPyramidTitle: "❌ ضد هرمی، ضد پانزی و ضد اسکم (۱۰۰٪ تضمینی)",
+    antiPyramidDesc: "برند مستر گولد ایران با پروژه‌های فاقد اعتبار و اصالت تأییدنشده و هرگونه تداخل مالی متمرکز کار نمی‌کند. تمامی سرمایه‌گذاری‌ها بر بستر بلاک‌چین، قراردادهای هوشمند (اسمارت‌کانترکت‌ها) و فضای امن غیرمتمرکز هستند. دارایی شما مستقیماً در کیف پول (والت) خودتان مدیریت می‌شود.",
 
     // About Me
     aboutTitle: "درباره من",
@@ -42,6 +71,10 @@ const translations = {
     spec3: "پروموتر رسمی پروژه‌های جهانی Meta Whale، Holiverse و Holivita در ایران تحت اکوسیستم‌های متاوال، هالیورس و ویستوری",
     spec4: "نویسنده محتوای تخصصی در وبلاگ‌های بین‌المللی و رسمی Holiverse و Meta Whale",
 
+    // About Extra
+    aboutCardBadge: "Active Web3 Mentor",
+    aboutCardTitle: "برند مستقل فقرزدایی در ایران",
+
     // Projects
     projectsTitle: "پروژه‌های برجسته",
     projectsSubtitle: "اکوسیستم‌های پیشرفته مالی و غیرمتمرکز وب۳",
@@ -56,6 +89,10 @@ const translations = {
     project3Desc: "مجموعه مستر گولد ایران تقدیم می‌کند: کانال رسمی اخبار و اطلاعات پروژه‌های HOLIVERSE و METAWHALE، تاکتیک و استراتژی (T&S)، رویالتی NFT، معدن ماینر BIT FORCE، محصولات کش‌بک توکن، صرافی W.dex، ارز دیجیتال CES COIN، هلدینگ، استیکینگ و متاورس.",
     viewProjectBtn: "ورود به پروژه و ثبت‌نام",
 
+    // Projects Extra
+    projectsSectionBadge: "سکوهای سودآور و پایدار جهانی",
+    project3Cta: "عضویت در کانال هالیورس",
+
     // Testimonials
     testTitle: "نظرات دانشجویان و همراهان",
     testSubtitle: "صدای واقعی کسانی که با ما فقرزدایی را آغاز کردند",
@@ -69,6 +106,9 @@ const translations = {
     test3Name: "امیرحسین فیاض",
     test3Role: "فعال بازار دیجیتال و بلاک‌چین",
 
+    // Testimonials Extra
+    testimonialsSectionBadge: "نتایج واقعی از کارآفرینی ما",
+
     // FAQ
     faqTitle: "سؤالات متداول شما",
     faqSubtitle: "پاسخ به ابهامات متداول درباره فرآیند کسب‌درآمد",
@@ -78,6 +118,15 @@ const translations = {
     faq2A: "بسیار ساده است. شما می‌توانید از طریق بخش ورود به پروژه‌های برجسته روی دکمه ثبت‌نام کلیک کنید تا وارد سایت رسمی شوید. حالا لینک را کپی کرده و وارد کیف پول توکن‌پاکت (TokenPocket) یا متامسک (MetaMask) خود شوید و در قسمت سرچ، لینک را پیست و جستجو نمایید، یا به کانال تلگرام ما بپیوندید تا ویدیوهای راهنمای گام‌به‌گام را دریافت کنید.",
     faq3Q: "تفاوت این پروژه‌ها با شرکت‌های هرمی یا طرح‌های پانزی چیست؟",
     faq3A: "ادعای اصلی و افتخار ما ضد هرمی، ضد پانزی، اسکم و کلاه‌برداری بودن تمامی اکوسیستم‌های غیرمتمرکز انتخابی است. این پلتفرم‌ها بر بستر قراردادهای هوشمند بلاک‌چین (Smart Contracts) بنا شده‌اند؛ جایی که هیچ فرد یا نهادی توانایی دخل و تصرف یا مسدود کردن دارایی شما را ندارد. این سیستم بیش از ۴ سال است که بدون حتی یک ثانیه وقفه، خدمات مالی و پرداختی‌های کاملاً آنی و درلحظه ارائه داده و بالغ بر ۲,۵۰۰,۰۰۰ کاربر فعال در سراسر جهان دارد. مفتخریم اعلام کنیم که تا به امروز، بیش از ۱۵۰,۰۰۰ ایرانی از طریق این پروژه‌ها به کسب درآمد دلاری موفق و پایدار رسیده‌اند.",
+
+    // FAQ Extra
+    faqSectionBadge: "شفافیت و پاسخ به ابهامات",
+    faqMetric1Val: "۴ سال",
+    faqMetric1Label: "ارائه خدمات بدون وقفه",
+    faqMetric2Val: "۲,۵۰۰,۰۰۰+",
+    faqMetric2Label: "کاربر فعال در جهان",
+    faqMetric3Val: "۱۵۰,۰۰۰+",
+    faqMetric3Label: "کسب درآمد توسط ایرانیان",
 
     // Contact
     contactTitle: "تماس با من و مشاوره",
@@ -96,11 +145,18 @@ const translations = {
     formEmail: "آدرس ایمیل فعال",
     formMessage: "پیام یا درخواست مشاوره شما",
     placeholderMessage: "جزئیات پروژه یا سؤال خود را اینجا بنویسید...",
-    btnSubmit: "با من تماس بگیر",
+    btnSubmit: "ارسال پیام مستقیم در {messenger}",
     sending: "در حال ارسال اطلاعات...",
     successTitle: "پیام شما با موفقیت ارسال شد!",
     successText: "از اعتماد شما سپاسگزاریم. معین علوی یا تیم پشتیبانی در اسرع وقت پاسخگوی شما خواهند بود.",
-    allRights: "تمامی حقوق مادی و معنوی محفوظ است. توسعه‌یافته توسط معین علوی."
+    allRights: "تمامی حقوق مادی و معنوی محفوظ است. توسعه‌یافته توسط معین علوی.",
+
+    // Contact Extra
+    contactSectionBadge: "قدم اول را استوار بردارید",
+    contactMessengerLabel: "انتخاب پیام‌رسان جهت گفتگوی مستقیم",
+    telegramButtonLabel: "تلگرام",
+    rubikaButtonLabel: "روبیکا",
+    placeholderName: "نام شما..."
   },
   en: {
     dir: "ltr",
@@ -112,17 +168,36 @@ const translations = {
     heroSubtitle: "Our mission is poverty alleviation in society",
     ctaView: "Explore Projects & Specialties",
     ctaContact: "Contact Moein Alavi",
+
+    // Hero Intro Extra
+    heroIntroAlert: "❌ We do not give a second chance to join our working group!",
+    heroIntroNamePrefix: "I am",
+    heroIntroName: "Moein Alavi",
+    heroIntroNameSuffix: "",
+    heroIntroTitle: "Lecturer, researcher, investor, and digital entrepreneur in decentralized markets",
+    heroIntroBadge1: "👑 Strategist, Advisor & Investor",
+    heroIntroBadge2: "🌐 In Meta Whale, Holiverse & Vistory ecosystems",
+    heroIntroBullet1: "💯 We claim poverty Alleviation through real dollar income in Iran",
+    heroIntroBullet2: "🛡️ We are strictly anti-pyramid, anti-ponzi, anti-scam and frauds",
+    heroIntroBullet3: "💡 Our primary mission is to raise public awareness first",
     
     // Services
     servicesTitle: "Services & Specialties",
     servicesSubtitle: "A Target-Oriented and Scientific Financial Path",
     service1Title: "Decentralized Markets",
     service1Desc: "Comprehensive training on starting dollar income generation from scratch to advanced, 100% scientifically backed.",
+    service1Cta: "See Projects",
     service2Title: "Gold Market",
     service2Desc: "Specialized consulting on buying, selling, smart portfolio management, and professional gold trading swing strategies.",
+    service2Cta: "Request Consultation",
     service3Title: "Online Trading & Trades",
     service3Desc: "On world reference currencies, gold, and stocks of Web3 ecosystems.",
+    service3Cta: "Request Strategy",
     service3Status: "Active",
+
+    // Services Extra Warning Section
+    antiPyramidTitle: "❌ Anti-Pyramid, Anti-Ponzi & Anti-Scam (100% Guaranteed)",
+    antiPyramidDesc: "Master Gold Iran works strictly with decentralized non-custodial tools on secure public chains. Your asset is safe, managed only by yourself inside your own wallet.",
 
     // About Me
     aboutTitle: "About Me",
@@ -140,6 +215,10 @@ const translations = {
     spec3: "Official promoter of Meta Whale, Holiverse, and Holivita projects in Iran within the meta-whale, holiverse, and vistory ecosystems",
     spec4: "Specialized content writer in the official blogs of Holiverse and Meta Whale",
 
+    // About Extra
+    aboutCardBadge: "Active Web3 Mentor",
+    aboutCardTitle: "Independent Poverty Alleviation Brand in Iran",
+
     // Projects
     projectsTitle: "Featured Projects",
     projectsSubtitle: "Advanced Web3 Financial Ecosystems & Decentralized Platforms",
@@ -154,6 +233,10 @@ const translations = {
     project3Desc: "Presented by Master Gold Iran: Official news, Tactics & Strategy (T&S), Royalty NFT, BIT FORCE mining, cashback products, W.dex, CES COIN, holding, staking, and metaverse updates.",
     viewProjectBtn: "Enter Project & Register",
 
+    // Projects Extra
+    projectsSectionBadge: "Stable Worldwide Platforms",
+    project3Cta: "Join Holiverse Channel",
+
     // Testimonials
     testTitle: "What Our Students Say",
     testSubtitle: "Real voices of people who unlocked stable dollar income with us",
@@ -167,6 +250,9 @@ const translations = {
     test3Name: "Amirhossein Fayyaz",
     test3Role: "Digital Assets Developer",
 
+    // Testimonials Extra
+    testimonialsSectionBadge: "Real Poverty Alleviation Outlets",
+
     // FAQ
     faqTitle: "Frequently Asked Questions",
     faqSubtitle: "Clearing up doubts about starting your dollar income path",
@@ -176,6 +262,15 @@ const translations = {
     faq2A: "It is very simple. You can click on the registration button under our featured projects section to access the official website. Now, copy the link, enter your TokenPocket or MetaMask wallet, paste the link in the search bar and search it, or join our Telegram channel to receive step-by-step video guides.",
     faq3Q: "How do these projects differ from pyramid schemes or Ponzi traps?",
     faq3A: "We pride ourselves on working strictly with verified decentralized smart contract ecosystems where no central entity can alter, block, or compromise your assets. For over 4 years, this system has provided uninterrupted, 100% instant financial and payout services, building a trusted community of over 2,500,000 active users worldwide. We are proud to share that over 150,000 Iranians have successfully achieved sustainable digital income through these projects.",
+
+    // FAQ Extra
+    faqSectionBadge: "Clarity & Decisive Answers",
+    faqMetric1Val: "4+ Years",
+    faqMetric1Label: "Uninterrupted Service",
+    faqMetric2Val: "2.5M+",
+    faqMetric2Label: "Global Active Users",
+    faqMetric3Val: "150K+",
+    faqMetric3Label: "Iranian Earners",
 
     // Contact
     contactTitle: "Contact & Consultation",
@@ -194,11 +289,18 @@ const translations = {
     formEmail: "Your Active Email Address",
     formMessage: "Your Message or Consultation Request",
     placeholderMessage: "Write your project details or questions here...",
-    btnSubmit: "Contact Me",
+    btnSubmit: "Send Direct Message on {messenger}",
     sending: "Submitting details...",
     successTitle: "Message Sent Successfully!",
     successText: "Thank you for your trust. Moein Alavi or our support crew will reach out to you shortly.",
-    allRights: "All rights reserved. Designed and developed by Moein Alavi."
+    allRights: "All rights reserved. Designed and developed by Moein Alavi.",
+
+    // Contact Extra
+    contactSectionBadge: "Establish Your Future Setup Today",
+    contactMessengerLabel: "Choose Messenger for Direct Message",
+    telegramButtonLabel: "Telegram",
+    rubikaButtonLabel: "Rubika",
+    placeholderName: "Your name..."
   },
   ar: {
     dir: "rtl",
@@ -211,16 +313,35 @@ const translations = {
     ctaView: "عرض المشاريع والتخصصات",
     ctaContact: "التواصل مع معين علوي",
     
+    // Hero Intro Extra
+    heroIntroAlert: "❌ نحن لا نعطي فرصة ثانية لأي شخص للانضمام إلى فريقنا!",
+    heroIntroNamePrefix: "أنا",
+    heroIntroName: "معين علوي",
+    heroIntroNameSuffix: "",
+    heroIntroTitle: "مدرس، باحث، مستثمر ورائد أعمال في الأسواق المالية اللامركزية في إيران",
+    heroIntroBadge1: "👑 استراتيجي، مستشار ومستثمر",
+    heroIntroBadge2: "🌐 في أنظمة ميتاوال، هاليفرس وفيستوري",
+    heroIntroBullet1: "💯 نحن ندعي القضاء على الفقر من خلال كسب دخل دولاري حقيقي في إيران",
+    heroIntroBullet2: "🛡️ نحن ضد ومخالفون لمواقع الاحتيال والهرمية والبانزي",
+    heroIntroBullet3: "💡 عملنا أولاً هو توعية وتثقيف الشعب الإيراني",
+
     // Services
     servicesTitle: "الخدمات والتخصصات",
     servicesSubtitle: "مسار نمو مالي هادف وعلمي",
     service1Title: "الأسواق اللامركزية",
     service1Desc: "تدريب شامل من الصفر لبدء كسب الدخل بالدولار من المستوى المبتدئ إلى المتقدم بشكل علمي ومضمون بالكامل.",
+    service1Cta: "مشاهدة الأعمال",
     service2Title: "سوق الذهب",
     service2Desc: "استشارات متخصصة في الشراء، البيع، إدارة المحافظ الذكية وطرق المضاربة الاحترافية في سوق الذهب.",
+    service2Cta: "طلب استشارة المضاربة",
     service3Title: "التداول والصفقات عبر الإنترنت",
     service3Desc: "على العملات المرجعية العالمية والذهب وأسهم أنظمة الويب ۳ في العالم.",
+    service3Cta: "طلب التدريب والاستراتيجية",
     service3Status: "نشط",
+
+    // Services Extra Warning Section
+    antiPyramidTitle: "❌ ضد هرمية، ضد بونزي وضد الاحتيال (۱۰۰٪ مضمون)",
+    antiPyramidDesc: "تعمل العلامة التجارية مستر غولد إيران مع مشاريع خالية من أي تدخل مالي مركزي. جميع الاستثمارات مبنية على العقود الذكية ولامركزية. تتم إدارة أصولك مباشرة في محفظتك الخاصة.",
 
     // About Me
     aboutTitle: "من أنا",
@@ -238,6 +359,10 @@ const translations = {
     spec3: "المروج الرسمي للمشاريع العالمية Meta Whale و Holiverse و Holivita في إيران تحت الأنظمة البيئية لميتاوال، هاليفرس وفيستوري",
     spec4: "كاتب محتوى متخصص في المدونات الدولية والرسمية لـ Holiverse و Meta Whale",
 
+    // About Extra
+    aboutCardBadge: "Active Web3 Mentor",
+    aboutCardTitle: "العلامة التجارية المستقلة للقضاء على الفقر في إيران",
+
     // Projects
     projectsTitle: "المشاريع البارزة",
     projectsSubtitle: "الأنظمة البيئية المالية المتقدمة واللامركزية للويب ۳",
@@ -252,6 +377,10 @@ const translations = {
     project3Desc: "تقدم مجموعة مستر غولد إيران: القناة الرسمية لأخبار ومعلومات مشروع HOLIVERSE & METAWHALE، التكتيك والاستراتيجية (T&S)، رويالتريكس NFT، منجم التعدين BIT FORCE، منتجات الكاش باك توكن، بورصة W.dex، العملة الرقمية CES COIN، القابضة، الستيكينغ والميتافيرس.",
     viewProjectBtn: "الدخول إلى المشروع والتسجيل",
 
+    // Projects Extra
+    projectsSectionBadge: "منصات عالمية مربحة ومستقرة",
+    project3Cta: "انضم إلى قناة هاليفرس",
+
     // Testimonials
     testTitle: "آراء الطلاب والشركاء",
     testSubtitle: "الصوت الحقيقي لمن بدأوا معنا رحلة القضاء على الفقر",
@@ -265,15 +394,27 @@ const translations = {
     test3Name: "امیرحسین فیاض",
     test3Role: "ناشط في السوق الرقمي والبلوكشين",
 
+    // Testimonials Extra
+    testimonialsSectionBadge: "نتائج واقعية لريادتنا",
+
     // FAQ
     faqTitle: "الأسئلة الشائعة",
     faqSubtitle: "الإجابة على الاستفسارات الشائعة حول عملية كسب الدخل",
     faq1Q: "هل التدريب والخدمات الخاصة بك مجانية بنسبة ۱۰۰٪ حقاً؟",
     faq1A: "نعم، بالتأكيد. يتم تقديم جميع الدورات التدريبية، الندوات عبر الإنترنت، تحليلات سوق الذهب والاستشارات الخاصة بمستر غولد إيران مجاناً بالكامل في إطار رسالتنا للقضاء على الفقر، ولن يتم فرض أي رسوم على التعليم.",
     faq2Q: "كيف يمكنني البدء في مشاريع ميتاوال، فيستوري أو هاليفرس؟",
-    faq2A: "الأمر بسيط للغاية. يمكنك النقر فوق زر التسجيل في قسم المشاريع البارزة للوصول إلى الموقع الرسمي. الآن، انسخ الرابط وافتح محفظتك توكن بوكيت (TokenPocket) أو ميتاماسك (MetaMask) الخاصة بك، والصق الرابط في شريط البحث وابحث عنه، أو انضم إلى قناتنا على التلغرام لتلقي مقاطع الفيديو الإرشادية خطوة بخطوة.",
+    faq2A: "الأمر بسيط للغاية. يمكنك النقر فوق زر التسجيل في قسم المشاريع البارزة للوصول إلى الموقع الرسمي. الآن، انسخ الرابط وافتح محفظتك توکن بوکیت (TokenPocket) أو ميتاماسك (MetaMask) الخاصة بك، والصق الرابط في شريط البحث وابحث عنه، أو انضم إلى قناتنا على التلغرام لتلقي مقاطع الفيديو الإرشادية خطوة بخطوة.",
     faq3Q: "ما هو الفرق بین هذه المشاريع والشركات الهرمية أو مخططات البونزی؟",
     faq3A: "فخرنا الأكبر هو أن جميع الأنظمة البيئية اللامركزية التي نختارها خالية تماماً من الأنظمة الهرمية، البونزي، والاحتيال. هذه المنصات مبنية على عقود ذكية (Smart Contracts) ولا تملك أي جهة القدرة على تجميد أصولك. يقدم هذا النظام خدمات مالية ومدفوعات فورية بدون انقطاع منذ أكثر من ۴ سنوات، ويضم ما يزيد عن ۲,۵۰۰,۰۰۰ مستخدم نشط حول العالم، كما تمكن أكثر من ۱۵۰,۰۰۰ إيراني من كسب دخل رقمي مستقر وناجح من خلال هذه المشاريع.",
+
+    // FAQ Extra
+    faqSectionBadge: "الشفافية والإجابة على الأسئلة",
+    faqMetric1Val: "٤ سنوات",
+    faqMetric1Label: "خدمات دون انقطاع",
+    faqMetric2Val: "٢,٥٠٠,٠٠٠+",
+    faqMetric2Label: "مستخدم نشط عالمياً",
+    faqMetric3Val: "١٥٠,٠٠٠+",
+    faqMetric3Label: "إيرانيون كسبوا دخلاً",
 
     // Contact
     contactTitle: "الاتصال بي والاستشارة",
@@ -292,11 +433,18 @@ const translations = {
     formEmail: "عنوان البريد الإلكتروني النشط",
     formMessage: "رسالتك أو طلب الاستشارة الخاص بك",
     placeholderMessage: "اكتب تفاصيل مشروعك أو أسئلتك هنا...",
-    btnSubmit: "اتصل بي",
+    btnSubmit: "إرسال رسالة مباشرة عبر {messenger}",
     sending: "جاري إرسال المعلومات...",
     successTitle: "تم إرسال رسالتك بنجاح!",
     successText: "نشكرك على ثقتك. معين علوي أو فريق الدعم سيجيبون عليك في أقرب وقت ممکن.",
-    allRights: "جميع الحقوق محفوظة. تم التطوير بواسطة معين علوي."
+    allRights: "جميع الحقوق محفوظة. تم التطوير بواسطة معين علوي.",
+
+    // Contact Extra
+    contactSectionBadge: "اتخذ خطوتك الأولى بثبات",
+    contactMessengerLabel: "اختر تطبيق المراسلة للمحادثة المباشرة",
+    telegramButtonLabel: "تلغرام",
+    rubikaButtonLabel: "روبيكا",
+    placeholderName: "اسمك..."
   }
 };
 
@@ -311,6 +459,18 @@ export default function App() {
       }
     }
     return translations;
+  });
+
+  const [siteImages, setSiteImages] = useState<Record<string, string>>(() => {
+    const saved = localStorage.getItem("master_gold_images");
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        console.error("Failed to parse images from localStorage", e);
+      }
+    }
+    return defaultImages;
   });
 
   const [lang, setLang] = useState<"fa" | "en" | "ar">("fa");
@@ -328,6 +488,78 @@ export default function App() {
     };
     window.addEventListener("popstate", handleLocationChange);
     return () => window.removeEventListener("popstate", handleLocationChange);
+  }, []);
+
+  // Fetch translation and image updates dynamically from Supabase on startup
+  useEffect(() => {
+    async function loadTranslations() {
+      try {
+        const data = await getSupabaseTranslations();
+        if (data) {
+          if (data.__skip_seed) {
+            console.log("Supabase translations load skipped or failed. Using local configurations.");
+            return;
+          }
+
+          const isUninitialized = data.__should_seed || !data.fa || !data.fa.brand;
+          if (isUninitialized) {
+            console.log("Supabase record is empty. Seeding with default translations...");
+            try {
+              await saveSupabaseTranslations(translations);
+              setEditableTranslations(translations);
+            } catch (err) {
+              console.warn("Could not seed Supabase record automatically:", err);
+            }
+          } else {
+            const merged = { ...translations };
+            for (const langKey of ["fa", "en", "ar"] as const) {
+              if (data[langKey] && typeof data[langKey] === "object") {
+                merged[langKey] = {
+                  ...translations[langKey],
+                  ...data[langKey]
+                };
+              }
+            }
+            setEditableTranslations(merged);
+          }
+        }
+      } catch (e) {
+        console.error("Failed to sync with Supabase on startup:", e);
+      }
+    }
+
+    async function loadImages() {
+      try {
+        const data = await getSupabaseImages();
+        if (data) {
+          if (data.__skip_seed) {
+            console.log("Supabase images load skipped or failed. Using local configurations.");
+            return;
+          }
+
+          const isUninitialized = data.__should_seed || !data.logo1;
+          if (isUninitialized) {
+            console.log("Supabase images record is empty. Seeding defaults...");
+            try {
+              await saveSupabaseImages(defaultImages);
+              setSiteImages(defaultImages);
+            } catch (err) {
+              console.warn("Could not seed Supabase images automatically:", err);
+            }
+          } else {
+            setSiteImages({
+              ...defaultImages,
+              ...data
+            });
+          }
+        }
+      } catch (e) {
+        console.error("Failed to sync images with Supabase on startup:", e);
+      }
+    }
+
+    loadTranslations();
+    loadImages();
   }, []);
 
   const navigateTo = (path: string) => {
@@ -471,16 +703,25 @@ export default function App() {
     return (
       <AdminPanel
         initialTranslations={editableTranslations}
-        onSave={(updated) => {
+        onSave={async (updated) => {
           setEditableTranslations(updated);
           localStorage.setItem("master_gold_translations", JSON.stringify(updated));
+          await saveSupabaseTranslations(updated);
+        }}
+        initialImages={siteImages}
+        onSaveImages={async (updatedImages) => {
+          setSiteImages(updatedImages);
+          localStorage.setItem("master_gold_images", JSON.stringify(updatedImages));
+          await saveSupabaseImages(updatedImages);
         }}
         onClose={() => {
           navigateTo("/");
         }}
         onReset={() => {
           localStorage.removeItem("master_gold_translations");
+          localStorage.removeItem("master_gold_images");
           setEditableTranslations(translations);
+          setSiteImages(defaultImages);
         }}
       />
     );
@@ -739,7 +980,7 @@ export default function App() {
                     rel="noopener noreferrer"
                     className="flex-1 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-300 hover:text-amber-400 transition-all border border-zinc-800"
                   >
-                    <i className="fa-brands fa-telegram text-lg ml-2 mr-2 text-sky-400"></i> {lang === "fa" ? "تلگرام" : lang === "ar" ? "تلغرام" : "Telegram"}
+                    <i className="fa-brands fa-telegram text-lg ml-2 mr-2 text-sky-400"></i> {t.telegramButtonLabel}
                   </a>
                   <a
                     href="https://rubika.ir/Mastergoldiran"
@@ -747,7 +988,7 @@ export default function App() {
                     rel="noopener noreferrer"
                     className="flex-1 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-300 hover:text-amber-400 transition-all border border-zinc-800"
                   >
-                    <i className="fa-solid fa-rocket text-lg ml-2 mr-2 text-violet-400"></i> {lang === "fa" ? "روبیکا" : lang === "ar" ? "روبيكا" : "Rubika"}
+                    <i className="fa-solid fa-rocket text-lg ml-2 mr-2 text-violet-400"></i> {t.rubikaButtonLabel}
                   </a>
                 </div>
               </div>
@@ -781,7 +1022,7 @@ export default function App() {
                 {/* Premium Golden Frame */}
                 <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-3xl overflow-hidden bg-zinc-950 border-2 border-amber-500/40 hover:border-amber-400 transition-colors duration-300 flex items-center justify-center p-1.5 shadow-2xl shadow-amber-500/20">
                   <img
-                    src="/image/logo 1 .jpg"
+                    src={siteImages.logo1}
                     alt="Master Gold Iran Logo"
                     className="w-full h-full object-cover rounded-2xl select-none"
                     referrerPolicy="no-referrer"
@@ -843,100 +1084,36 @@ export default function App() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8 space-y-4 text-center backdrop-blur-sm shadow-xl"
             >
-              {lang === "fa" ? (
-                <div className="space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed">
-                  <p className="text-amber-400 font-black text-base sm:text-lg tracking-wide border-b border-zinc-800 pb-3">
-                    ❌ ما فرصت حضور در گروه کاری‌مان را دو بار به کسی نمی‌دهیم!
-                  </p>
-                  <p className="text-white font-black text-lg sm:text-xl">
-                    من <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500 font-black">معین علوی</span> هستم
-                  </p>
-                  <p className="text-zinc-300 font-bold">
-                    مدرس، محقق، سرمایه‌گذار و کارآفرین بازارهای مالی غیرمتمرکز در ایران
-                  </p>
-                  <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs sm:text-sm text-zinc-400 pt-2">
-                    <span className="px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/50 flex items-center gap-1.5 font-bold">
-                      👑 استراتژیست، مشاور و سرمایه‌گذار
-                    </span>
-                    <span className="px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/50 flex items-center gap-1.5 font-bold">
-                      🌐 در اکوسیستم متاوال، هالیورس و ویستوری
-                    </span>
-                  </div>
-                  <div className="pt-2 border-t border-zinc-800/50 space-y-2 text-xs sm:text-sm">
-                    <p className="text-amber-300 font-bold flex items-center justify-center gap-1.5">
-                      💯 ما مدعی فقرزدایی از طریق کسب درآمد دلاری در ایران هستیم
-                    </p>
-                    <p className="text-zinc-400 font-bold flex items-center justify-center gap-1.5">
-                      🛡️ ما مخالف و ضد سایت‌های هرمی، پانزی، اسکم و کلاه‌برداری هستیم
-                    </p>
-                    <p className="text-zinc-400 font-bold flex items-center justify-center gap-1.5">
-                      💡 کار ما ابتدا آگاه‌سازی مردم شریف ایران است
-                    </p>
-                  </div>
+              <div className="space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed">
+                <p className="text-amber-400 font-black text-base sm:text-lg tracking-wide border-b border-zinc-800 pb-3">
+                  {t.heroIntroAlert}
+                </p>
+                <p className="text-white font-black text-lg sm:text-xl">
+                  {t.heroIntroNamePrefix} <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500 font-black">{t.heroIntroName}</span> {t.heroIntroNameSuffix}
+                </p>
+                <p className="text-zinc-300 font-bold">
+                  {t.heroIntroTitle}
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs sm:text-sm text-zinc-400 pt-2">
+                  <span className="px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/50 flex items-center gap-1.5 font-bold">
+                    {t.heroIntroBadge1}
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/50 flex items-center gap-1.5 font-bold">
+                    {t.heroIntroBadge2}
+                  </span>
                 </div>
-              ) : lang === "ar" ? (
-                <div className="space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed">
-                  <p className="text-amber-400 font-black text-base sm:text-lg tracking-wide border-b border-zinc-800 pb-3">
-                    ❌ نحن لا نعطي فرصة ثانية لأي شخص للانضمام إلى فريقنا!
+                <div className="pt-2 border-t border-zinc-800/50 space-y-2 text-xs sm:text-sm">
+                  <p className="text-amber-300 font-bold flex items-center justify-center gap-1.5">
+                    {t.heroIntroBullet1}
                   </p>
-                  <p className="text-white font-black text-lg sm:text-xl">
-                    أنا <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500 font-black">معين علوي</span>
+                  <p className="text-zinc-400 font-bold flex items-center justify-center gap-1.5">
+                    {t.heroIntroBullet2}
                   </p>
-                  <p className="text-zinc-300 font-bold">
-                    مدرس، باحث، مستثمر ورائد أعمال في الأسواق المالية اللامركزية في إيران
+                  <p className="text-zinc-400 font-bold flex items-center justify-center gap-1.5">
+                    {t.heroIntroBullet3}
                   </p>
-                  <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs sm:text-sm text-zinc-400 pt-2">
-                    <span className="px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/50 flex items-center gap-1.5 font-bold">
-                      👑 استراتيجي، مستشار ومستثمر
-                    </span>
-                    <span className="px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/50 flex items-center gap-1.5 font-bold">
-                      🌐 في أنظمة ميتاوال، هاليفرس وفيستوري
-                    </span>
-                  </div>
-                  <div className="pt-2 border-t border-zinc-800/50 space-y-2 text-xs sm:text-sm">
-                    <p className="text-amber-300 font-bold flex items-center justify-center gap-1.5">
-                      💯 نحن ندعي القضاء على الفقر من خلال كسب دخل دولاري حقيقي في إيران
-                    </p>
-                    <p className="text-zinc-400 font-bold flex items-center justify-center gap-1.5">
-                      🛡️ نحن ضد ومخالفون لمواقع الاحتيال والهرمية والبانزي
-                    </p>
-                    <p className="text-zinc-400 font-bold flex items-center justify-center gap-1.5">
-                      💡 عملنا أولاً هو توعية وتثقيف الشعب الإيراني
-                    </p>
-                  </div>
                 </div>
-              ) : (
-                <div className="space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed">
-                  <p className="text-amber-400 font-black text-base sm:text-lg tracking-wide border-b border-zinc-800 pb-3">
-                    ❌ We do not give a second chance to join our working group!
-                  </p>
-                  <p className="text-white font-black text-lg sm:text-xl">
-                    I am <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500 font-black">Moein Alavi</span>
-                  </p>
-                  <p className="text-zinc-300 font-bold">
-                    Lecturer, researcher, investor, and digital entrepreneur in decentralized markets
-                  </p>
-                  <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs sm:text-sm text-zinc-400 pt-2">
-                    <span className="px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/50 flex items-center gap-1.5 font-bold">
-                      👑 Strategist, Advisor & Investor
-                    </span>
-                    <span className="px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/50 flex items-center gap-1.5 font-bold">
-                      🌐 In Meta Whale, Holiverse & Vistory ecosystems
-                    </span>
-                  </div>
-                  <div className="pt-2 border-t border-zinc-800/50 space-y-2 text-xs sm:text-sm">
-                    <p className="text-amber-300 font-bold flex items-center justify-center gap-1.5">
-                      💯 We claim poverty Alleviation through real dollar income in Iran
-                    </p>
-                    <p className="text-zinc-400 font-bold flex items-center justify-center gap-1.5">
-                      🛡️ We are strictly anti-pyramid, anti-ponzi, anti-scam and frauds
-                    </p>
-                    <p className="text-zinc-400 font-bold flex items-center justify-center gap-1.5">
-                      💡 Our primary mission is to raise public awareness first
-                    </p>
-                  </div>
-                </div>
-              )}
+              </div>
             </motion.div>
 
             {/* CTA buttons */}
@@ -974,7 +1151,7 @@ export default function App() {
                 <span>100% GUARANTEED</span>
               </span>
               <span className="text-amber-400 animate-[pulse_1.2s_infinite] drop-shadow-[0_0_8px_rgba(245,158,11,0.5)] font-black">
-                Anti-Pyramid • Anti-Ponzi • Anti-Scam
+                {t.antiPyramidTitle}
               </span>
             </motion.p>
           </div>
@@ -1028,7 +1205,7 @@ export default function App() {
                   onClick={() => scrollToSection("projects")}
                   className="mt-8 pt-4 border-t border-zinc-800/50 flex items-center text-amber-400 text-xs font-semibold group cursor-pointer"
                 >
-                  {lang === "fa" ? "مشاهده نمونه کارها" : lang === "ar" ? "مشاهدة الأعمال" : "See Projects"}
+                  {t.service1Cta}
                   <i className={`fa-solid ${t.dir === "rtl" ? "fa-chevron-left mr-2 group-hover:-translate-x-1" : "fa-chevron-right ml-2 group-hover:translate-x-1"} transition-transform`}></i>
                 </div>
               </motion.div>
@@ -1053,7 +1230,7 @@ export default function App() {
                   onClick={() => scrollToSection("contact")}
                   className="mt-8 pt-4 border-t border-zinc-800/50 flex items-center text-amber-400 text-xs font-semibold group cursor-pointer"
                 >
-                  {lang === "fa" ? "درخواست مشاوره نوسان‌گیری" : lang === "ar" ? "طلب استشارة المضاربة" : "Request Consultation"}
+                  {t.service2Cta}
                   <i className={`fa-solid ${t.dir === "rtl" ? "fa-chevron-left mr-2 group-hover:-translate-x-1" : "fa-chevron-right ml-2 group-hover:translate-x-1"} transition-transform`}></i>
                 </div>
               </motion.div>
@@ -1083,7 +1260,7 @@ export default function App() {
                   onClick={() => scrollToSection("contact")}
                   className="mt-8 pt-4 border-t border-zinc-800/50 flex items-center text-amber-400 text-xs font-semibold group cursor-pointer"
                 >
-                  {lang === "fa" ? "درخواست آموزش و استراتژی" : lang === "ar" ? "طلب التدريب والاستراتيجية" : "Request Strategy"}
+                  {t.service3Cta}
                   <i className={`fa-solid ${t.dir === "rtl" ? "fa-chevron-left mr-2 group-hover:-translate-x-1" : "fa-chevron-right ml-2 group-hover:translate-x-1"} transition-transform`}></i>
                 </div>
               </motion.div>
@@ -1105,14 +1282,10 @@ export default function App() {
                   <i className="fa-solid fa-triangle-exclamation"></i>
                 </div>
                 <h4 className="text-xl sm:text-2xl font-black text-red-400 tracking-wide drop-shadow-[0_0_10px_rgba(239,68,68,0.3)] uppercase">
-                  {lang === "fa" ? "❌ ضد هرمی، ضد پانزی و ضد اسکم (۱۰۰٪ تضمینی)" : lang === "ar" ? "❌ ضد هرمية، ضد بونزي وضد الاحتيال (۱۰۰٪ مضمون)" : "❌ Anti-Pyramid, Anti-Ponzi & Anti-Scam (100% Guaranteed)"}
+                  {t.antiPyramidTitle}
                 </h4>
                 <p className="text-zinc-100 text-sm sm:text-base font-extrabold leading-relaxed max-w-3xl mx-auto">
-                  {lang === "fa" 
-                    ? "برند مستر گولد ایران با پروژه‌های فاقد اعتبار و اصالت تأییدنشده و هرگونه تداخل مالی متمرکز کار نمی‌کند. تمامی سرمایه‌گذاری‌ها بر بستر بلاک‌چین، قراردادهای هوشمند (اسمارت‌کانترکت‌ها) و فضای امن غیرمتمرکز هستند. دارایی شما مستقیماً در کیف پول (والت) خودتان مدیریت می‌شود." 
-                    : lang === "ar"
-                    ? "تعمل العلامة التجارية مستر غولد إيران مع مشاريع خالية من أي تدخل مالي مركزي. جميع الاستثمارات مبنية على العقود الذكية ولامركزية. تتم إدارة أصولك مباشرة في محفظتك الخاصة."
-                    : "Master Gold Iran works strictly with decentralized non-custodial tools on secure public chains. Your asset is safe, managed only by yourself inside your own wallet."}
+                  {t.antiPyramidDesc}
                 </p>
               </div>
             </div>
@@ -1222,7 +1395,7 @@ export default function App() {
                         <div className="absolute -inset-1.5 bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl blur-lg opacity-20 group-hover/logo:opacity-45 transition duration-300"></div>
                         <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-amber-500/30 p-1.5 bg-zinc-950">
                           <img
-                            src="/image/logo 2 .jpg"
+                            src={siteImages.logo2}
                             alt="Master Gold Iran Logo 2"
                             className="w-full h-full object-cover rounded-xl select-none"
                             referrerPolicy="no-referrer"
@@ -1239,12 +1412,12 @@ export default function App() {
                       <div className="flex items-center space-x-2 space-x-reverse">
                         <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
                         <span className="text-xs text-emerald-400 font-bold uppercase tracking-wider">
-                          Active Web3 Mentor
+                          {t.aboutCardBadge}
                         </span>
                       </div>
                       
                       <h4 className="text-lg font-black text-white leading-tight">
-                        {lang === "fa" ? "برند مستقل فقرزدایی در ایران" : lang === "ar" ? "العلامة التجارية المستقلة للقضاء على الفقر في إيران" : "Independent Poverty Alleviation Brand in Iran"}
+                        {t.aboutCardTitle}
                       </h4>
                     </div>
 
@@ -1267,7 +1440,7 @@ export default function App() {
             {/* Header titles */}
             <div className="text-center">
               <h2 className="text-xs sm:text-sm font-black tracking-widest text-amber-400 uppercase mb-2">
-                {lang === "fa" ? "سکوهای سودآور و پایدار جهانی" : lang === "ar" ? "منصات عالمية مربحة ومستقرة" : "Stable Worldwide Platforms"}
+                {t.projectsSectionBadge}
               </h2>
               <p className="text-3xl sm:text-5xl font-black text-white">
                 {t.projectsTitle}
@@ -1288,7 +1461,7 @@ export default function App() {
                   <div className="h-52 xs:h-60 sm:h-64 md:h-48 lg:h-56 xl:h-60 bg-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-black/30 opacity-80 z-10 pointer-events-none" />
                     <img
-                      src="/image/meta vers.jpg"
+                      src={siteImages.project1}
                       alt={t.project1Title}
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out z-0 filter brightness-95 group-hover:brightness-105"
                       referrerPolicy="no-referrer"
@@ -1345,7 +1518,7 @@ export default function App() {
                   <div className="h-52 xs:h-60 sm:h-64 md:h-48 lg:h-56 xl:h-60 bg-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-black/30 opacity-80 z-10 pointer-events-none" />
                     <img
-                      src="/image/meta whaie 2.jpg"
+                      src={siteImages.project2}
                       alt={t.project2Title}
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out z-0 filter brightness-95 group-hover:brightness-105"
                       referrerPolicy="no-referrer"
@@ -1402,7 +1575,7 @@ export default function App() {
                   <div className="h-52 xs:h-60 sm:h-64 md:h-48 lg:h-56 xl:h-60 bg-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-black/30 opacity-80 z-10 pointer-events-none" />
                     <img
-                      src="/image/meta iran.jpg"
+                      src={siteImages.project3}
                       alt={t.project3Title}
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out z-0 filter brightness-95 group-hover:brightness-105"
                       referrerPolicy="no-referrer"
@@ -1447,7 +1620,7 @@ export default function App() {
                     rel="noopener noreferrer"
                     className="w-full py-3 rounded-xl bg-zinc-900 hover:bg-amber-400 hover:text-zinc-950 border border-zinc-800 hover:border-amber-400 text-zinc-300 text-xs font-bold transition-all duration-300 flex items-center justify-center space-x-2 space-x-reverse"
                   >
-                    <span>{lang === "fa" ? "عضویت در کانال هالیورس" : lang === "ar" ? "انضم إلى قناة هاليفرس" : "Join Holiverse Channel"}</span>
+                    <span>{t.project3Cta}</span>
                     <i className="fa-brands fa-telegram text-xs"></i>
                   </a>
                 </div>
@@ -1469,7 +1642,7 @@ export default function App() {
             {/* Header titles */}
             <div className="text-center">
               <h2 className="text-xs sm:text-sm font-black tracking-widest text-amber-400 uppercase mb-2">
-                {lang === "fa" ? "نتایج واقعی از کارآفرینی ما" : lang === "ar" ? "نتائج واقعية لريادتنا" : "Real Poverty Alleviation Outlets"}
+                {t.testimonialsSectionBadge}
               </h2>
               <p className="text-3xl sm:text-5xl font-black text-white">
                 {t.testTitle}
@@ -1538,7 +1711,7 @@ export default function App() {
             {/* Header titles */}
             <div className="text-center">
               <h2 className="text-xs sm:text-sm font-black tracking-widest text-amber-400 uppercase mb-2">
-                {lang === "fa" ? "شفافیت و پاسخ به ابهامات" : lang === "ar" ? "الشفافية والإجابة على الأسئلة" : "Clarity & Decisive Answers"}
+                {t.faqSectionBadge}
               </h2>
               <p className="text-3xl sm:text-5xl font-black text-white">
                 {t.faqTitle}
@@ -1688,7 +1861,7 @@ export default function App() {
             {/* Header titles */}
             <div className="text-center">
               <h2 className="text-xs sm:text-sm font-black tracking-widest text-amber-400 uppercase mb-2">
-                {lang === "fa" ? "قدم اول را استوار بردارید" : lang === "ar" ? "اتخذ خطوتك الأولى بثبات" : "Establish Your Future Setup Today"}
+                {t.contactSectionBadge}
               </h2>
               <p className="text-3xl sm:text-5xl font-black text-white">
                 {t.contactTitle}
@@ -1803,7 +1976,7 @@ export default function App() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder={lang === "fa" ? "نام شما..." : "Your name..."}
+                      placeholder={t.placeholderName}
                       className="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:border-amber-500/50 focus:outline-none transition-colors text-sm"
                     />
                   </div>
@@ -1811,7 +1984,7 @@ export default function App() {
                   {/* Messaging Platform Selection */}
                   <div className="space-y-3">
                     <label className="block text-2xs font-semibold text-zinc-400">
-                      {lang === "fa" ? "انتخاب پیام‌رسان جهت گفتگوی مستقیم" : "Choose Messenger for Direct Message"}
+                      {t.contactMessengerLabel}
                     </label>
                     <div className="grid grid-cols-2 gap-3">
                       {/* Telegram */}
@@ -1825,7 +1998,7 @@ export default function App() {
                         }`}
                       >
                         <i className="fa-brands fa-telegram text-lg text-sky-400"></i>
-                        <span>{lang === "fa" ? "تلگرام" : "Telegram"}</span>
+                        <span>{t.telegramButtonLabel}</span>
                       </button>
 
                       {/* Rubika */}
@@ -1839,7 +2012,7 @@ export default function App() {
                         }`}
                       >
                         <i className="fa-solid fa-rocket text-lg text-violet-400 animate-pulse"></i>
-                        <span>{lang === "fa" ? "روبیکا" : "Rubika"}</span>
+                        <span>{t.rubikaButtonLabel}</span>
                       </button>
                     </div>
                   </div>
@@ -1875,23 +2048,7 @@ export default function App() {
                     ) : (
                       <>
                         <span>
-                          {lang === "fa"
-                            ? `ارسال پیام مستقیم در ${
-                                contactPlatform === "rubika"
-                                  ? "روبیکا"
-                                  : "تلگرام"
-                              }`
-                            : lang === "ar"
-                            ? `إرسال رسالة مباشرة عبر ${
-                                contactPlatform === "rubika"
-                                  ? "روبيكا"
-                                  : "تلغرام"
-                              }`
-                            : `Send Direct Message on ${
-                                contactPlatform === "rubika"
-                                  ? "Rubika"
-                                  : "Telegram"
-                              }`}
+                          {t.btnSubmit.replace("{messenger}", contactPlatform === "rubika" ? t.rubikaButtonLabel : t.telegramButtonLabel)}
                         </span>
                         <i className={`fa-solid ${
                           contactPlatform === "rubika"
