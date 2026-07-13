@@ -1,9 +1,13 @@
 import { useState, useEffect, useRef, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import AdminPanel from "./components/AdminPanel";
-import { getSupabaseTranslations, saveSupabaseTranslations, getSupabaseImages, saveSupabaseImages } from "./lib/supabase";
 
-// Default images configuration for editable assets
+// ==========================================
+// CONFIGURATION AND STATIC DATA
+// بخش پیکربندی و داده‌های ایستای برنامه
+// ==========================================
+
+// Default static images configuration for the branding and projects.
+// پیکربندی پیش‌فرض تصاویر ایستا برای برندینگ و پروژه‌های نمایش داده شده.
 const defaultImages = {
   logo1: "/image/logo 1 .jpg",
   logo2: "/image/logo 2 .jpg",
@@ -12,7 +16,10 @@ const defaultImages = {
   project3: "/image/meta iran.jpg"
 };
 
-// Translations dataset to support bilingual toggling seamlessly
+// Comprehensive dataset containing multi-language translations (Persian, English, Arabic).
+// This supports client-side instantaneous language switching without requesting any database.
+// مجموعه داده‌های کامل ترجمه‌های چندزبانه (فارسی، انگلیسی، عربی).
+// این ویژگی به شما امکان می‌دهد زبان وب‌سایت را بدون نیاز به دیتابیس، در سمت کلاینت تغییر دهید.
 const translations = {
   fa: {
     dir: "rtl",
@@ -448,141 +455,47 @@ const translations = {
   }
 };
 
+// ==========================================
+// MAIN COMPONENT DEFINITION
+// تعریف مؤلفه اصلی برنامه (App)
+// ==========================================
 export default function App() {
-  const [editableTranslations, setEditableTranslations] = useState(() => {
-    const saved = localStorage.getItem("master_gold_translations");
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch (e) {
-        console.error("Failed to parse translations from localStorage", e);
-      }
-    }
-    return translations;
-  });
+  // Use static constants for translation datasets and asset images (No database required).
+  // استفاده از داده‌های ایستای محلی برای ترجمه‌ها و تصاویر جهت عدم وابستگی به دیتابیس یا سرویس‌های خارجی.
+  const editableTranslations = translations;
+  const siteImages = defaultImages;
 
-  const [siteImages, setSiteImages] = useState<Record<string, string>>(() => {
-    const saved = localStorage.getItem("master_gold_images");
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch (e) {
-        console.error("Failed to parse images from localStorage", e);
-      }
-    }
-    return defaultImages;
-  });
-
+  // Language management state: default language is set to Persian ("fa").
+  // حالت مدیریت زبان فعال: زبان پیش‌فرض روی فارسی ("fa") قرار دارد.
   const [lang, setLang] = useState<"fa" | "en" | "ar">("fa");
   const t = editableTranslations[lang];
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
 
-  // Simple client-side router for /admin
-  const [currentPath, setCurrentPath] = useState(() => {
-    return window.location.pathname;
-  });
-
-  useEffect(() => {
-    const handleLocationChange = () => {
-      setCurrentPath(window.location.pathname);
-    };
-    window.addEventListener("popstate", handleLocationChange);
-    return () => window.removeEventListener("popstate", handleLocationChange);
-  }, []);
-
-  // Fetch translation and image updates dynamically from Supabase on startup
-  useEffect(() => {
-    async function loadTranslations() {
-      try {
-        const data = await getSupabaseTranslations();
-        if (data) {
-          if (data.__skip_seed) {
-            console.log("Supabase translations load skipped or failed. Using local configurations.");
-            return;
-          }
-
-          const isUninitialized = data.__should_seed || !data.fa || !data.fa.brand;
-          if (isUninitialized) {
-            console.log("Supabase record is empty. Seeding with default translations...");
-            try {
-              await saveSupabaseTranslations(translations);
-              setEditableTranslations(translations);
-            } catch (err) {
-              console.warn("Could not seed Supabase record automatically:", err);
-            }
-          } else {
-            const merged = { ...translations };
-            for (const langKey of ["fa", "en", "ar"] as const) {
-              if (data[langKey] && typeof data[langKey] === "object") {
-                merged[langKey] = {
-                  ...translations[langKey],
-                  ...data[langKey]
-                };
-              }
-            }
-            setEditableTranslations(merged);
-          }
-        }
-      } catch (e) {
-        console.error("Failed to sync with Supabase on startup:", e);
-      }
-    }
-
-    async function loadImages() {
-      try {
-        const data = await getSupabaseImages();
-        if (data) {
-          if (data.__skip_seed) {
-            console.log("Supabase images load skipped or failed. Using local configurations.");
-            return;
-          }
-
-          const isUninitialized = data.__should_seed || !data.logo1;
-          if (isUninitialized) {
-            console.log("Supabase images record is empty. Seeding defaults...");
-            try {
-              await saveSupabaseImages(defaultImages);
-              setSiteImages(defaultImages);
-            } catch (err) {
-              console.warn("Could not seed Supabase images automatically:", err);
-            }
-          } else {
-            setSiteImages({
-              ...defaultImages,
-              ...data
-            });
-          }
-        }
-      } catch (e) {
-        console.error("Failed to sync images with Supabase on startup:", e);
-      }
-    }
-
-    loadTranslations();
-    loadImages();
-  }, []);
-
-  const navigateTo = (path: string) => {
-    window.history.pushState({}, "", path);
-    setCurrentPath(path);
-  };
-
-  // Active navigation section state
+  // Active navigation section state used to track highlighing in header menus.
+  // حالت بخش ناوبری فعال برای متمایز کردن منوهای سربرگ در زمان اسکرول.
   const [activeSection, setActiveSection] = useState("hero");
-  // Mobile drawer trigger
+
+  // Mobile navigation drawer toggle.
+  // کنترل باز یا بسته بودن منوی موبایلی همبرگری.
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  // FAQ accordion state
+
+  // Accordion state to toggle open/close of FAQ questions.
+  // حالت باز یا بسته بودن منوهای کشویی بخش سوالات متداول.
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  // Testimonials active carousel index
+
+  // Active index of the student testimonials carousel feedback.
+  // شاخص بازخورد فعال دانشجویان در بخش نظرات و رضایت‌ها.
   const [testimonialIndex, setTestimonialIndex] = useState(0);
 
-  // Form states
+  // Contact form submission states.
+  // حالات مختلف فرم تماس برای ثبت و ارسال پیام.
   const [formData, setFormData] = useState({ name: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [contactPlatform, setContactPlatform] = useState<"telegram" | "rubika">("telegram");
 
-  // Section references for intersection and scrolling
+  // React references associated with different document section nodes to handle scroll positions.
+  // مراجع ری‌اکت متصل به بخش‌های مختلف سند جهت مدیریت موقعیت‌های اسکرول و پیمایش نرم.
   const sectionsRef = {
     hero: useRef<HTMLElement>(null),
     services: useRef<HTMLElement>(null),
@@ -603,13 +516,15 @@ export default function App() {
     { id: "contact", label: lang === "fa" ? "تماس با من" : lang === "ar" ? "الاتصال بي" : "Contact" },
   ];
 
-  // Set page direction dynamically when language changes
+  // Set document text direction (LTR/RTL) and language code dynamically when language changes.
+  // تنظیم جهت نمایش سند (چپ‌به‌راست یا راست‌به‌چپ) و کد زبان به صورت پویا هنگام تغییر زبان برنامه.
   useEffect(() => {
     document.documentElement.dir = t.dir;
     document.documentElement.lang = lang;
   }, [lang, t.dir]);
 
-  // Handle active section on scroll
+  // Handle active section tracking on scroll for interactive navbar links feedback.
+  // پیگیری بخش فعال صفحه در زمان پیمایش جهت نمایش بازخورد بصری در لینک‌های منوی سربرگ.
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 140;
@@ -633,12 +548,13 @@ export default function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll helper
+  // Smooth scroll helper with header offset calculation to keep top boundaries visible.
+  // تابع کمکی برای پیمایش نرم صفحه با احتساب ارتفاع سربرگ جهت جلوگیری از پوشانده شدن بالای بخش‌ها.
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80; // height of sticky header
+      const offset = 80; // height of sticky header (ارتفاع هدر چسبنده)
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -651,7 +567,8 @@ export default function App() {
     }
   };
 
-  // Autoplay testimonials
+  // Autoplay loop timer for testimonials feedback slider (cycles every 8.5 seconds).
+  // تایمر خودکار اجرای چرخه اسلایدر نظرات همراهان و دانشجویان (هر ۸.۵ ثانیه چرخش می‌کند).
   useEffect(() => {
     const interval = setInterval(() => {
       setTestimonialIndex((prev) => (prev + 1) % 3);
@@ -659,6 +576,10 @@ export default function App() {
     return () => clearInterval(interval);
   }, []);
 
+  // Form submit handler that prepares user message and redirects directly to Telegram or Rubika.
+  // This fully eliminates the need for any secondary backend server or database endpoints.
+  // فرستنده فرم تماس که پیام کاربر را آماده کرده و او را مستقیماً به تلگرام یا روبیکا هدایت می‌کند.
+  // این روش نیاز به دیتابیس یا سرورهای بک‌اند جانبی را کاملاً برطرف می‌کند.
   const handleContactSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.message) return;
@@ -673,9 +594,11 @@ export default function App() {
 
     let targetUrl = "";
     if (contactPlatform === "telegram") {
+      // Direct deep link to Telegram messenger with prefilled text (لینک مستقیم به تلگرام با متن پیش‌نویس شده)
       targetUrl = `https://t.me/Emperor2021?text=${encodeURIComponent(text)}`;
     } else {
-      // Rubika doesn't support pre-filled message URL query params, so we copy it to clipboard for convenience
+      // Copy message to clipboard for Rubika paste compatibility, then open Rubika channel.
+      // کپی پیام در حافظه موقت (Clipboard) جهت جای‌گذاری آسان در پیام‌رسان روبیکا، سپس باز کردن کانال روبیکا.
       try {
         navigator.clipboard.writeText(text);
       } catch (err) {
@@ -698,34 +621,6 @@ export default function App() {
       setTimeout(() => setSubmitSuccess(false), 5000);
     }, 1000);
   };
-
-  if (currentPath === "/admin") {
-    return (
-      <AdminPanel
-        initialTranslations={editableTranslations}
-        onSave={async (updated) => {
-          setEditableTranslations(updated);
-          localStorage.setItem("master_gold_translations", JSON.stringify(updated));
-          await saveSupabaseTranslations(updated);
-        }}
-        initialImages={siteImages}
-        onSaveImages={async (updatedImages) => {
-          setSiteImages(updatedImages);
-          localStorage.setItem("master_gold_images", JSON.stringify(updatedImages));
-          await saveSupabaseImages(updatedImages);
-        }}
-        onClose={() => {
-          navigateTo("/");
-        }}
-        onReset={() => {
-          localStorage.removeItem("master_gold_translations");
-          localStorage.removeItem("master_gold_images");
-          setEditableTranslations(translations);
-          setSiteImages(defaultImages);
-        }}
-      />
-    );
-  }
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col font-sans relative selection:bg-amber-500 selection:text-zinc-950 overflow-x-hidden">
@@ -2106,15 +2001,6 @@ export default function App() {
           <p className="text-zinc-600 text-xs font-mono">
             © {new Date().getFullYear()} {t.brand}. {t.allRights}
           </p>
-          <div className="pt-2">
-            <button
-              onClick={() => navigateTo("/admin")}
-              className="text-[10px] text-zinc-700 hover:text-amber-500/80 transition-colors font-medium flex items-center gap-1 mx-auto"
-            >
-              <i className="fa-solid fa-user-gear"></i>
-              <span>ورود به پنل مدیریت ادمین</span>
-            </button>
-          </div>
         </div>
       </footer>
 
