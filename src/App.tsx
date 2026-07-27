@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
-import logoImg from "../public/image/logo.webp";
-import metavalImg from "../public/image/metaval.webp";
-import vestoriImg from "../public/image/vestori.webp";
-import haliversImg from "../public/image/halivers.webp";
-import whaleAcademyImg from "../public/image/whale_academy.webp";
+import logoImg from "./assets/logo.webp";
+import metavalImg from "./assets/metaval.webp";
+import vestoriImg from "./assets/vestori.webp";
+import haliversImg from "./assets/halivers.webp";
+import whaleAcademyImg from "./assets/whale_academy.webp";
 
 // ==========================================
 // CONFIGURATION AND STATIC DATA
