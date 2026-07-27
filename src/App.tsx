@@ -9,12 +9,12 @@ import { motion, AnimatePresence } from "motion/react";
 // Default static images configuration for the branding and projects.
 // پیکربندی پیش‌فرض تصاویر ایستا برای برندینگ و پروژه‌های نمایش داده شده.
 const defaultImages = {
-  logo1: "/image/Logo_concept_minimalist_logo_2K_202607271217-removebg-preview.png",
-  logo2: "/image/Logo_concept_minimalist_logo_2K_202607271217-removebg-preview.png",
-  project1: "/image/metaval .jpg",
-  project2: "/image/vestori .jpg",
-  project3: "/image/halivers .jpg",
-  project4: "/image/photo_2026-07-27_12-42-34.jpg"
+  logo1: "/image/logo.png",
+  logo2: "/image/logo.png",
+  project1: "/image/metaval.jpg",
+  project2: "/image/vestori.jpg",
+  project3: "/image/halivers.jpg",
+  project4: "/image/whale_academy.jpg"
 };
 
 // Comprehensive dataset containing multi-language translations (Persian, English, Arabic).
@@ -865,18 +865,9 @@ export default function App() {
                   <img
                     src={siteImages.logo1}
                     alt="Master Gold Iran Logo"
-                    className="w-full h-full object-cover rounded-md select-none"
+                    className="w-full h-full object-contain rounded-md select-none"
                     referrerPolicy="no-referrer"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      target.style.display = 'none';
-                      const fallback = target.nextElementSibling as HTMLElement;
-                      if (fallback) fallback.style.display = 'flex';
-                    }}
                   />
-                  <div className="hidden absolute inset-0 bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
-                    <i className="fa-solid fa-crown text-zinc-950 text-lg"></i>
-                  </div>
                 </div>
                 <div className="flex flex-col justify-center min-w-0">
                   <span className="text-xl font-black tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-amber-200 to-orange-500 leading-none whitespace-nowrap">
@@ -1170,23 +1161,13 @@ export default function App() {
                 <div className="absolute -inset-2 bg-gradient-to-r from-amber-500 via-yellow-400 to-orange-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500 pointer-events-none"></div>
                 
                 {/* Premium Golden Frame */}
-                <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-3xl overflow-hidden bg-zinc-950 border-2 border-amber-500/40 hover:border-amber-400 transition-colors duration-300 flex items-center justify-center p-1.5 shadow-2xl shadow-amber-500/20">
+                <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-3xl overflow-hidden bg-zinc-950 border-2 border-amber-500/40 hover:border-amber-400 transition-colors duration-300 flex items-center justify-center p-2 shadow-2xl shadow-amber-500/20">
                   <img
                     src={siteImages.logo1}
                     alt="Master Gold Iran Logo"
-                    className="w-full h-full object-cover rounded-2xl select-none"
+                    className="w-full h-full object-contain rounded-2xl select-none"
                     referrerPolicy="no-referrer"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      target.style.display = 'none';
-                      const fallback = target.nextElementSibling as HTMLElement;
-                      if (fallback) fallback.style.display = 'flex';
-                    }}
                   />
-                  {/* Fallback crown icon if logo fails to load */}
-                  <div className="hidden absolute inset-0 bg-gradient-to-br from-amber-400 via-amber-500 to-orange-600 flex items-center justify-center">
-                    <i className="fa-solid fa-crown text-zinc-950 text-4xl animate-pulse"></i>
-                  </div>
                 </div>
               </div>
             </motion.div>
@@ -1545,10 +1526,6 @@ export default function App() {
                             alt="Master Gold Iran Logo 2"
                             className="w-full h-full object-contain rounded-2xl select-none"
                             referrerPolicy="no-referrer"
-                            onError={(e) => {
-                              const target = e.currentTarget;
-                              target.style.display = 'none';
-                            }}
                           />
                         </div>
                       </div>
@@ -1606,32 +1583,14 @@ export default function App() {
                 <div>
                   <div 
                     onClick={() => setFullscreenImage({ src: siteImages.project1, title: t.project1Title })}
-                    className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-3 group/img cursor-pointer"
+                    className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-1 sm:p-2 group/img cursor-pointer"
                   >
                     <img
                       src={siteImages.project1}
                       alt={t.project1Title}
-                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-lg"
+                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"
                       referrerPolicy="no-referrer"
-                      onError={(e) => {
-                        const target = e.currentTarget;
-                        target.style.display = "none";
-                        // Display the fallback container beautifully
-                        const parent = target.parentElement;
-                        if (parent) {
-                          const fallback = parent.querySelector(".image-fallback-1");
-                          if (fallback) fallback.classList.remove("hidden");
-                        }
-                      }}
                     />
-                    
-                    {/* Fallback layout if image not loaded */}
-                    <div className="image-fallback-1 hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-zinc-900 to-zinc-950 p-6 text-center z-0">
-                      <div className="w-16 h-16 rounded-2xl bg-amber-500/10 flex items-center justify-center border border-amber-500/20 mb-3 group-hover:scale-110 transition-transform duration-300">
-                        <i className="fa-solid fa-cloud-arrow-up text-2xl text-amber-500/80"></i>
-                      </div>
-                      <span className="text-zinc-500 text-[10px] uppercase tracking-wider font-mono">MetaWhale Asset</span>
-                    </div>
 
                     <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
                       {t.project1Tag}
@@ -1664,32 +1623,14 @@ export default function App() {
                 <div>
                   <div 
                     onClick={() => setFullscreenImage({ src: siteImages.project2, title: t.project2Title })}
-                    className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-3 group/img cursor-pointer"
+                    className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-1 sm:p-2 group/img cursor-pointer"
                   >
                     <img
                       src={siteImages.project2}
                       alt={t.project2Title}
-                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-lg"
+                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"
                       referrerPolicy="no-referrer"
-                      onError={(e) => {
-                        const target = e.currentTarget;
-                        target.style.display = "none";
-                        // Display the fallback container beautifully
-                        const parent = target.parentElement;
-                        if (parent) {
-                          const fallback = parent.querySelector(".image-fallback-2");
-                          if (fallback) fallback.classList.remove("hidden");
-                        }
-                      }}
                     />
-                    
-                    {/* Fallback layout if image not loaded */}
-                    <div className="image-fallback-2 hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-zinc-900 to-zinc-950 p-6 text-center z-0">
-                      <div className="w-16 h-16 rounded-2xl bg-orange-500/10 flex items-center justify-center border border-orange-500/20 mb-3 group-hover:scale-110 transition-transform duration-300">
-                        <i className="fa-solid fa-circle-nodes text-2xl text-orange-400/85"></i>
-                      </div>
-                      <span className="text-zinc-500 text-[10px] uppercase tracking-wider font-mono">Vistory Asset</span>
-                    </div>
 
                     <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
                       {t.project2Tag}
@@ -1722,32 +1663,14 @@ export default function App() {
                 <div>
                   <div 
                     onClick={() => setFullscreenImage({ src: siteImages.project3, title: t.project3Title })}
-                    className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-3 group/img cursor-pointer"
+                    className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-1 sm:p-2 group/img cursor-pointer"
                   >
                     <img
                       src={siteImages.project3}
                       alt={t.project3Title}
-                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-lg"
+                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"
                       referrerPolicy="no-referrer"
-                      onError={(e) => {
-                        const target = e.currentTarget;
-                        target.style.display = "none";
-                        // Display the fallback container beautifully
-                        const parent = target.parentElement;
-                        if (parent) {
-                          const fallback = parent.querySelector(".image-fallback-3");
-                          if (fallback) fallback.classList.remove("hidden");
-                        }
-                      }}
                     />
-                    
-                    {/* Fallback layout if image not loaded */}
-                    <div className="image-fallback-3 hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-zinc-900 to-zinc-950 p-6 text-center z-0">
-                      <div className="w-16 h-16 rounded-2xl bg-amber-500/10 flex items-center justify-center border border-amber-500/20 mb-3 group-hover:scale-110 transition-transform duration-300">
-                        <i className="fa-solid fa-globe text-2xl text-amber-500/80"></i>
-                      </div>
-                      <span className="text-zinc-500 text-[10px] uppercase tracking-wider font-mono">Holiverse Asset</span>
-                    </div>
 
                     <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
                       {t.project3Tag}
@@ -1780,32 +1703,14 @@ export default function App() {
                 <div>
                   <div 
                     onClick={() => setFullscreenImage({ src: siteImages.project4, title: t.project4Title })}
-                    className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-3 group/img cursor-pointer"
+                    className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-1 sm:p-2 group/img cursor-pointer"
                   >
                     <img
                       src={siteImages.project4}
                       alt={t.project4Title}
-                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-lg"
+                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"
                       referrerPolicy="no-referrer"
-                      onError={(e) => {
-                        const target = e.currentTarget;
-                        target.style.display = "none";
-                        // Display the fallback container beautifully
-                        const parent = target.parentElement;
-                        if (parent) {
-                          const fallback = parent.querySelector(".image-fallback-4");
-                          if (fallback) fallback.classList.remove("hidden");
-                        }
-                      }}
                     />
-                    
-                    {/* Fallback layout if image not loaded */}
-                    <div className="image-fallback-4 hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-zinc-900 to-zinc-950 p-6 text-center z-0">
-                      <div className="w-16 h-16 rounded-2xl bg-amber-500/10 flex items-center justify-center border border-amber-500/20 mb-3 group-hover:scale-110 transition-transform duration-300">
-                        <i className="fa-solid fa-graduation-cap text-2xl text-amber-500/80"></i>
-                      </div>
-                      <span className="text-zinc-500 text-[10px] uppercase tracking-wider font-mono">Whale Academy</span>
-                    </div>
 
                     <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
                       {t.project4Tag}
