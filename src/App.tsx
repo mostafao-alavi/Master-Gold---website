@@ -11,9 +11,9 @@ import { motion, AnimatePresence } from "motion/react";
 const defaultImages = {
   logo1: "/image/logo 1 .jpg",
   logo2: "/image/logo 2 .jpg",
-  project1: "/image/meta vers.jpg",
-  project2: "/image/meta whaie 2.jpg",
-  project3: "/image/meta iran.jpg"
+  project1: "/image/metaval .jpg",
+  project2: "/image/vestori .jpg",
+  project3: "/image/halivers .jpg"
 };
 
 // Comprehensive dataset containing multi-language translations (Persian, English, Arabic).
