@@ -5,6 +5,7 @@ compatibility_date = "2026-07-12"
 [assets]
 directory = "./dist"
 not_found_handling = "single-page-application"
+html_handling = "auto-trailing-slash"
 
 [vars]
 # You can place your public client-side variables here if needed
