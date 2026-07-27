@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
+import logoImg from "../public/image/logo.png";
+import metavalImg from "../public/image/metaval.jpg";
+import vestoriImg from "../public/image/vestori.jpg";
+import haliversImg from "../public/image/halivers.jpg";
+import whaleAcademyImg from "../public/image/whale_academy.jpg";
+
 // ==========================================
 // CONFIGURATION AND STATIC DATA
 // بخش پیکربندی و داده‌های ایستای برنامه
@@ -9,12 +15,12 @@ import { motion, AnimatePresence } from "motion/react";
 // Default static images configuration for the branding and projects.
 // پیکربندی پیش‌فرض تصاویر ایستا برای برندینگ و پروژه‌های نمایش داده شده.
 const defaultImages = {
-  logo1: "/image/logo.png",
-  logo2: "/image/logo.png",
-  project1: "/image/metaval.jpg",
-  project2: "/image/vestori.jpg",
-  project3: "/image/halivers.jpg",
-  project4: "/image/whale_academy.jpg"
+  logo1: logoImg,
+  logo2: logoImg,
+  project1: metavalImg,
+  project2: vestoriImg,
+  project3: haliversImg,
+  project4: whaleAcademyImg
 };
 
 // Comprehensive dataset containing multi-language translations (Persian, English, Arabic).
@@ -149,6 +155,8 @@ const translations = {
     addressLabel: "دفتر مرکزی و محل فعالیت",
     addressVal: "ایران، تهران",
     socialTitle: "شبکه‌های اجتماعی و کانال‌های رسمی",
+    youtubeLabel: "کانال یوتیوب مستر گولد ایران",
+    instagramLabel: "صفحه اینستاگرام رسمی ما",
     telegramLabel: "کانال تلگرام رسمی ما",
     rubikaLabel: "کانال روبیکا مستر گولد ایران",
     formTitle: "ارسال پیام مستقیم",
@@ -174,6 +182,7 @@ const translations = {
     disclaimerP1: "تمامی مطالب منتشرشده توسط برند Master Gold Iran صرفاً جنبه آموزشی و اطلاع‌رسانی و آگاهی‌سازی دارند و به‌هیچ‌عنوان پیشنهاد خرید، فروش یا سرمایهگذاری در هیچ پروژه یا دارایی خاصی نیستند.",
     disclaimerP2: "مسئولیت هرگونه تصمیم‌گیری مالی یا سرمایهگذاری به‌طور کامل بر عهده خود کاربران است و این مجموعه هیچ تعهدی نسبت به سود یا زیان احتمالی افراد ندارد.",
     disclaimerP3: "مطالعه و استفاده از این مطالب به‌معنای پذیرش کامل این سلب مسئولیت می‌باشد.",
+    disclaimerCheckbox: "مطالعه و پذیرش کامل شرایط و سلب مسئولیت فوق را تأیید می‌کنم.",
     disclaimerAcceptBtn: "تأیید شرایط و ورود به وب‌سایت"
   },
   en: {
@@ -303,6 +312,8 @@ const translations = {
     addressLabel: "Headquarters & Region",
     addressVal: "Tehran, Iran",
     socialTitle: "Social Medias & Official Feeds",
+    youtubeLabel: "Our Official YouTube Channel",
+    instagramLabel: "Our Official Instagram Page",
     telegramLabel: "Our Official Telegram Channel",
     rubikaLabel: "Our Official Rubika Channel",
     formTitle: "Send a Direct Message",
@@ -328,6 +339,7 @@ const translations = {
     disclaimerP1: "All content published by the Master Gold Iran brand is strictly for educational, informational, and awareness purposes, and in no way constitutes a recommendation or offer to buy, sell, or invest in any specific project or asset.",
     disclaimerP2: "Full responsibility for any financial or investment decisions rests entirely with the users, and this organization bears no obligation or liability regarding potential profits or losses.",
     disclaimerP3: "Reading and using this content signifies full acceptance of this disclaimer.",
+    disclaimerCheckbox: "I confirm that I have read and accepted all terms and disclaimer above.",
     disclaimerAcceptBtn: "I Accept & Enter Website"
   },
   ar: {
@@ -457,6 +469,8 @@ const translations = {
     addressLabel: "المكتب الرئيسي ومكان العمل",
     addressVal: "إيران، طهران",
     socialTitle: "شبكات التواصل الاجتماعي والقنوات الرسمية",
+    youtubeLabel: "قناتنا الرسمية على يوتيوب",
+    instagramLabel: "صفحتنا الرسمية على إنستغرام",
     telegramLabel: "قناتنا الرسمية على تلغرام",
     rubikaLabel: "قناتنا الرسمية على روبيكا",
     formTitle: "إرسال رسالة مباشرة",
@@ -482,6 +496,7 @@ const translations = {
     disclaimerP1: "جميع المواد المنشورة من قبل علامة Master Gold Iran هي لأغراض تعليمية وإعلامية وتوعوية فقط، ولا تعتبر بأي حال من الأحوال توصية بالشراء أو البيع أو الاستثمار في أي مشروع أو أصل معين.",
     disclaimerP2: "تقع المسؤولية الكاملة عن أي قرار مالي أو استثماري على عاتق المستخدمين أنفسهم، وتخلي المجموعة مسؤوليتها عن أي أرباح أو خسائر محتملة.",
     disclaimerP3: "تعتبر قراءة واستخدام هذه المواد بمثابة موافقة كاملة على إخلاء المسؤولية هذا.",
+    disclaimerCheckbox: "أؤكد قراءة وقبول جميع الشروط وإخلاء المسؤولية أعلاه بالكامل.",
     disclaimerAcceptBtn: "الموافقة والدخول إلى الموقع"
   },
   tr: {
@@ -611,6 +626,8 @@ const translations = {
     addressLabel: "Merkez Ofis ve Bölge",
     addressVal: "Tahran, İran",
     socialTitle: "Sosyal Medya ve Resmi Kanallar",
+    youtubeLabel: "Resmi YouTube Kanalımız",
+    instagramLabel: "Resmi Instagram Sayfamız",
     telegramLabel: "Resmi Telegram Kanalımız",
     rubikaLabel: "Resmi Rubika Kanalımız",
     formTitle: "Doğrudan Mesaj Gönder",
@@ -636,6 +653,7 @@ const translations = {
     disclaimerP1: "Master Gold Iran markası tarafından yayınlanan tüm içerikler yalnızca eğitim, bilgilendirme ve farkındalık amaçlıdır ve kesinlikle herhangi bir projeye veya varlığa yatırım yapma, satın alma veya satma tavsiyesi değildir.",
     disclaimerP2: "Tüm finansal veya yatırım kararlarının sorumluluğu tamamen kullanıcıların kendisine aittir ve kuruluşumuz olası kar veya zararlardan sorumlu tutulamaz.",
     disclaimerP3: "Bu içeriklerin okunması ve kullanılması, bu sorumluluk reddinin tamamen kabul edildiği anlamına gelir.",
+    disclaimerCheckbox: "Yukarıdaki şartları ve sorumluluk reddini okuduğumu ve tamamen kabul ettiğimi onaylıyorum.",
     disclaimerAcceptBtn: "Kabul Ediyorum ve Siteye Gir"
   }
 };
@@ -678,6 +696,7 @@ export default function App() {
   // Mandatory Terms of Use and Disclaimer Popup modal state (opens every time site is accessed)
   // پاپ آپ اجباری شرایط استفاده و سلب مسئولیت وب‌سایت
   const [showDisclaimerModal, setShowDisclaimerModal] = useState(true);
+  const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
   // Lock body scroll when disclaimer modal or fullscreen image is active
   useEffect(() => {
@@ -986,10 +1005,30 @@ export default function App() {
               </div>
 
               <a
+                href="https://youtube.com/@mastergoldiran"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-400 hover:text-red-500 transition-all border border-zinc-800/80"
+                title="YouTube Channel @mastergoldiran"
+              >
+                <i className="fa-brands fa-youtube text-lg"></i>
+              </a>
+
+              <a
+                href="https://www.instagram.com/master.gold.iran"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-400 hover:text-pink-500 transition-all border border-zinc-800/80"
+                title="Instagram @master.gold.iran"
+              >
+                <i className="fa-brands fa-instagram text-lg"></i>
+              </a>
+
+              <a
                 href="https://t.me/metawhale2024"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-400 hover:text-amber-400 transition-all border border-zinc-800/80"
+                className="w-10 h-10 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-400 hover:text-sky-400 transition-all border border-zinc-800/80"
                 title="Telegram Channel @metawhale2024"
               >
                 <i className="fa-brands fa-telegram text-lg"></i>
@@ -1114,22 +1153,38 @@ export default function App() {
                     {item.label}
                   </button>
                 ))}
-                <div className="flex items-center space-x-3 space-x-reverse pt-4 border-t border-zinc-900 px-4">
+                <div className="grid grid-cols-2 gap-2 pt-4 border-t border-zinc-900 px-4">
+                  <a
+                    href="https://youtube.com/@mastergoldiran"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="py-2.5 px-3 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-300 hover:text-red-400 transition-all border border-zinc-800 text-xs font-bold gap-1.5"
+                  >
+                    <i className="fa-brands fa-youtube text-base text-red-500"></i> YouTube
+                  </a>
+                  <a
+                    href="https://www.instagram.com/master.gold.iran"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="py-2.5 px-3 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-300 hover:text-pink-400 transition-all border border-zinc-800 text-xs font-bold gap-1.5"
+                  >
+                    <i className="fa-brands fa-instagram text-base text-pink-500"></i> Instagram
+                  </a>
                   <a
                     href="https://t.me/metawhale2024"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-300 hover:text-amber-400 transition-all border border-zinc-800"
+                    className="py-2.5 px-3 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-300 hover:text-amber-400 transition-all border border-zinc-800 text-xs font-bold gap-1.5"
                   >
-                    <i className="fa-brands fa-telegram text-lg ml-2 mr-2 text-sky-400"></i> {t.telegramButtonLabel}
+                    <i className="fa-brands fa-telegram text-base text-sky-400"></i> {t.telegramButtonLabel}
                   </a>
                   <a
                     href="https://rubika.ir/Mastergoldiran"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-300 hover:text-amber-400 transition-all border border-zinc-800"
+                    className="py-2.5 px-3 rounded-lg bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-300 hover:text-amber-400 transition-all border border-zinc-800 text-xs font-bold gap-1.5"
                   >
-                    <i className="fa-solid fa-rocket text-lg ml-2 mr-2 text-violet-400"></i> {t.rubikaButtonLabel}
+                    <i className="fa-solid fa-rocket text-base text-violet-400"></i> {t.rubikaButtonLabel}
                   </a>
                 </div>
               </div>
@@ -1838,16 +1893,20 @@ export default function App() {
             <div className="space-y-4">
               
               {/* Question 1 */}
-              <div className="border border-zinc-800/80 rounded-xl overflow-hidden bg-zinc-900/20 hover:border-zinc-700/80 transition-colors">
+              <div className={`border rounded-xl overflow-hidden transition-all duration-300 ${
+                openFaq === 0 
+                  ? "border-amber-500/50 bg-amber-500/[0.02] shadow-[0_0_20px_rgba(245,158,11,0.05)]" 
+                  : "border-zinc-800/80 bg-zinc-900/20 hover:border-zinc-700/80"
+              }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 0 ? null : 0)}
                   className="w-full flex items-center justify-between p-6 text-right focus:outline-none focus:ring-0"
                 >
-                  <span className={`text-base sm:text-lg font-bold text-white ${t.dir === "rtl" ? "text-right" : "text-left"}`}>
+                  <span className={`text-base sm:text-lg font-bold ${t.dir === "rtl" ? "text-right" : "text-left"} transition-colors ${openFaq === 0 ? "text-amber-400" : "text-white"}`}>
                     {t.faq1Q}
                   </span>
-                  <span className={`${t.dir === "rtl" ? "mr-2" : "ml-2"} flex-shrink-0 w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400`}>
-                    <i className={`fa-solid ${openFaq === 0 ? "fa-minus" : "fa-plus"} text-sm text-amber-400`}></i>
+                  <span className={`${t.dir === "rtl" ? "mr-2" : "ml-2"} flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === 0 ? "rotate-180 bg-amber-500/20 text-amber-400 border border-amber-500/40" : "bg-zinc-900 text-amber-400 border border-amber-500/20"}`}>
+                    <i className={`fa-solid ${openFaq === 0 ? "fa-minus" : "fa-plus"} text-sm`}></i>
                   </span>
                 </button>
                 <AnimatePresence initial={false}>
@@ -1867,16 +1926,20 @@ export default function App() {
               </div>
 
               {/* Question 2 */}
-              <div className="border border-zinc-800/80 rounded-xl overflow-hidden bg-zinc-900/20 hover:border-zinc-700/80 transition-colors">
+              <div className={`border rounded-xl overflow-hidden transition-all duration-300 ${
+                openFaq === 1 
+                  ? "border-amber-500/50 bg-amber-500/[0.02] shadow-[0_0_20px_rgba(245,158,11,0.05)]" 
+                  : "border-zinc-800/80 bg-zinc-900/20 hover:border-zinc-700/80"
+              }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 1 ? null : 1)}
                   className="w-full flex items-center justify-between p-6 text-right focus:outline-none focus:ring-0"
                 >
-                  <span className={`text-base sm:text-lg font-bold text-white ${t.dir === "rtl" ? "text-right" : "text-left"}`}>
+                  <span className={`text-base sm:text-lg font-bold ${t.dir === "rtl" ? "text-right" : "text-left"} transition-colors ${openFaq === 1 ? "text-amber-400" : "text-white"}`}>
                     {t.faq2Q}
                   </span>
-                  <span className={`${t.dir === "rtl" ? "mr-2" : "ml-2"} flex-shrink-0 w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400`}>
-                    <i className={`fa-solid ${openFaq === 1 ? "fa-minus" : "fa-plus"} text-sm text-amber-400`}></i>
+                  <span className={`${t.dir === "rtl" ? "mr-2" : "ml-2"} flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === 1 ? "rotate-180 bg-amber-500/20 text-amber-400 border border-amber-500/40" : "bg-zinc-900 text-amber-400 border border-amber-500/20"}`}>
+                    <i className={`fa-solid ${openFaq === 1 ? "fa-minus" : "fa-plus"} text-sm`}></i>
                   </span>
                 </button>
                 <AnimatePresence initial={false}>
@@ -1905,10 +1968,10 @@ export default function App() {
                   onClick={() => setOpenFaq(openFaq === 2 ? null : 2)}
                   className="w-full flex items-center justify-between p-6 text-right focus:outline-none focus:ring-0"
                 >
-                  <span className={`text-base sm:text-lg font-bold text-white ${t.dir === "rtl" ? "text-right" : "text-left"} transition-colors ${openFaq === 2 ? "text-amber-400" : ""}`}>
+                  <span className={`text-base sm:text-lg font-bold ${t.dir === "rtl" ? "text-right" : "text-left"} transition-colors ${openFaq === 2 ? "text-amber-400" : "text-white"}`}>
                     {t.faq3Q}
                   </span>
-                  <span className={`${t.dir === "rtl" ? "mr-2" : "ml-2"} flex-shrink-0 w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 transition-transform duration-300 ${openFaq === 2 ? "rotate-180 bg-amber-500/10 text-amber-400" : ""}`}>
+                  <span className={`${t.dir === "rtl" ? "mr-2" : "ml-2"} flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === 2 ? "rotate-180 bg-amber-500/20 text-amber-400 border border-amber-500/40" : "bg-zinc-900 text-amber-400 border border-amber-500/20"}`}>
                     <i className={`fa-solid ${openFaq === 2 ? "fa-minus" : "fa-plus"} text-sm`}></i>
                   </span>
                 </button>
@@ -2048,10 +2111,26 @@ export default function App() {
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <a
+                      href="https://youtube.com/@mastergoldiran"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-red-500/40 text-zinc-300 hover:text-red-400 transition-all flex items-center text-xs font-bold gap-2"
+                    >
+                      <i className="fa-brands fa-youtube text-base text-red-500"></i> {t.youtubeLabel}
+                    </a>
+                    <a
+                      href="https://www.instagram.com/master.gold.iran"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-pink-500/40 text-zinc-300 hover:text-pink-400 transition-all flex items-center text-xs font-bold gap-2"
+                    >
+                      <i className="fa-brands fa-instagram text-base text-pink-500"></i> {t.instagramLabel}
+                    </a>
+                    <a
                       href="https://t.me/metawhale2024"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-amber-500/30 text-zinc-300 hover:text-amber-400 transition-all flex items-center text-xs font-bold gap-1"
+                      className="px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-amber-500/30 text-zinc-300 hover:text-amber-400 transition-all flex items-center text-xs font-bold gap-2"
                     >
                       <i className="fa-brands fa-telegram text-base text-sky-400"></i> {t.telegramLabel}
                     </a>
@@ -2059,7 +2138,7 @@ export default function App() {
                       href="https://rubika.ir/Mastergoldiran"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-amber-500/30 text-zinc-300 hover:text-amber-400 transition-all flex items-center text-xs font-bold gap-1"
+                      className="px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-amber-500/30 text-zinc-300 hover:text-amber-400 transition-all flex items-center text-xs font-bold gap-2"
                     >
                       <i className="fa-solid fa-rocket text-base text-violet-400"></i> {t.rubikaLabel}
                     </a>
@@ -2214,6 +2293,47 @@ export default function App() {
           <p className="text-zinc-500 text-sm max-w-md mx-auto leading-relaxed">
             {t.brand}: {t.slogan}
           </p>
+          
+          {/* Social Media Links */}
+          <div className="flex items-center justify-center gap-3 pt-1">
+            <a
+              href="https://youtube.com/@mastergoldiran"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-red-500/50 text-zinc-400 hover:text-red-500 transition-all flex items-center justify-center text-base shadow-sm"
+              title="YouTube"
+            >
+              <i className="fa-brands fa-youtube"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/master.gold.iran"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-pink-500/50 text-zinc-400 hover:text-pink-500 transition-all flex items-center justify-center text-base shadow-sm"
+              title="Instagram"
+            >
+              <i className="fa-brands fa-instagram"></i>
+            </a>
+            <a
+              href="https://t.me/metawhale2024"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-sky-500/50 text-zinc-400 hover:text-sky-400 transition-all flex items-center justify-center text-base shadow-sm"
+              title="Telegram"
+            >
+              <i className="fa-brands fa-telegram"></i>
+            </a>
+            <a
+              href="https://rubika.ir/Mastergoldiran"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-violet-500/50 text-zinc-400 hover:text-violet-400 transition-all flex items-center justify-center text-base shadow-sm"
+              title="Rubika"
+            >
+              <i className="fa-solid fa-rocket"></i>
+            </a>
+          </div>
+
           <div className="w-12 h-px bg-zinc-800 mx-auto" />
           <p className="text-zinc-600 text-xs font-mono">
             © {new Date().getFullYear()} {t.brand}. {t.allRights}
@@ -2283,21 +2403,21 @@ export default function App() {
             className="fixed inset-0 z-[99999] bg-black/90 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-6 overflow-y-auto select-none"
           >
             <div 
-              className="relative max-w-2xl w-full bg-zinc-950 border-2 border-amber-500/40 rounded-3xl shadow-[0_0_100px_rgba(245,158,11,0.25)] p-6 sm:p-8 my-auto overflow-hidden text-zinc-200"
+              className="relative max-w-2xl w-full max-h-[88vh] flex flex-col bg-zinc-950 border-2 border-amber-500/40 rounded-3xl shadow-[0_0_100px_rgba(245,158,11,0.25)] p-5 sm:p-7 overflow-hidden text-zinc-200"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Top Accent Line */}
               <div className="h-2 w-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-400 absolute top-0 left-0 right-0" />
 
               {/* Header Section */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-zinc-800/80 mb-6">
-                <div className="flex items-center gap-3.5">
-                  <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-inner shrink-0">
-                    <i className="fa-solid fa-shield-halved text-2xl"></i>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-zinc-800/80 shrink-0 mt-1">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-inner shrink-0">
+                    <i className="fa-solid fa-shield-halved text-xl sm:text-2xl"></i>
                   </div>
                   <div>
                     <span className="text-amber-500 font-mono text-2xs uppercase tracking-wider font-bold block">Master Gold Iran</span>
-                    <h2 className="text-lg sm:text-xl font-bold text-white tracking-wide">
+                    <h2 className="text-base sm:text-lg font-bold text-white tracking-wide">
                       {t.disclaimerTitle}
                     </h2>
                   </div>
@@ -2310,7 +2430,7 @@ export default function App() {
                       key={l}
                       type="button"
                       onClick={() => setLang(l)}
-                      className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all ${
+                      className={`px-2 py-0.5 sm:px-2.5 sm:py-1 text-xs font-bold rounded-lg transition-all ${
                         lang === l
                           ? "bg-amber-400 text-zinc-950 shadow-md"
                           : "text-zinc-400 hover:text-white hover:bg-zinc-800/60"
@@ -2323,42 +2443,70 @@ export default function App() {
               </div>
 
               {/* Disclaimer Text Content */}
-              <div className="space-y-4 mb-8 text-sm sm:text-base leading-relaxed text-justify">
-                <div className="bg-zinc-900/90 border border-amber-500/20 p-4 sm:p-5 rounded-2xl shadow-inner relative overflow-hidden">
+              <div className="overflow-y-auto space-y-3 sm:space-y-4 my-4 pr-1.5 text-xs sm:text-sm leading-relaxed text-justify custom-scrollbar">
+                <div className="bg-zinc-900/90 border border-amber-500/20 p-3.5 sm:p-4 rounded-2xl shadow-inner relative overflow-hidden">
                   <div className="flex items-start gap-3">
-                    <i className="fa-solid fa-triangle-exclamation text-amber-400 text-lg mt-0.5 shrink-0"></i>
+                    <i className="fa-solid fa-triangle-exclamation text-amber-400 text-base mt-0.5 shrink-0"></i>
                     <p className="text-zinc-100 font-medium">
                       {t.disclaimerP1}
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-zinc-900/60 border border-zinc-800/80 p-4 sm:p-5 rounded-2xl">
+                <div className="bg-zinc-900/60 border border-zinc-800/80 p-3.5 sm:p-4 rounded-2xl">
                   <div className="flex items-start gap-3">
-                    <i className="fa-solid fa-user-shield text-amber-400/80 text-lg mt-0.5 shrink-0"></i>
+                    <i className="fa-solid fa-user-shield text-amber-400/80 text-base mt-0.5 shrink-0"></i>
                     <p className="text-zinc-300">
                       {t.disclaimerP2}
                     </p>
                   </div>
                 </div>
-
-                <div className="bg-amber-500/10 border border-amber-500/30 p-3.5 sm:p-4 rounded-2xl text-center">
-                  <p className="text-amber-300 font-bold text-xs sm:text-sm flex items-center justify-center gap-2">
-                    <i className="fa-solid fa-circle-check text-amber-400"></i>
-                    <span>{t.disclaimerP3}</span>
-                  </p>
-                </div>
               </div>
 
-              {/* Acceptance Button */}
-              <button
-                type="button"
-                onClick={() => setShowDisclaimerModal(false)}
-                className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-zinc-950 font-black text-base sm:text-lg shadow-xl shadow-amber-500/25 hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer group"
-              >
-                <i className="fa-solid fa-circle-check text-xl group-hover:scale-110 transition-transform"></i>
-                <span>{t.disclaimerAcceptBtn}</span>
-              </button>
+              {/* Acceptance Action Footer */}
+              <div className="pt-3 border-t border-zinc-800/80 shrink-0 space-y-3">
+                {/* Interactive Checkbox */}
+                <div
+                  onClick={() => setDisclaimerAccepted(!disclaimerAccepted)}
+                  className={`p-3 sm:p-3.5 rounded-xl border transition-all duration-300 cursor-pointer select-none flex items-center gap-3 ${
+                    disclaimerAccepted
+                      ? "bg-amber-500/15 border-amber-500/50 text-amber-300 shadow-[0_0_20px_rgba(245,158,11,0.12)]"
+                      : "bg-zinc-900/90 border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-zinc-300"
+                  }`}
+                >
+                  <div
+                    className={`w-5 h-5 rounded-md border flex items-center justify-center transition-all duration-200 shrink-0 ${
+                      disclaimerAccepted
+                        ? "bg-amber-400 border-amber-400 text-zinc-950 scale-105"
+                        : "border-zinc-600 bg-zinc-950 text-transparent"
+                    }`}
+                  >
+                    <i className="fa-solid fa-check text-xs font-black"></i>
+                  </div>
+                  <p className="font-bold text-xs sm:text-xs leading-relaxed">
+                    {t.disclaimerCheckbox}
+                  </p>
+                </div>
+
+                {/* Acceptance Button */}
+                <button
+                  type="button"
+                  disabled={!disclaimerAccepted}
+                  onClick={() => {
+                    if (disclaimerAccepted) {
+                      setShowDisclaimerModal(false);
+                    }
+                  }}
+                  className={`w-full py-3.5 sm:py-4 rounded-2xl font-black text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2.5 ${
+                    disclaimerAccepted
+                      ? "bg-gradient-to-r from-amber-500 via-amber-400 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-zinc-950 shadow-xl shadow-amber-500/25 hover:scale-[1.01] active:scale-[0.99] cursor-pointer group"
+                      : "bg-zinc-900/80 border border-zinc-800/80 text-zinc-600 cursor-not-allowed opacity-40 shadow-none"
+                  }`}
+                >
+                  <i className={`fa-solid fa-circle-check text-lg transition-transform ${disclaimerAccepted ? "group-hover:scale-110 text-zinc-950" : "text-zinc-600"}`}></i>
+                  <span>{t.disclaimerAcceptBtn}</span>
+                </button>
+              </div>
             </div>
           </motion.div>
         )}

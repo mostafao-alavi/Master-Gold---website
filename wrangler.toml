@@ -4,6 +4,8 @@ compatibility_date = "2026-07-12"
 
 [assets]
 directory = "./dist"
+html_handling = "single-page-app"
+not_found_handling = "single-page-app"
 
 [vars]
 # You can place your public client-side variables here if needed
