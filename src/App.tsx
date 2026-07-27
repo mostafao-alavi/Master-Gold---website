@@ -9,11 +9,12 @@ import { motion, AnimatePresence } from "motion/react";
 // Default static images configuration for the branding and projects.
 // پیکربندی پیش‌فرض تصاویر ایستا برای برندینگ و پروژه‌های نمایش داده شده.
 const defaultImages = {
-  logo1: "/image/logo 1 .jpg",
-  logo2: "/image/logo 2 .jpg",
+  logo1: "/image/Logo_concept_minimalist_logo_2K_202607271217-removebg-preview.png",
+  logo2: "/image/Logo_concept_minimalist_logo_2K_202607271217-removebg-preview.png",
   project1: "/image/metaval .jpg",
   project2: "/image/vestori .jpg",
-  project3: "/image/halivers .jpg"
+  project3: "/image/halivers .jpg",
+  project4: "/image/photo_2026-07-27_12-42-34.jpg"
 };
 
 // Comprehensive dataset containing multi-language translations (Persian, English, Arabic).
@@ -94,6 +95,9 @@ const translations = {
     project3Tag: "آموزش و اخبار",
     project3Title: "پروژه هالیورس (Holiverse)",
     project3Desc: "مجموعه مستر گولد ایران تقدیم می‌کند: کانال رسمی اخبار و اطلاعات پروژه‌های HOLIVERSE و METAWHALE، تاکتیک و استراتژی (T&S)، رویالتی NFT، معدن ماینر BIT FORCE، محصولات کش‌بک توکن، صرافی W.dex، ارز دیجیتال CES COIN، هلدینگ، استیکینگ و متاورس.",
+    project4Tag: "پلتفرم آموزشی وب ۳",
+    project4Title: "آکادمی نهنگ (Whale-Academy)",
+    project4Desc: "آکادمی نهنگ (Whale-Academy) یک پلتفرم آموزشی وب ۳ است که برای جذب کاربران به اکوسیستم متا نهنگ (Meta Whale) ساخته شده است. این پلتفرم، یادگیری بازیوار، مکانیک بلاکچین و گواهینامه NFT را ترکیب میکند و به شرکتکنندگان کمک میکند تا از مفاهیم اولیه به شیوههای پیشرفته در DeFi، NFTها و محصولات اکوسیستم مانند W-DEX برسند.",
     viewProjectBtn: "ورود به پروژه و ثبت‌نام",
 
     // Projects Extra
@@ -163,7 +167,14 @@ const translations = {
     contactMessengerLabel: "انتخاب پیام‌رسان جهت گفتگوی مستقیم",
     telegramButtonLabel: "تلگرام",
     rubikaButtonLabel: "روبیکا",
-    placeholderName: "نام شما..."
+    placeholderName: "نام شما...",
+
+    // Disclaimer Modal
+    disclaimerTitle: "شرایط استفاده و سلب مسئولیت",
+    disclaimerP1: "تمامی مطالب منتشرشده توسط برند Master Gold Iran صرفاً جنبه آموزشی و اطلاع‌رسانی و آگاهی‌سازی دارند و به‌هیچ‌عنوان پیشنهاد خرید، فروش یا سرمایهگذاری در هیچ پروژه یا دارایی خاصی نیستند.",
+    disclaimerP2: "مسئولیت هرگونه تصمیم‌گیری مالی یا سرمایهگذاری به‌طور کامل بر عهده خود کاربران است و این مجموعه هیچ تعهدی نسبت به سود یا زیان احتمالی افراد ندارد.",
+    disclaimerP3: "مطالعه و استفاده از این مطالب به‌معنای پذیرش کامل این سلب مسئولیت می‌باشد.",
+    disclaimerAcceptBtn: "تأیید شرایط و ورود به وب‌سایت"
   },
   en: {
     dir: "ltr",
@@ -238,6 +249,9 @@ const translations = {
     project3Tag: "Info & News Hub",
     project3Title: "Holiverse Ecosystem",
     project3Desc: "Presented by Master Gold Iran: Official news, Tactics & Strategy (T&S), Royalty NFT, BIT FORCE mining, cashback products, W.dex, CES COIN, holding, staking, and metaverse updates.",
+    project4Tag: "Web3 Educational Platform",
+    project4Title: "Whale Academy (Whale-Academy)",
+    project4Desc: "Whale Academy (Whale-Academy) is a Web3 educational platform built to onboard users into the Meta Whale ecosystem. Combining gamified learning, blockchain mechanics, and NFT certification, it helps participants progress from beginner concepts to advanced practices in DeFi, NFTs, and ecosystem products such as W-DEX.",
     viewProjectBtn: "Enter Project & Register",
 
     // Projects Extra
@@ -307,7 +321,14 @@ const translations = {
     contactMessengerLabel: "Choose Messenger for Direct Message",
     telegramButtonLabel: "Telegram",
     rubikaButtonLabel: "Rubika",
-    placeholderName: "Your name..."
+    placeholderName: "Your name...",
+
+    // Disclaimer Modal
+    disclaimerTitle: "Terms of Use & Disclaimer",
+    disclaimerP1: "All content published by the Master Gold Iran brand is strictly for educational, informational, and awareness purposes, and in no way constitutes a recommendation or offer to buy, sell, or invest in any specific project or asset.",
+    disclaimerP2: "Full responsibility for any financial or investment decisions rests entirely with the users, and this organization bears no obligation or liability regarding potential profits or losses.",
+    disclaimerP3: "Reading and using this content signifies full acceptance of this disclaimer.",
+    disclaimerAcceptBtn: "I Accept & Enter Website"
   },
   ar: {
     dir: "rtl",
@@ -382,6 +403,9 @@ const translations = {
     project3Tag: "التعليم والأخبار",
     project3Title: "مشروع هاليفرس (Holiverse)",
     project3Desc: "تقدم مجموعة مستر غولد إيران: القناة الرسمية لأخبار ومعلومات مشروع HOLIVERSE & METAWHALE، التكتيك والاستراتيجية (T&S)، رويالتريكس NFT، منجم التعدين BIT FORCE، منتجات الكاش باك توكن، بورصة W.dex، العملة الرقمية CES COIN، القابضة، الستيكينغ والميتافيرس.",
+    project4Tag: "منصة تعليمية Web3",
+    project4Title: "أكاديمية الحوت (Whale-Academy)",
+    project4Desc: "أكاديمية الحوت (Whale-Academy) هي منصة تعليمية للـ Web3 تم بناؤها لجذب المستخدمين إلى نظام ميتات حوت (Meta Whale) البيئي. تجمع المنصة بين التعلم القائم على الألعاب، وميكانيكا البلوكشين، وشهادات NFT، مما يساعد المشاركين على الانتقال من المفاهيم الأساسية إلى الممارسات المتقدمة في DeFi وNFTs ومنتجات النظام البيئي مثل W-DEX.",
     viewProjectBtn: "الدخول إلى المشروع والتسجيل",
 
     // Projects Extra
@@ -451,7 +475,168 @@ const translations = {
     contactMessengerLabel: "اختر تطبيق المراسلة للمحادثة المباشرة",
     telegramButtonLabel: "تلغرام",
     rubikaButtonLabel: "روبيكا",
-    placeholderName: "اسمك..."
+    placeholderName: "اسمك...",
+
+    // Disclaimer Modal
+    disclaimerTitle: "شروط الاستخدام وإخلاء المسؤولية",
+    disclaimerP1: "جميع المواد المنشورة من قبل علامة Master Gold Iran هي لأغراض تعليمية وإعلامية وتوعوية فقط، ولا تعتبر بأي حال من الأحوال توصية بالشراء أو البيع أو الاستثمار في أي مشروع أو أصل معين.",
+    disclaimerP2: "تقع المسؤولية الكاملة عن أي قرار مالي أو استثماري على عاتق المستخدمين أنفسهم، وتخلي المجموعة مسؤوليتها عن أي أرباح أو خسائر محتملة.",
+    disclaimerP3: "تعتبر قراءة واستخدام هذه المواد بمثابة موافقة كاملة على إخلاء المسؤولية هذا.",
+    disclaimerAcceptBtn: "الموافقة والدخول إلى الموقع"
+  },
+  tr: {
+    dir: "ltr",
+    brand: "Master Gold Iran",
+    slogan: "İran'da gerçek dolar geliri sağlayan tek yoksullukla mücadele markasıyız",
+    area: "Eğitim • Strateji • Danışmanlık • Merkeziyetsiz Finans Piyasalarının Kurulumu",
+    tagline: "İran'daki tüm eğitim ve hizmetler %100 ücretsiz olarak sunulmaktadır",
+    heroTitle: "Dolar Geliri Dünyama Hoş Geldiniz",
+    heroSubtitle: "Misyonumuz toplumda yoksulluğu ortadan kaldırmaktır",
+    ctaView: "Projeleri ve Uzmanlıkları İncele",
+    ctaContact: "Moein Alavi ile İletişime Geç",
+
+    // Hero Intro Extra
+    heroIntroAlert: "❌ Çalışma grubumuza katılma fırsatını kimseye ikinci kez vermiyoruz!",
+    heroIntroNamePrefix: "Ben",
+    heroIntroName: "Moein Alavi",
+    heroIntroNameSuffix: "’yim",
+    heroIntroTitle: "İran'da merkeziyetsiz finans piyasalarında eğitmen, araştırmacı, yatırımcı ve dijital girişimci",
+    heroIntroBadge1: "👑 Stratejist, Danışman ve Yatırımcı",
+    heroIntroBadge2: "🌐 Meta Whale, Holiverse ve Vistory ekosistemlerinde",
+    heroIntroBullet1: "💯 İran'da gerçek dolar geliriyle yoksulluğu azaltmayı hedefliyoruz",
+    heroIntroBullet2: "🛡️ Saadet zincirlerine, Ponzi düzenlerine ve dolandırıcılıklara kesinlikle karşıyız",
+    heroIntroBullet3: "💡 Öncelikli görevimiz değerli halkımızı bilinçlendirmektir",
+
+    // Services
+    servicesTitle: "Hizmetler ve Uzmanlıklar",
+    servicesSubtitle: "Hedef Odaklı ve Bilimsel Finansal Yolculuk",
+    service1Title: "Merkeziyetsiz Piyasalar",
+    service1Desc: "Sıfırdan ileri seviyeye tam bilimsel ve %100 garantili dolar kazancı sağlama eğitimi.",
+    service1Cta: "Projeleri Görüntüle",
+    service2Title: "Altın Piyasası",
+    service2Desc: "Altın piyasasında alım-satım, akıllı portföy yönetimi ve profesyonel trade stratejileri konusunda uzman danışmanlık.",
+    service2Cta: "Danışmanlık Talebi",
+    service3Title: "Online Trade ve İşlemler",
+    service3Desc: "Dünya referans para birimleri, altın ve Web3 ekosistemlerinin hisseleri üzerinde.",
+    service3Cta: "Eğitim ve Strateji Talebi",
+    service3Status: "Aktif",
+
+    // Services Extra Warning Section
+    antiPyramidTitle: "❌ Saadet Zinciri Karşıtı, Ponzi Karşıtı ve Scam Karşıtı (%100 Garantili)",
+    antiPyramidDesc: "Master Gold Iran markası onaylanmamış ve merkezi finansal müdahale içeren projelerle çalışmaz. Tüm yatırımlar blokzincir, akıllı sözleşmeler (Smart Contracts) ve güvenli merkeziyetsiz ortamdadır. Varlıklarınız doğrudan kendi cüzdanınızda yönetilir.",
+
+    // About Me
+    aboutTitle: "Hakkımda",
+    aboutSubtitle: "Kiminle çalıştığınızı biliyor musunuz?",
+    aboutIntro: "Merhaba dostum, ben Moein Alavi.",
+    aboutText: "İran'da merkezi ve merkeziyetsiz finans piyasalarında 6 yıllık kesintisiz aktif tecrübem ile; Web3 ve akıllı sözleşmeler alanında eğitmen, araştırmacı, analist, danışman, yatırımcı, stratejist ve girişimciyim. Markamız (Master Gold Iran), her zaman saadet zinciri, Ponzi ve scam olmayan ekosistemlerle çalışır. Temel amacımız bilgi düzeyini artırmak ve yoksullukla mücadele etmektir. Tüm eğitim ve danışmanlık hizmetlerimiz %100 ücretsizdir. Adımıza herhangi bir kripto veya nakit ödeme talebi kesinlikle dolandırıcılıktır; markamız hiçbir koşulda kullanıcılardan ücret talep etmez.",
+
+    statsLabel1: "Online Eğitim Web Semineri",
+    statsLabel2: "Ücretsiz Eğitim Alan İranlı Öğrenci",
+    statsLabel3: "3 Yılda Aktif Dijital Girişimci",
+
+    specsTitle: "Öne Çıkan Geçmiş ve Uzmanlıklar",
+    spec1: "Finansal piyasalar analisti ve RTM, ICT, Smart Money ve Price Action eğitmeni",
+    spec2: "İran'da blokzincir ve modern NFT projeleri uzman danışmanı",
+    spec3: "Meta Whale, Holiverse ve Vistory ekosistemlerinde resmi temsilci ve eğitmen",
+    spec4: "Holiverse ve Meta Whale uluslararası resmi bloglarında uzman içerik yazarı",
+
+    // About Extra
+    aboutCardBadge: "Aktif Web3 Mentörü",
+    aboutCardTitle: "İran'da Bağımsız Yoksullukla Mücadele Markası",
+
+    // Projects
+    projectsTitle: "Öne Çıkan Projeler",
+    projectsSubtitle: "Gelişmiş Web3 Finansal Ekosistemleri ve Merkeziyetsiz Platformlar",
+    project1Tag: "Metaverse ve DeFi",
+    project1Title: "Meta Whale Space Projesi",
+    project1Desc: "Meta Whale, Web3, Metaverse ve DeFi alanlarında gelişmiş bir ekosistemdir. Finansal araçları, eğlenceyi, eğitimi ve NFT'leri tek bir platformda birleştirir.",
+    project2Tag: "Akıllı Sözleşme Platformu",
+    project2Title: "Devrim Niteliğindeki Vistory Projesi",
+    project2Desc: "Vistory'ye hoş geldiniz; finans, oyun, eğitim ve dijital mülkiyetin merkeziyetsiz bir sisteme dönüştüğü Web3 ekosistemi. Moein Alavi İran'daki resmi eğitmeni ve temsilcisidir.",
+    project3Tag: "Eğitim ve Haberler",
+    project3Title: "Holiverse Projesi",
+    project3Desc: "Master Gold Iran gururla sunar: HOLIVERSE ve METAWHALE resmi haber kanalı, taktik ve strateji (T&S), Royalty NFT, BIT FORCE madenciliği, cashback ürünleri, W.dex borsası, CES COIN, staking ve metaverse güncellemeleri.",
+    project4Tag: "Web3 Eğitim Platformu",
+    project4Title: "Balina Akademisi (Whale-Academy)",
+    project4Desc: "Balina Akademisi (Whale-Academy), kullanıcıları Meta Whale ekosistemine dahil etmek için kurulmuş bir Web3 eğitim platformudur. Oyunlaştırılmış öğrenim, blokzincir mekanikleri ve NFT sertifikasyonunu birleştirerek katılımcıların temel kavramlardan DeFi, NFT'ler ve W-DEX gibi ekosistem ürünlerindeki ileri düzey uygulamalara ulaşmalarına yardımcı olur.",
+    viewProjectBtn: "Projeye Giriş Yap ve Kaydol",
+
+    // Projects Extra
+    projectsSectionBadge: "Küresel Sürdürülebilir Platformlar",
+    project3Cta: "Holiverse Kanalına Katıl",
+
+    // Testimonials
+    testTitle: "Öğrencilerimizin ve Katılımcılarımızın Yorumları",
+    testSubtitle: "Bizimle dolar geliri elde etmeye başlayanların gerçek sesleri",
+    test1Text: "Moein Alavi'nin Web3 ve Metaverse eğitimleri son derece şeffaf ve güvenilirdi. Scam korkusu olmadan ilk kez gerçek dolar kazancı deneyimledim.",
+    test1Name: "Reza Sohrabi",
+    test1Role: "Ücretsiz Web3 Kursu Öğrencisi",
+    test2Text: "Altın piyasası analizleri ve profesyonel danışmanlığı sayesinde son piyasa dalgalanmalarında birikimlerimi korudum ve harika kâr elde ettim.",
+    test2Name: "Maryam Ahmadi",
+    test2Role: "Altın Piyasası Yatırımcısı",
+    test3Text: "Web3, Metaverse ve Meta Whale ile Holiverse'teki ücretsiz eğitimlerin entegrasyonu muazzam bir potansiyel sunuyor. Sayın Alavi'ye teşekkürler.",
+    test3Name: "Amirhossein Fayyaz",
+    test3Role: "Dijital Varlıklar Geliştiricisi",
+
+    // Testimonials Extra
+    testimonialsSectionBadge: "Girişimciliğimizin Gerçek Sonuçları",
+
+    // FAQ
+    faqTitle: "Sıkça Sorulan Sorular",
+    faqSubtitle: "Kazanç süreci hakkındaki yaygın soruların yanıtları",
+    faq1Q: "Eğitimleriniz ve hizmetleriniz gerçekten %100 ücretsiz mi?",
+    faq1A: "Evet, kesinlikle. Master Gold Iran bünyesindeki tüm eğitimler, web seminerleri, altın piyasası analizleri ve özel danışmanlıklar yoksullukla mücadele misyonumuz kapsamında tamamen ücretsizdir.",
+    faq2Q: "Meta Whale, Vistory veya Holiverse projelerine nasıl başlayabilirim?",
+    faq2A: "Çok basit. Öne çıkan projeler bölümündeki kayıt ol butonuna tıklayarak resmi web sitesine erişebilirsiniz. Bağlantıyı kopyalayıp TokenPocket veya MetaMask cüzdanınızın tarayıcısına yapıştırıp aratabilir veya adım adım rehber videoları için Telegram kanalımıza katılabilirsiniz.",
+    faq3Q: "Bu projelerin piramit veya Ponzi sistemlerinden farkı nedir?",
+    faq3A: "Tüm sistemlerimiz blokzincir üzerindeki Akıllı Sözleşmeler (Smart Contracts) ile çalışır. Hiçbir merkezi otorite varlıklarınıza müdahale edemez veya donduramaz. 4 yılı aşkın süredir kesintisiz hizmet vermekte olup dünya genelinde 2.500.000'den fazla aktif kullanıcıya sahiptir. Şu ana kadar 150.000'den fazla İranlı bu projeler aracılığıyla sürdürülebilir dolar geliri elde etmiştir.",
+
+    // FAQ Extra
+    faqSectionBadge: "Şeffaflık ve Net Yanıtlar",
+    faqMetric1Val: "4+ Yıl",
+    faqMetric1Label: "Kesintisiz Hizmet",
+    faqMetric2Val: "2.500.000+",
+    faqMetric2Label: "Dünya Genelinde Aktif Kullanıcı",
+    faqMetric3Val: "150.000+",
+    faqMetric3Label: "Kazanmaya Başlayan İranlı",
+
+    // Contact
+    contactTitle: "İletişim ve Danışmanlık",
+    contactSubtitle: "Yeni finans dünyasına adım atmak için doğrudan iletişim kanalları",
+    contactIntroTitle: "Moein Alavi ile Bağlantı Kurun",
+    contactIntroDesc: "Dolar bazlı iş kurulumu, altın işlemleri danışmanlığı ve Web3 dijital girişimcility alanlarında sorularınızı yanıtlamaya hazırız.",
+    phoneLabel: "İran Doğrudan Telefon Numarası",
+    emailLabel: "Resmi Destek E-postası",
+    addressLabel: "Merkez Ofis ve Bölge",
+    addressVal: "Tahran, İran",
+    socialTitle: "Sosyal Medya ve Resmi Kanallar",
+    telegramLabel: "Resmi Telegram Kanalımız",
+    rubikaLabel: "Resmi Rubika Kanalımız",
+    formTitle: "Doğrudan Mesaj Gönder",
+    formName: "Adınız ve Soyadınız",
+    formEmail: "Aktif E-posta Adresiniz",
+    formMessage: "Mesajınız veya Danışmanlık Talebiniz",
+    placeholderMessage: "Proje detaylarınızı veya sorularınızı buraya yazın...",
+    btnSubmit: "{messenger} Üzerinden Doğrudan Mesaj Gönder",
+    sending: "Bilgiler gönderiliyor...",
+    successTitle: "Mesajınız Başarıyla Gönderildi!",
+    successText: "Güveniniz için teşekkür ederiz. Moein Alavi veya destek ekibimiz en kısa sürede sizinle iletişime geçecektir.",
+    allRights: "Tüm hakları saklıdır. Moein Alavi tarafından tasarlanmış ve geliştirilmiştir.",
+
+    // Contact Extra
+    contactSectionBadge: "Geleceğiniz İçin İlk Adımı Atın",
+    contactMessengerLabel: "Doğrudan Mesaj İçin Uygulama Seçin",
+    telegramButtonLabel: "Telegram",
+    rubikaButtonLabel: "Rubika",
+    placeholderName: "Adınız...",
+
+    // Disclaimer Modal
+    disclaimerTitle: "Kullanım Koşulları ve Sorumluluk Reddi",
+    disclaimerP1: "Master Gold Iran markası tarafından yayınlanan tüm içerikler yalnızca eğitim, bilgilendirme ve farkındalık amaçlıdır ve kesinlikle herhangi bir projeye veya varlığa yatırım yapma, satın alma veya satma tavsiyesi değildir.",
+    disclaimerP2: "Tüm finansal veya yatırım kararlarının sorumluluğu tamamen kullanıcıların kendisine aittir ve kuruluşumuz olası kar veya zararlardan sorumlu tutulamaz.",
+    disclaimerP3: "Bu içeriklerin okunması ve kullanılması, bu sorumluluk reddinin tamamen kabul edildiği anlamına gelir.",
+    disclaimerAcceptBtn: "Kabul Ediyorum ve Siteye Gir"
   }
 };
 
@@ -467,7 +652,7 @@ export default function App() {
 
   // Language management state: default language is set to Persian ("fa").
   // حالت مدیریت زبان فعال: زبان پیش‌فرض روی فارسی ("fa") قرار دارد.
-  const [lang, setLang] = useState<"fa" | "en" | "ar">("fa");
+  const [lang, setLang] = useState<"fa" | "en" | "ar" | "tr">("fa");
   const t = editableTranslations[lang];
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
 
@@ -486,6 +671,36 @@ export default function App() {
   // Active index of the student testimonials carousel feedback.
   // شاخص بازخورد فعال دانشجویان در بخش نظرات و رضایت‌ها.
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+
+  // Fullscreen image viewer state for project cards image preview
+  const [fullscreenImage, setFullscreenImage] = useState<{ src: string; title: string } | null>(null);
+
+  // Mandatory Terms of Use and Disclaimer Popup modal state (opens every time site is accessed)
+  // پاپ آپ اجباری شرایط استفاده و سلب مسئولیت وب‌سایت
+  const [showDisclaimerModal, setShowDisclaimerModal] = useState(true);
+
+  // Lock body scroll when disclaimer modal or fullscreen image is active
+  useEffect(() => {
+    if (showDisclaimerModal || fullscreenImage) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [showDisclaimerModal, fullscreenImage]);
+
+  // Keyboard shortcut listener for closing fullscreen modal on ESC key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setFullscreenImage(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   // Contact form submission states.
   // حالات مختلف فرم تماس برای ثبت و ارسال پیام.
@@ -507,13 +722,13 @@ export default function App() {
   };
 
   const navigationItems = [
-    { id: "hero", label: lang === "fa" ? "خانه" : lang === "ar" ? "الرئيسية" : "Home" },
-    { id: "services", label: lang === "fa" ? "خدمات و تخصص‌ها" : lang === "ar" ? "الخدمات والتخصصات" : "Services" },
-    { id: "about", label: lang === "fa" ? "درباره من" : lang === "ar" ? "من أنا" : "About Me" },
-    { id: "projects", label: lang === "fa" ? "پروژه‌های برجسته" : lang === "ar" ? "المشاريع البارزة" : "Featured Projects" },
-    { id: "testimonials", label: lang === "fa" ? "نظرات همراهان" : lang === "ar" ? "آراء الشركاء" : "Testimonials" },
-    { id: "faq", label: lang === "fa" ? "سؤالات متداول" : lang === "ar" ? "الأسئلة الشائعة" : "FAQ" },
-    { id: "contact", label: lang === "fa" ? "تماس با من" : lang === "ar" ? "الاتصال بي" : "Contact" },
+    { id: "hero", label: lang === "fa" ? "خانه" : lang === "ar" ? "الرئيسية" : lang === "tr" ? "Ana Sayfa" : "Home" },
+    { id: "services", label: lang === "fa" ? "خدمات و تخصص‌ها" : lang === "ar" ? "الخدمات والتخصصات" : lang === "tr" ? "Hizmetler" : "Services" },
+    { id: "about", label: lang === "fa" ? "درباره من" : lang === "ar" ? "من أنا" : lang === "tr" ? "Hakkımda" : "About Me" },
+    { id: "projects", label: lang === "fa" ? "پروژه‌های برجسته" : lang === "ar" ? "المشاريع البارزة" : lang === "tr" ? "Projeler" : "Featured Projects" },
+    { id: "testimonials", label: lang === "fa" ? "نظرات همراهان" : lang === "ar" ? "آراء الشركاء" : lang === "tr" ? "Yorumlar" : "Testimonials" },
+    { id: "faq", label: lang === "fa" ? "سؤالات متداول" : lang === "ar" ? "الأسئلة الشائعة" : lang === "tr" ? "SSS" : "FAQ" },
+    { id: "contact", label: lang === "fa" ? "تماس با من" : lang === "ar" ? "الاتصال بي" : lang === "tr" ? "İletişim" : "Contact" },
   ];
 
   // Set document text direction (LTR/RTL) and language code dynamically when language changes.
@@ -590,6 +805,8 @@ export default function App() {
       ? `سلام جناب علوی، من ${formData.name} هستم.\n\nپیام من:\n${formData.message}`
       : lang === "ar"
       ? `مرحباً سيد علوي، أنا ${formData.name}.\n\nرسالتي:\n${formData.message}`
+      : lang === "tr"
+      ? `Merhaba Sayın Alavi, ben ${formData.name}.\n\nMesajım:\n${formData.message}`
       : `Hello Mr. Alavi, I am ${formData.name}.\n\nMessage:\n${formData.message}`;
 
     let targetUrl = "";
@@ -644,8 +861,22 @@ export default function App() {
                 }}
                 className="group flex items-center gap-3"
               >
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform duration-300">
-                  <i className="fa-solid fa-crown text-zinc-950 text-lg"></i>
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg overflow-hidden bg-zinc-950 border border-amber-500/40 flex items-center justify-center p-0.5 shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform duration-300 relative">
+                  <img
+                    src={siteImages.logo1}
+                    alt="Master Gold Iran Logo"
+                    className="w-full h-full object-cover rounded-md select-none"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      target.style.display = 'none';
+                      const fallback = target.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = 'flex';
+                    }}
+                  />
+                  <div className="hidden absolute inset-0 bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
+                    <i className="fa-solid fa-crown text-zinc-950 text-lg"></i>
+                  </div>
                 </div>
                 <div className="flex flex-col justify-center min-w-0">
                   <span className="text-xl font-black tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-amber-200 to-orange-500 leading-none whitespace-nowrap">
@@ -745,6 +976,18 @@ export default function App() {
                           <span>العربية</span>
                           {lang === "ar" && <i className="fa-solid fa-check text-[10px] text-amber-500"></i>}
                         </button>
+                        <button
+                          onClick={() => {
+                            setLang("tr");
+                            setLangDropdownOpen(false);
+                          }}
+                          className={`w-full px-3 py-2 text-xs font-bold rounded-lg transition-colors cursor-pointer flex items-center justify-between ${
+                            lang === "tr" ? "bg-amber-500/10 text-amber-400" : "text-zinc-400 hover:bg-zinc-900 hover:text-zinc-100"
+                          }`}
+                        >
+                          <span>Türkçe</span>
+                          {lang === "tr" && <i className="fa-solid fa-check text-[10px] text-amber-500"></i>}
+                        </button>
                       </motion.div>
                     </>
                   )}
@@ -826,6 +1069,18 @@ export default function App() {
                         >
                           <span>العربية</span>
                           {lang === "ar" && <i className="fa-solid fa-check text-[8px] text-amber-500"></i>}
+                        </button>
+                        <button
+                          onClick={() => {
+                            setLang("tr");
+                            setLangDropdownOpen(false);
+                          }}
+                          className={`w-full px-2 py-1.5 text-[11px] font-bold rounded-lg flex items-center justify-between ${
+                            lang === "tr" ? "bg-amber-500/10 text-amber-400" : "text-zinc-400 hover:bg-zinc-900"
+                          }`}
+                        >
+                          <span>TR</span>
+                          {lang === "tr" && <i className="fa-solid fa-check text-[8px] text-amber-500"></i>}
                         </button>
                       </motion.div>
                     </>
@@ -953,10 +1208,10 @@ export default function App() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-4xl sm:text-6xl lg:text-7.5xl font-black tracking-tight text-white leading-tight sm:leading-none"
+                className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight sm:leading-none"
               >
                 {t.heroTitle}
-                <span className="block mt-3 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500 font-extrabold text-3xl sm:text-5xl lg:text-6xl">
+                <span className="block mt-3 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500 font-extrabold text-xl sm:text-3xl lg:text-4xl">
                   {t.heroSubtitle}
                 </span>
               </motion.h1>
@@ -1274,25 +1529,21 @@ export default function App() {
                     {/* Glowing grid line */}
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(245,158,11,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(245,158,11,0.05)_1px,transparent_1px)] bg-[size:14px_24px]" />
                     
-                    <div className="flex justify-between items-start z-10">
-                      <div>
-                        <p className="text-2xs font-semibold text-zinc-500">MEMBER ID</p>
-                        <p className="text-xs font-mono text-amber-400">ALAVI-M-GOLD-2021</p>
-                      </div>
+                    <div className="flex justify-end items-start z-10">
                       <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/20">
                         <i className="fa-solid fa-crown animate-bounce"></i>
                       </div>
                     </div>
 
                     {/* Centered Premium Logo */}
-                    <div className="flex items-center justify-center z-10 py-1.5 my-auto">
+                    <div className="flex items-center justify-center z-10 py-2 my-auto">
                       <div className="relative group/logo">
-                        <div className="absolute -inset-1.5 bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl blur-lg opacity-20 group-hover/logo:opacity-45 transition duration-300"></div>
-                        <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-amber-500/30 p-1.5 bg-zinc-950">
+                        <div className="absolute -inset-2 bg-gradient-to-r from-amber-500 to-orange-500 rounded-3xl blur-xl opacity-30 group-hover/logo:opacity-60 transition duration-300"></div>
+                        <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-3xl overflow-hidden border-2 border-amber-500/40 p-2 bg-zinc-950 shadow-2xl">
                           <img
                             src={siteImages.logo2}
                             alt="Master Gold Iran Logo 2"
-                            className="w-full h-full object-cover rounded-xl select-none"
+                            className="w-full h-full object-contain rounded-2xl select-none"
                             referrerPolicy="no-referrer"
                             onError={(e) => {
                               const target = e.currentTarget;
@@ -1348,17 +1599,19 @@ export default function App() {
 
 
             {/* List of projects */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               
               {/* Project 1: MetaWhale */}
               <div className="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all duration-300 group flex flex-col justify-between shadow-xl shadow-black/30">
                 <div>
-                  <div className="h-52 xs:h-60 sm:h-64 md:h-48 lg:h-56 xl:h-60 bg-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-black/30 opacity-80 z-10 pointer-events-none" />
+                  <div 
+                    onClick={() => setFullscreenImage({ src: siteImages.project1, title: t.project1Title })}
+                    className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-3 group/img cursor-pointer"
+                  >
                     <img
                       src={siteImages.project1}
                       alt={t.project1Title}
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out z-0 filter brightness-95 group-hover:brightness-105"
+                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-lg"
                       referrerPolicy="no-referrer"
                       onError={(e) => {
                         const target = e.currentTarget;
@@ -1380,8 +1633,7 @@ export default function App() {
                       <span className="text-zinc-500 text-[10px] uppercase tracking-wider font-mono">MetaWhale Asset</span>
                     </div>
 
-                    <i className="fa-solid fa-cloud-arrow-up text-6xl text-amber-500/10 group-hover:scale-121 transition-transform duration-300 z-0 absolute"></i>
-                    <div className={`absolute top-4 ${t.dir === "rtl" ? "right-4" : "left-4"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3.5 py-1.5 rounded-full font-bold shadow-lg shadow-black/50 z-20`}>
+                    <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
                       {t.project1Tag}
                     </div>
                   </div>
@@ -1410,12 +1662,14 @@ export default function App() {
               {/* Project 2: Vistory */}
               <div className="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all duration-300 group flex flex-col justify-between shadow-xl shadow-black/30">
                 <div>
-                  <div className="h-52 xs:h-60 sm:h-64 md:h-48 lg:h-56 xl:h-60 bg-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-black/30 opacity-80 z-10 pointer-events-none" />
+                  <div 
+                    onClick={() => setFullscreenImage({ src: siteImages.project2, title: t.project2Title })}
+                    className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-3 group/img cursor-pointer"
+                  >
                     <img
                       src={siteImages.project2}
                       alt={t.project2Title}
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out z-0 filter brightness-95 group-hover:brightness-105"
+                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-lg"
                       referrerPolicy="no-referrer"
                       onError={(e) => {
                         const target = e.currentTarget;
@@ -1437,8 +1691,7 @@ export default function App() {
                       <span className="text-zinc-500 text-[10px] uppercase tracking-wider font-mono">Vistory Asset</span>
                     </div>
 
-                    <i className="fa-solid fa-circle-nodes text-6xl text-orange-500/10 group-hover:scale-121 transition-transform duration-300 z-0 absolute"></i>
-                    <div className={`absolute top-4 ${t.dir === "rtl" ? "right-4" : "left-4"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3.5 py-1.5 rounded-full font-bold shadow-lg shadow-black/50 z-20`}>
+                    <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
                       {t.project2Tag}
                     </div>
                   </div>
@@ -1467,12 +1720,14 @@ export default function App() {
               {/* Project 3: Holiverse */}
               <div className="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all duration-300 group flex flex-col justify-between shadow-xl shadow-black/30">
                 <div>
-                  <div className="h-52 xs:h-60 sm:h-64 md:h-48 lg:h-56 xl:h-60 bg-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-black/30 opacity-80 z-10 pointer-events-none" />
+                  <div 
+                    onClick={() => setFullscreenImage({ src: siteImages.project3, title: t.project3Title })}
+                    className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-3 group/img cursor-pointer"
+                  >
                     <img
                       src={siteImages.project3}
                       alt={t.project3Title}
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out z-0 filter brightness-95 group-hover:brightness-105"
+                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-lg"
                       referrerPolicy="no-referrer"
                       onError={(e) => {
                         const target = e.currentTarget;
@@ -1494,8 +1749,7 @@ export default function App() {
                       <span className="text-zinc-500 text-[10px] uppercase tracking-wider font-mono">Holiverse Asset</span>
                     </div>
 
-                    <i className="fa-solid fa-globe text-6xl text-amber-500/10 group-hover:scale-121 transition-transform duration-300 z-0 absolute"></i>
-                    <div className={`absolute top-4 ${t.dir === "rtl" ? "right-4" : "left-4"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3.5 py-1.5 rounded-full font-bold shadow-lg shadow-black/50 z-20`}>
+                    <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
                       {t.project3Tag}
                     </div>
                   </div>
@@ -1517,6 +1771,64 @@ export default function App() {
                   >
                     <span>{t.project3Cta}</span>
                     <i className="fa-brands fa-telegram text-xs"></i>
+                  </a>
+                </div>
+              </div>
+
+              {/* Project 4: Whale Academy */}
+              <div className="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all duration-300 group flex flex-col justify-between shadow-xl shadow-black/30">
+                <div>
+                  <div 
+                    onClick={() => setFullscreenImage({ src: siteImages.project4, title: t.project4Title })}
+                    className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-3 group/img cursor-pointer"
+                  >
+                    <img
+                      src={siteImages.project4}
+                      alt={t.project4Title}
+                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-lg"
+                      referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        target.style.display = "none";
+                        // Display the fallback container beautifully
+                        const parent = target.parentElement;
+                        if (parent) {
+                          const fallback = parent.querySelector(".image-fallback-4");
+                          if (fallback) fallback.classList.remove("hidden");
+                        }
+                      }}
+                    />
+                    
+                    {/* Fallback layout if image not loaded */}
+                    <div className="image-fallback-4 hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-zinc-900 to-zinc-950 p-6 text-center z-0">
+                      <div className="w-16 h-16 rounded-2xl bg-amber-500/10 flex items-center justify-center border border-amber-500/20 mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <i className="fa-solid fa-graduation-cap text-2xl text-amber-500/80"></i>
+                      </div>
+                      <span className="text-zinc-500 text-[10px] uppercase tracking-wider font-mono">Whale Academy</span>
+                    </div>
+
+                    <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
+                      {t.project4Tag}
+                    </div>
+                  </div>
+                  <div className="p-6 space-y-3">
+                    <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                      {t.project4Title}
+                    </h3>
+                    <p className="text-zinc-400 text-sm leading-relaxed text-justify">
+                      {t.project4Desc}
+                    </p>
+                  </div>
+                </div>
+                <div className="p-6 pt-0">
+                  <a
+                    href="https://app.tactics-strategy.com/r/lcwsep7uLE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 rounded-xl bg-zinc-900 hover:bg-amber-400 hover:text-zinc-950 border border-zinc-800 hover:border-amber-400 text-zinc-300 text-xs font-bold transition-all duration-300 flex items-center justify-center space-x-2 space-x-reverse"
+                  >
+                    <span>{t.viewProjectBtn}</span>
+                    <i className="fa-solid fa-up-right-from-square text-2xs"></i>
                   </a>
                 </div>
               </div>
@@ -2003,6 +2315,149 @@ export default function App() {
           </p>
         </div>
       </footer>
+
+      {/* Fullscreen Image Lightbox Modal */}
+      <AnimatePresence>
+        {fullscreenImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center p-3 sm:p-6 select-none"
+            onClick={() => setFullscreenImage(null)}
+          >
+            <div 
+              className="relative max-w-6xl w-full max-h-[92vh] flex flex-col items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="w-full flex items-center justify-between bg-zinc-900/90 border border-zinc-800/80 px-4 py-3 rounded-t-2xl mb-1 backdrop-blur-md">
+                <span className="text-white font-bold text-sm sm:text-base flex items-center gap-2">
+                  <i className="fa-solid fa-image text-amber-400"></i>
+                  {fullscreenImage.title}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setFullscreenImage(null)}
+                  className="w-8 h-8 rounded-full bg-zinc-800 hover:bg-amber-400 hover:text-zinc-950 text-zinc-300 transition-colors flex items-center justify-center cursor-pointer shadow-md"
+                  title="بستن"
+                >
+                  <i className="fa-solid fa-xmark text-lg"></i>
+                </button>
+              </div>
+
+              {/* Modal Body / Fullscreen Image */}
+              <div className="w-full bg-zinc-950/80 border border-zinc-800/80 rounded-b-2xl p-3 sm:p-6 flex items-center justify-center overflow-auto max-h-[82vh] shadow-2xl">
+                <img
+                  src={fullscreenImage.src}
+                  alt={fullscreenImage.title}
+                  className="max-w-full max-h-[78vh] object-contain rounded-xl shadow-2xl ring-1 ring-amber-500/20"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+
+              {/* Helper tip */}
+              <div className="mt-3 text-zinc-400 text-xs text-center flex items-center gap-2 bg-zinc-900/80 px-4 py-1.5 rounded-full border border-zinc-800 shadow-lg">
+                <i className="fa-solid fa-circle-info text-amber-400"></i>
+                <span>{lang === "fa" ? "جهت بستن، روی دکمه بستن یا خارج از تصویر کلیک کنید (یا کلید Esc)" : lang === "ar" ? "للإغلاق، انقر فوق زر الإغلاق أو خارج الصورة (أو مفتاح Esc)" : "Click outside, x button, or press Esc to close"}</span>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Mandatory Terms of Use & Disclaimer Modal Popup */}
+      <AnimatePresence>
+        {showDisclaimerModal && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed inset-0 z-[99999] bg-black/90 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-6 overflow-y-auto select-none"
+          >
+            <div 
+              className="relative max-w-2xl w-full bg-zinc-950 border-2 border-amber-500/40 rounded-3xl shadow-[0_0_100px_rgba(245,158,11,0.25)] p-6 sm:p-8 my-auto overflow-hidden text-zinc-200"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Top Accent Line */}
+              <div className="h-2 w-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-400 absolute top-0 left-0 right-0" />
+
+              {/* Header Section */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-zinc-800/80 mb-6">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-inner shrink-0">
+                    <i className="fa-solid fa-shield-halved text-2xl"></i>
+                  </div>
+                  <div>
+                    <span className="text-amber-500 font-mono text-2xs uppercase tracking-wider font-bold block">Master Gold Iran</span>
+                    <h2 className="text-lg sm:text-xl font-bold text-white tracking-wide">
+                      {t.disclaimerTitle}
+                    </h2>
+                  </div>
+                </div>
+
+                {/* Quick Language Switcher inside Modal */}
+                <div className="flex items-center gap-1 bg-zinc-900/90 border border-zinc-800/80 p-1 rounded-xl self-start sm:self-auto">
+                  {(["fa", "en", "ar", "tr"] as const).map((l) => (
+                    <button
+                      key={l}
+                      type="button"
+                      onClick={() => setLang(l)}
+                      className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all ${
+                        lang === l
+                          ? "bg-amber-400 text-zinc-950 shadow-md"
+                          : "text-zinc-400 hover:text-white hover:bg-zinc-800/60"
+                      }`}
+                    >
+                      {l.toUpperCase()}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Disclaimer Text Content */}
+              <div className="space-y-4 mb-8 text-sm sm:text-base leading-relaxed text-justify">
+                <div className="bg-zinc-900/90 border border-amber-500/20 p-4 sm:p-5 rounded-2xl shadow-inner relative overflow-hidden">
+                  <div className="flex items-start gap-3">
+                    <i className="fa-solid fa-triangle-exclamation text-amber-400 text-lg mt-0.5 shrink-0"></i>
+                    <p className="text-zinc-100 font-medium">
+                      {t.disclaimerP1}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-zinc-900/60 border border-zinc-800/80 p-4 sm:p-5 rounded-2xl">
+                  <div className="flex items-start gap-3">
+                    <i className="fa-solid fa-user-shield text-amber-400/80 text-lg mt-0.5 shrink-0"></i>
+                    <p className="text-zinc-300">
+                      {t.disclaimerP2}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-amber-500/10 border border-amber-500/30 p-3.5 sm:p-4 rounded-2xl text-center">
+                  <p className="text-amber-300 font-bold text-xs sm:text-sm flex items-center justify-center gap-2">
+                    <i className="fa-solid fa-circle-check text-amber-400"></i>
+                    <span>{t.disclaimerP3}</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* Acceptance Button */}
+              <button
+                type="button"
+                onClick={() => setShowDisclaimerModal(false)}
+                className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-zinc-950 font-black text-base sm:text-lg shadow-xl shadow-amber-500/25 hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer group"
+              >
+                <i className="fa-solid fa-circle-check text-xl group-hover:scale-110 transition-transform"></i>
+                <span>{t.disclaimerAcceptBtn}</span>
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );
