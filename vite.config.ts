@@ -7,7 +7,7 @@ import {defineConfig} from 'vite';
 // فایل پیکربندی Vite سازگار با صفحات ایستا (Static Pages) کلودفلر و محیط پیش‌نمایش لوکال AI Studio.
 export default defineConfig(() => {
   return {
-    base: './', // Ensures relative asset paths work on Cloudflare Pages and Workers
+    base: '/', // Ensures root-relative asset paths work on Cloudflare Pages and Workers Assets
     plugins: [
       react(), // React plugin for fast compilation and JSX support (پلاگین ری‌اکت برای کامپایل سریع و پشتیبانی از JSX)
       tailwindcss() // Tailwind CSS v4 integration (پلاگین ادغام سیستم استایل‌دهی تیلوند نسخه ۴)
