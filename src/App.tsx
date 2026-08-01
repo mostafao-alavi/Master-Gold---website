@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef, FormEvent, SyntheticEvent } from "react";
+import { useState, useEffect, useRef, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
-import logoImg from "./assets/logo.webp";
-import metavalImg from "./assets/metaval.webp";
-import vestoriImg from "./assets/vestori.webp";
-import haliversImg from "./assets/halivers.webp";
-import whaleAcademyImg from "./assets/whale_academy.webp";
+import logoImg from "../public/image/logo.webp";
+import metavalImg from "../public/image/metaval.webp";
+import vestoriImg from "../public/image/vestori.webp";
+import haliversImg from "../public/image/halivers.webp";
+import whaleAcademyImg from "../public/image/whale_academy.webp";
 
 // ==========================================
 // CONFIGURATION AND STATIC DATA
@@ -15,63 +15,12 @@ import whaleAcademyImg from "./assets/whale_academy.webp";
 // Default static images configuration for the branding and projects.
 // پیکربندی پیش‌فرض تصاویر ایستا برای برندینگ و پروژه‌های نمایش داده شده.
 const defaultImages = {
-  logo1: logoImg || "./logo.webp",
-  logo2: logoImg || "./logo.webp",
-  project1: metavalImg || "./metaval.webp",
-  project2: vestoriImg || "./vestori.webp",
-  project3: haliversImg || "./halivers.webp",
-  project4: whaleAcademyImg || "./whale_academy.webp"
-};
-
-// SVG Generator for fail-proof image rendering on any deployment platform
-const getFallbackSvg = (label: string) => {
-  const cleanLabel = (label || "Master Gold Iran").toUpperCase();
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" width="100%" height="100%">
-    <defs>
-      <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#09090b"/>
-        <stop offset="50%" stop-color="#18181b"/>
-        <stop offset="100%" stop-color="#09090b"/>
-      </linearGradient>
-      <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#f59e0b"/>
-        <stop offset="50%" stop-color="#fef08a"/>
-        <stop offset="100%" stop-color="#d97706"/>
-      </linearGradient>
-    </defs>
-    <rect width="100%" height="100%" fill="url(#bgGrad)" rx="20"/>
-    <rect width="94%" height="92%" x="3%" y="4%" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-dasharray="8 6" opacity="0.35" rx="16"/>
-    <circle cx="250" cy="130" r="50" fill="#09090b" stroke="url(#goldGrad)" stroke-width="3"/>
-    <path d="M230 145 L250 100 L270 145 L250 135 Z" fill="url(#goldGrad)"/>
-    <text x="250" y="225" font-family="system-ui, sans-serif" font-weight="800" font-size="20" fill="url(#goldGrad)" text-anchor="middle" letter-spacing="2">${cleanLabel}</text>
-    <text x="250" y="255" font-family="system-ui, sans-serif" font-weight="600" font-size="12" fill="#a1a1aa" text-anchor="middle" letter-spacing="1">MASTER GOLD IRAN</text>
-  </svg>`;
-  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
-};
-
-// Helper function to handle image loading fallbacks gracefully through multiple stages
-const handleImageError = (
-  e: React.SyntheticEvent<HTMLImageElement, Event>,
-  fallbackRelativeName: string,
-  label: string = "Master Gold Iran"
-) => {
-  const target = e.currentTarget;
-  const stage = target.dataset.failStage || "0";
-  const cleanName = fallbackRelativeName.replace(/^\//, "");
-
-  if (stage === "0") {
-    // Stage 1: Try relative path
-    target.dataset.failStage = "1";
-    target.src = `./${cleanName}`;
-  } else if (stage === "1") {
-    // Stage 2: Try public root path
-    target.dataset.failStage = "2";
-    target.src = `/${cleanName}`;
-  } else {
-    // Stage 3: Guaranteed inline SVG data URL fallback (never fails over HTTP/CDN)
-    target.dataset.failStage = "3";
-    target.src = getFallbackSvg(label);
-  }
+  logo1: logoImg,
+  logo2: logoImg,
+  project1: metavalImg,
+  project2: vestoriImg,
+  project3: haliversImg,
+  project4: whaleAcademyImg
 };
 
 // Comprehensive dataset containing multi-language translations (Persian, English, Arabic).
@@ -937,7 +886,6 @@ export default function App() {
                     alt="Master Gold Iran Logo"
                     className="w-full h-full object-contain rounded-md select-none"
                     referrerPolicy="no-referrer"
-                    onError={(e) => handleImageError(e, "logo.webp", "Master Gold Iran")}
                   />
                 </div>
                 <div className="flex flex-col justify-center min-w-0">
@@ -1274,7 +1222,6 @@ export default function App() {
                     alt="Master Gold Iran Logo"
                     className="w-full h-full object-contain rounded-2xl select-none"
                     referrerPolicy="no-referrer"
-                    onError={(e) => handleImageError(e, "logo.webp", "Master Gold Iran")}
                   />
                 </div>
               </div>
@@ -1634,7 +1581,6 @@ export default function App() {
                             alt="Master Gold Iran Logo 2"
                             className="w-full h-full object-contain rounded-2xl select-none"
                             referrerPolicy="no-referrer"
-                            onError={(e) => handleImageError(e, "logo.webp", "Master Gold Iran")}
                           />
                         </div>
                       </div>
@@ -1699,7 +1645,6 @@ export default function App() {
                       alt={t.project1Title}
                       className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"
                       referrerPolicy="no-referrer"
-                      onError={(e) => handleImageError(e, "metaval.webp", t.project1Title || "METAVAL")}
                     />
 
                     <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
@@ -1740,7 +1685,6 @@ export default function App() {
                       alt={t.project2Title}
                       className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"
                       referrerPolicy="no-referrer"
-                      onError={(e) => handleImageError(e, "vestori.webp", t.project2Title || "VESTORI")}
                     />
 
                     <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
@@ -1781,7 +1725,6 @@ export default function App() {
                       alt={t.project3Title}
                       className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"
                       referrerPolicy="no-referrer"
-                      onError={(e) => handleImageError(e, "halivers.webp", t.project3Title || "HALIVERS")}
                     />
 
                     <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
@@ -1822,7 +1765,6 @@ export default function App() {
                       alt={t.project4Title}
                       className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"
                       referrerPolicy="no-referrer"
-                      onError={(e) => handleImageError(e, "whale_academy.webp", t.project4Title || "WHALE ACADEMY")}
                     />
 
                     <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
@@ -2437,7 +2379,6 @@ export default function App() {
                   alt={fullscreenImage.title}
                   className="max-w-full max-h-[78vh] object-contain rounded-xl shadow-2xl ring-1 ring-amber-500/20"
                   referrerPolicy="no-referrer"
-                  onError={(e) => handleImageError(e, "logo.webp", fullscreenImage.title || "Master Gold Iran")}
                 />
               </div>
 
