@@ -1332,6 +1332,22 @@ export default function App() {
             </motion.p>
           </div>
 
+          {/* Animated Down Arrow */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 cursor-pointer text-amber-500 hover:text-amber-400 transition-colors flex flex-col items-center justify-center"
+            onClick={() => scrollToSection("services")}
+          >
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            >
+              <i className="fa-solid fa-chevron-down text-2xl sm:text-3xl opacity-80 hover:opacity-100 drop-shadow-[0_0_8px_rgba(245,158,11,0.3)]"></i>
+            </motion.div>
+          </motion.div>
+
           {/* Abstract background grid element */}
           <div className="absolute inset-0 z-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
         </section>
