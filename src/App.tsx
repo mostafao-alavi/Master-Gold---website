@@ -881,12 +881,7 @@ export default function App() {
                 className="group flex items-center gap-3"
               >
                 <div className="flex-shrink-0 w-10 h-10 rounded-lg overflow-hidden bg-zinc-950 border border-amber-500/40 flex items-center justify-center p-0.5 shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform duration-300 relative">
-                  <img
-                    src={siteImages.logo1}
-                    alt="Master Gold Iran Logo"
-                    className="w-full h-full object-contain rounded-md select-none"
-                    referrerPolicy="no-referrer"
-                  />
+                  <div className="w-full h-full bg-zinc-800/50 rounded-md"></div>
                 </div>
                 <div className="flex flex-col justify-center min-w-0">
                   <span className="text-xl font-black tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-amber-200 to-orange-500 leading-none whitespace-nowrap">
@@ -1217,12 +1212,7 @@ export default function App() {
                 
                 {/* Premium Golden Frame */}
                 <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-3xl overflow-hidden bg-zinc-950 border-2 border-amber-500/40 hover:border-amber-400 transition-colors duration-300 flex items-center justify-center p-2 shadow-2xl shadow-amber-500/20">
-                  <img
-                    src={siteImages.logo1}
-                    alt="Master Gold Iran Logo"
-                    className="w-full h-full object-contain rounded-2xl select-none"
-                    referrerPolicy="no-referrer"
-                  />
+                  <div className="w-full h-full bg-zinc-800/50 rounded-2xl"></div>
                 </div>
               </div>
             </motion.div>
@@ -1244,10 +1234,10 @@ export default function App() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight sm:leading-none"
+                className="text-xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white leading-tight sm:leading-none"
               >
                 {t.heroTitle}
-                <span className="block mt-3 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500 font-extrabold text-xl sm:text-3xl lg:text-4xl">
+                <span className="block mt-3 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500 font-extrabold text-lg sm:text-2xl lg:text-3xl">
                   {t.heroSubtitle}
                 </span>
               </motion.h1>
@@ -1576,12 +1566,7 @@ export default function App() {
                       <div className="relative group/logo">
                         <div className="absolute -inset-2 bg-gradient-to-r from-amber-500 to-orange-500 rounded-3xl blur-xl opacity-30 group-hover/logo:opacity-60 transition duration-300"></div>
                         <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-3xl overflow-hidden border-2 border-amber-500/40 p-2 bg-zinc-950 shadow-2xl">
-                          <img
-                            src={siteImages.logo2}
-                            alt="Master Gold Iran Logo 2"
-                            className="w-full h-full object-contain rounded-2xl select-none"
-                            referrerPolicy="no-referrer"
-                          />
+                          <div className="w-full h-full bg-zinc-800/50 rounded-2xl"></div>
                         </div>
                       </div>
                     </div>
@@ -1640,12 +1625,7 @@ export default function App() {
                     onClick={() => setFullscreenImage({ src: siteImages.project1, title: t.project1Title })}
                     className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-1 sm:p-2 group/img cursor-pointer"
                   >
-                    <img
-                      src={siteImages.project1}
-                      alt={t.project1Title}
-                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"
-                      referrerPolicy="no-referrer"
-                    />
+                    <div className="w-full h-full bg-zinc-800/50 group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"></div>
 
                     <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
                       {t.project1Tag}
@@ -1680,12 +1660,7 @@ export default function App() {
                     onClick={() => setFullscreenImage({ src: siteImages.project2, title: t.project2Title })}
                     className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-1 sm:p-2 group/img cursor-pointer"
                   >
-                    <img
-                      src={siteImages.project2}
-                      alt={t.project2Title}
-                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"
-                      referrerPolicy="no-referrer"
-                    />
+                    <div className="w-full h-full bg-zinc-800/50 group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"></div>
 
                     <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
                       {t.project2Tag}
@@ -1720,12 +1695,7 @@ export default function App() {
                     onClick={() => setFullscreenImage({ src: siteImages.project3, title: t.project3Title })}
                     className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-1 sm:p-2 group/img cursor-pointer"
                   >
-                    <img
-                      src={siteImages.project3}
-                      alt={t.project3Title}
-                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"
-                      referrerPolicy="no-referrer"
-                    />
+                    <div className="w-full h-full bg-zinc-800/50 group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"></div>
 
                     <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
                       {t.project3Tag}
@@ -1760,12 +1730,7 @@ export default function App() {
                     onClick={() => setFullscreenImage({ src: siteImages.project4, title: t.project4Title })}
                     className="h-56 xs:h-64 sm:h-72 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center border-b border-zinc-800/80 relative overflow-hidden p-1 sm:p-2 group/img cursor-pointer"
                   >
-                    <img
-                      src={siteImages.project4}
-                      alt={t.project4Title}
-                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"
-                      referrerPolicy="no-referrer"
-                    />
+                    <div className="w-full h-full bg-zinc-800/50 group-hover/img:scale-105 transition-transform duration-500 ease-out z-0 filter brightness-95 group-hover/img:brightness-105 rounded-xl"></div>
 
                     <div className={`absolute top-3 ${t.dir === "rtl" ? "right-3" : "left-3"} bg-zinc-950/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-20 pointer-events-none`}>
                       {t.project4Tag}
