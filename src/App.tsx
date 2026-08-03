@@ -1,12 +1,6 @@
 import { useState, useEffect, useRef, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
-import logoImg from "../public/image/logo.webp";
-import metavalImg from "../public/image/metaval.webp";
-import vestoriImg from "../public/image/vestori.webp";
-import haliversImg from "../public/image/halivers.webp";
-import whaleAcademyImg from "../public/image/whale_academy.webp";
-
 // ==========================================
 // CONFIGURATION AND STATIC DATA
 // بخش پیکربندی و داده‌های ایستای برنامه
@@ -15,12 +9,12 @@ import whaleAcademyImg from "../public/image/whale_academy.webp";
 // Default static images configuration for the branding and projects.
 // پیکربندی پیش‌فرض تصاویر ایستا برای برندینگ و پروژه‌های نمایش داده شده.
 const defaultImages = {
-  logo1: logoImg,
-  logo2: logoImg,
-  project1: metavalImg,
-  project2: vestoriImg,
-  project3: haliversImg,
-  project4: whaleAcademyImg
+  logo1: "",
+  logo2: "",
+  project1: "",
+  project2: "",
+  project3: "",
+  project4: ""
 };
 
 // Comprehensive dataset containing multi-language translations (Persian, English, Arabic).
@@ -152,6 +146,7 @@ const translations = {
     contactIntroDesc: "پاسخگوی سؤالات و هدایت‌گر شما در حوزه‌های راه‌اندازی کسب‌وکار دلاری، مشاوره نوسان‌گیری طلا و کارآفرینی دیجیتال در بستر وب۳.",
     phoneLabel: "شماره تلفن مستقیم در ایران",
     emailLabel: "ایمیل پشتیبانی رسمی",
+    websiteLabel: "آدرس وب‌سایت",
     addressLabel: "دفتر مرکزی و محل فعالیت",
     addressVal: "ایران، تهران",
     socialTitle: "شبکه‌های اجتماعی و کانال‌های رسمی",
@@ -309,6 +304,7 @@ const translations = {
     contactIntroDesc: "Always ready to guide you on launching dollar-denominated setups, navigating gold swings, or embarking on Web3 business structures.",
     phoneLabel: "Direct Phone Number (Iran)",
     emailLabel: "Official Support Email",
+    websiteLabel: "Website Address",
     addressLabel: "Headquarters & Region",
     addressVal: "Tehran, Iran",
     socialTitle: "Social Medias & Official Feeds",
@@ -466,6 +462,7 @@ const translations = {
     contactIntroDesc: "جاهز للإجابة على أسئلتك وإرشادك في مجالات إطلاق الأعمال التجارية بالدولار، استشارات تذبذب الذهب، وريادة الأعمال الرقمية على الويب ۳.",
     phoneLabel: "رقم الهاتف المباشر في إيران",
     emailLabel: "البريد الإلكتروني الرسمي للدعم",
+    websiteLabel: "عنوان الموقع",
     addressLabel: "المكتب الرئيسي ومكان العمل",
     addressVal: "إيران، طهران",
     socialTitle: "شبكات التواصل الاجتماعي والقنوات الرسمية",
@@ -623,6 +620,7 @@ const translations = {
     contactIntroDesc: "Dolar bazlı iş kurulumu, altın işlemleri danışmanlığı ve Web3 dijital girişimcility alanlarında sorularınızı yanıtlamaya hazırız.",
     phoneLabel: "İran Doğrudan Telefon Numarası",
     emailLabel: "Resmi Destek E-postası",
+    websiteLabel: "Web Sitesi Adresi",
     addressLabel: "Merkez Ofis ve Bölge",
     addressVal: "Tahran, İran",
     socialTitle: "Sosyal Medya ve Resmi Kanallar",
@@ -693,9 +691,11 @@ export default function App() {
   // Fullscreen image viewer state for project cards image preview
   const [fullscreenImage, setFullscreenImage] = useState<{ src: string; title: string } | null>(null);
 
-  // Mandatory Terms of Use and Disclaimer Popup modal state (opens every time site is accessed)
+  // Mandatory Terms of Use and Disclaimer Popup modal state
   // پاپ آپ اجباری شرایط استفاده و سلب مسئولیت وب‌سایت
-  const [showDisclaimerModal, setShowDisclaimerModal] = useState(true);
+  const [showDisclaimerModal, setShowDisclaimerModal] = useState(() => {
+    return localStorage.getItem("disclaimerAccepted") !== "true";
+  });
   const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
   // Lock body scroll when disclaimer modal or fullscreen image is active
@@ -2054,6 +2054,19 @@ export default function App() {
                     </div>
                   </div>
 
+                  {/* Website */}
+                  <div className="flex items-start mt-6">
+                    <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 text-lg flex-shrink-0">
+                      <i className="fa-solid fa-globe"></i>
+                    </div>
+                    <div className={t.dir === "rtl" ? "mr-4" : "ml-4"}>
+                      <p className="text-2xs text-zinc-500 uppercase font-mono">{t.websiteLabel}</p>
+                      <a href="https://mastergoldiran.com/" target="_blank" rel="noopener noreferrer" className="text-base sm:text-lg text-white font-bold hover:text-amber-400 transition-colors">
+                        mastergoldiran.com
+                      </a>
+                    </div>
+                  </div>
+
                   {/* Address */}
                   <div className="flex items-start">
                     <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 text-lg flex-shrink-0">
@@ -2339,12 +2352,9 @@ export default function App() {
 
               {/* Modal Body / Fullscreen Image */}
               <div className="w-full bg-zinc-950/80 border border-zinc-800/80 rounded-b-2xl p-3 sm:p-6 flex items-center justify-center overflow-auto max-h-[82vh] shadow-2xl">
-                <img
-                  src={fullscreenImage.src}
-                  alt={fullscreenImage.title}
-                  className="max-w-full max-h-[78vh] object-contain rounded-xl shadow-2xl ring-1 ring-amber-500/20"
-                  referrerPolicy="no-referrer"
-                />
+                <div
+                  className="w-full max-h-[78vh] bg-zinc-800/50 aspect-video rounded-xl shadow-2xl ring-1 ring-amber-500/20"
+                ></div>
               </div>
 
               {/* Helper tip */}
@@ -2459,6 +2469,7 @@ export default function App() {
                   disabled={!disclaimerAccepted}
                   onClick={() => {
                     if (disclaimerAccepted) {
+                      localStorage.setItem("disclaimerAccepted", "true");
                       setShowDisclaimerModal(false);
                     }
                   }}
